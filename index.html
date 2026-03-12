@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interest Adventure Map</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#070d1a;color:#c8d8f0;font-family:'Segoe UI',system-ui,sans-serif;overflow:hidden;user-select:none}
+canvas{display:block;cursor:crosshair}
+#info{position:fixed;bottom:20px;left:20px;width:300px;background:rgba(7,13,26,.92);border:1px solid #1e3a5f;border-radius:8px;padding:14px;backdrop-filter:blur(8px)}
+#info h2{font-size:15px;color:#6ab4ff;margin-bottom:4px}
+#dtag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.8px;padding:2px 8px;border-radius:4px;margin-bottom:8px}
+#info p{font-size:12px;line-height:1.55;color:#7a8faa}
+#info .cn{margin-top:8px;font-size:11px;color:#3a5878}
+#info .res{margin-top:8px;font-size:11px}
+#info .res a{color:#4a8ab0;text-decoration:none;display:block;line-height:1.8}
+#info .res a:hover{color:#7ab8e0}
+#info .pre{margin-top:5px;font-size:10px;color:#2a5070}
+#hint{position:fixed;top:16px;right:16px;background:rgba(7,13,26,.85);border:1px solid #1a3050;border-radius:8px;padding:10px 14px;font-size:11px;color:#3a5878;line-height:1.9}
+#hint kbd{background:#0d1f3a;border:1px solid #1e3a5f;border-radius:3px;padding:1px 5px;font-size:10px;color:#4a7090}
+#bc{position:fixed;top:16px;left:20px;font-size:11px;color:#2a4060;max-width:60vw}
+#bc b{color:#5a90c0}
+#legend{position:fixed;bottom:20px;right:16px;background:rgba(7,13,26,.85);border:1px solid #1a3050;border-radius:8px;padding:10px 14px;font-size:11px;line-height:2}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+#zoomlabel{position:fixed;top:52px;right:16px;font-size:10px;color:#2a4868;text-align:right;pointer-events:none}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="bc"></div>
+<div id="info">
+  <h2 id="ititle"></h2>
+  <div id="dtag"></div>
+  <p id="idesc"></p>
+  <div class="cn"  id="icn"></div>
+  <div class="res" id="ires"></div>
+  <div class="pre" id="ipre"></div>
+</div>
+<div id="hint">
+  <kbd>↑↓←→</kbd> navigate<br>
+  <kbd>Bksp</kbd> go back<br>
+  <kbd>PgUp</kbd><kbd>PgDn</kbd> zoom<br>
+  <kbd>Scroll</kbd> zoom &nbsp;<kbd>Drag</kbd> pan<br>
+  <kbd>Home</kbd> reset view
+</div>
+<div id="zoomlabel"></div>
+<div id="legend">
+  <div><span class="dot" style="background:#2a7fbf"></span>Mechanical</div>
+  <div><span class="dot" style="background:#bf8020"></span>Electrical</div>
+  <div><span class="dot" style="background:#20a060"></span>IT</div>
+  <div><span class="dot" style="background:#9040c0"></span>Interdisciplinary</div>
+  <div><span class="dot" style="background:#20b0b0"></span>Physics</div>
+  <div><span class="dot" style="background:#c06020"></span>Aerospace</div>
+  <div><span class="dot" style="background:#c03070"></span>Biomedical</div>
+  <div><span class="dot" style="background:#70a020"></span>Energy</div>
+  <div><span class="dot" style="background:#a09020"></span>Mathematics</div>
+</div>
+<script>
+// ── DOMAIN STYLES ─────────────────────────────────────────
+const DC={
+  mechanical:{fill:'#0e2340',stroke:'#2a7fbf',text:'#5ab8ff',tag:'#0a2050',tagTxt:'#5ab8ff'},
+  electrical:{fill:'#2a1a04',stroke:'#bf8020',text:'#ffb840',tag:'#3a2008',tagTxt:'#ffb840'},
+  it:        {fill:'#041a0e',stroke:'#20a060',text:'#40d880',tag:'#082010',tagTxt:'#40d880'},
+  bridge:    {fill:'#1a0828',stroke:'#9040c0',text:'#c070f0',tag:'#200a30',tagTxt:'#c070f0'},
+  physics:   {fill:'#001a1a',stroke:'#20b0b0',text:'#40e0e0',tag:'#002020',tagTxt:'#40e0e0'},
+  aerospace: {fill:'#1a0c00',stroke:'#c06020',text:'#f08040',tag:'#2a1400',tagTxt:'#f08040'},
+  biomedical:{fill:'#1a0010',stroke:'#c03070',text:'#f060a0',tag:'#200018',tagTxt:'#f060a0'},
+  energy:    {fill:'#0a1400',stroke:'#70a020',text:'#a0d040',tag:'#0c1800',tagTxt:'#a0d040'},
+  mathematics:{fill:'#1a1600',stroke:'#a09020',text:'#d0c040',tag:'#1e1a00',tagTxt:'#d0c040'},
+  root:      {fill:'#101828',stroke:'#4060a0',text:'#8090c0',tag:'#182030',tagTxt:'#8090c0'},
+};
+const DL={mechanical:'MECHANICAL',electrical:'ELECTRICAL',it:'IT',bridge:'INTERDISCIPLINARY',
+          physics:'PHYSICS',aerospace:'AEROSPACE',biomedical:'BIOMEDICAL',
+          energy:'ENERGY',mathematics:'MATHEMATICS',root:'ROOT'};
+
+// ── ZOOM LEVEL THRESHOLDS ─────────────────────────────────
+// level 1→always, 2→zoom≥0.45, 3→zoom≥1.1, 4→zoom≥1.9
+const ZOOM_THR=[0, 0.45, 1.1, 1.9];
+const ZOOM_FADE=0.28; // units of zoom over which node fades/grows in
+
+// Base radius per level (fully zoomed in to that level)
+const BASE_R=[0, 68, 50, 36, 24]; // index = level
+
+function zoomAlpha(level, zoom){
+  const thr=ZOOM_THR[level-1];
+  if(zoom<thr) return 0;
+  return Math.min(1,(zoom-thr)/ZOOM_FADE);
+}
+
+// ── DATA ──────────────────────────────────────────────────
+const DATA={
+  nodes:[
+    {id:'root',       label:'Engineering\nDisciplines',domain:'root',       level:1, desc:'The intersection of Mechanical, Electrical, and IT engineering. Explore how these fields overlap and connect.', tags:['overview'], seed:{x:0,y:0}},
+    // Mechanical L1
+    {id:'mech',       label:'Mechanical\nEngineering', domain:'mechanical', level:1, desc:'Design and analysis of physical systems — mechanics, thermodynamics, materials, manufacturing.', tags:['engineering','physical'], seed:{x:-520,y:80}},
+    // Electrical L1
+    {id:'elec',       label:'Electrical\nEngineering', domain:'electrical', level:1, desc:'Design of electrical systems, circuits, and power — from high-voltage to microelectronics.', tags:['engineering','circuits'], seed:{x:420,y:320}},
+    // IT L1
+    {id:'it',         label:'Information\nTechnology', domain:'it',         level:1, desc:'Software, algorithms, networking, data — from cloud infrastructure to bare-metal firmware.', tags:['software','computing'], seed:{x:380,y:-340}},
+    // New L1 domains
+    {id:'physics',    label:'Physics',                  domain:'physics',    level:1, desc:'The foundational science underlying all engineering. Classical mechanics, electromagnetism, thermodynamics, and quantum effects.', seed:{x:-940,y:-200}},
+    {id:'aerospace',  label:'Aerospace\nEngineering',   domain:'aerospace',  level:1, desc:'Design of aircraft and spacecraft. Combines aerodynamics, propulsion, structures, GNC, and materials at extreme performance margins.', seed:{x:-340,y:-580}},
+    {id:'biomedical', label:'Biomedical\nEngineering',  domain:'biomedical', level:1, desc:'Engineering applied to medicine and biology. Medical devices, implants, diagnostics, prosthetics, and bioinformatics.', seed:{x:800,y:-80}},
+    {id:'energy',     label:'Energy\nSystems',          domain:'energy',     level:1, desc:'Generation, storage, and distribution of energy. Renewables, grid infrastructure, hydrogen, and sustainable power.', seed:{x:80,y:720}},
+    {id:'mathematics',label:'Mathematics',              domain:'mathematics',level:1, desc:'The universal language of engineering. Linear algebra, calculus, statistics, and numerical methods underpin every technical discipline.', seed:{x:80,y:-720}},
+    {id:'industry4',  label:'Industry 4.0',             domain:'bridge',     level:1, desc:'The fourth industrial revolution: smart factories, digital threads, cyber-physical systems, and AI-driven manufacturing.', seed:{x:-180,y:440}},
+    // Bridge L1
+    {id:'embedded',   label:'Embedded\nSystems',       domain:'bridge',     level:1, desc:'The crossroads of HW and SW. MCUs (STM32, ESP32, RP2040), HAL, drivers, real-time constraints.', tags:['hardware','software','microcontroller'], seed:{x:-60,y:120}},
+    {id:'robotics',   label:'Robotics',                domain:'bridge',     level:1, desc:'Mechanical structure + electrical actuation + sensing + AI control. Arms, mobile robots, drones.', tags:['automation','mechatronics','ai'], seed:{x:-80,y:-80}},
+    {id:'mechatronics',label:'Mecha-\ntronics',        domain:'bridge',     level:1, desc:'Integration of mechanical and electrical engineering. Servo systems, CNC, industrial automation.', tags:['integration','automation'], seed:{x:-200,y:250}},
+    // Mechanical L2
+    {id:'lightweight',label:'Lightweight\nStructures', domain:'mechanical', level:2, desc:'Maximizing strength-to-weight ratio. Critical for aerospace, automotive, and wearable robotics.', tags:['structures','weight','aerospace'], seed:{x:-680,y:-120}},
+    {id:'materials',  label:'Material\nSelection',     domain:'mechanical', level:2, desc:'Systematic property evaluation via Ashby charts. Mechanical, thermal, electrical tradeoffs.', tags:['materials','selection','ashby'], seed:{x:-700,y:80}},
+    {id:'thermal',    label:'Thermal\nManagement',     domain:'mechanical', level:2, desc:'Heat transfer, cooling systems, heat pipes, TIMs. Essential for electronics and high-power systems.', tags:['heat','cooling','thermal'], seed:{x:-560,y:260}},
+    {id:'additive',   label:'Additive\nMfg.',          domain:'mechanical', level:2, desc:'FDM, SLA, SLS, DMLS. Complex geometries impossible with subtractive methods.', tags:['3dprinting','manufacturing','prototyping'], seed:{x:-400,y:300}},
+    {id:'cnc',        label:'CNC\nMachining',          domain:'mechanical', level:2, desc:'Computer-controlled milling and turning. High-precision metal and plastic parts.', tags:['manufacturing','precision','subtractive'], seed:{x:-580,y:360}},
+    {id:'fluids',     label:'Fluid\nDynamics',         domain:'mechanical', level:2, desc:'CFD, aerodynamics, hydraulics. Essential for cooling loops and aerodynamic design.', tags:['cfd','aerodynamics','simulation'], seed:{x:-440,y:220}},
+    {id:'kinematics', label:'Kinematics &\nDynamics',  domain:'mechanical', level:2, desc:'Motion analysis with and without forces. Foundation for robot arms and linkage design.', tags:['motion','mechanisms','dynamics'], seed:{x:-380,y:-80}},
+    // Electrical L2
+    {id:'pcb',        label:'PCB\nDesign',             domain:'electrical', level:2, desc:'Schematic capture, layout, routing, DRC. Signal integrity, impedance, manufacturing rules.', tags:['pcb','hardware','layout'], seed:{x:300,y:420}},
+    {id:'power',      label:'Power\nElectronics',      domain:'electrical', level:2, desc:'DC-DC converters, inverters, motor drives. High-efficiency energy conversion.', tags:['power','converters','efficiency'], seed:{x:560,y:420}},
+    {id:'sensors',    label:'Sensors &\nMeasurement',  domain:'electrical', level:2, desc:'IMUs, encoders, load cells, pressure/temperature/current sensors.', tags:['sensors','measurement','transducers'], seed:{x:480,y:180}},
+    {id:'analog',     label:'Analog\nCircuits',        domain:'electrical', level:2, desc:'Op-amps, filters, ADC/DAC, signal conditioning. Bridge between physics and digital.', tags:['analog','opamp','filter'], seed:{x:620,y:240}},
+    {id:'rf',         label:'RF &\nWireless',          domain:'electrical', level:2, desc:'Antenna theory, Bluetooth, WiFi, LoRa, 5G. Sub-GHz IoT to mmWave radar.', tags:['rf','wireless','antenna'], seed:{x:600,y:380}},
+    // IT L2
+    {id:'software',   label:'Software\nDevelopment',   domain:'it',         level:2, desc:'Paradigms, design patterns, version control. Python, Rust, C/C++ for systems programming.', tags:['software','programming'], seed:{x:240,y:-400}},
+    {id:'algorithms', label:'Algorithms &\nData Struct',domain:'it',        level:2, desc:'Sorting, search, graph algorithms, dynamic programming. Foundation of efficient computing.', tags:['algorithms','cs'], seed:{x:440,y:-420}},
+    {id:'ml',         label:'Machine\nLearning',       domain:'it',         level:2, desc:'Neural networks, CNNs, transformers. From anomaly detection to generative AI.', tags:['ml','ai','deeplearning'], seed:{x:560,y:-300}},
+    {id:'networking', label:'Networking &\nProtocols', domain:'it',         level:2, desc:'TCP/IP, CAN bus, SPI, I2C, UART, Ethernet. Chip-level to internet-scale.', tags:['networking','protocols'], seed:{x:200,y:-260}},
+    {id:'security',   label:'Cyber-\nsecurity',        domain:'it',         level:2, desc:'Firmware security, secure boot, encryption, vulnerability analysis.', tags:['security','firmware'], seed:{x:340,y:-200}},
+    {id:'rtos',       label:'Real-Time\nSystems',      domain:'it',         level:2, desc:'Deterministic timing, FreeRTOS/Zephyr, interrupt handling, task scheduling.', tags:['rtos','realtime'], seed:{x:100,y:-160}},
+    // Bridge L2
+    {id:'control',    label:'Control\nSystems',        domain:'bridge',     level:2, desc:'PID, state-space, Kalman filters. Bridges physical plant dynamics with digital algorithms.', tags:['control','pid','feedback'], seed:{x:60,y:60}},
+    {id:'iot',        label:'Internet\nof Things',     domain:'bridge',     level:2, desc:'Connected embedded devices with cloud backends. Sensor nets, MQTT, OTA updates.', tags:['iot','connected','cloud'], seed:{x:160,y:180}},
+    {id:'twins',      label:'Digital\nTwins',          domain:'bridge',     level:2, desc:'Real-time virtual replicas of physical systems. CAD + simulation + sensor data + ML.', tags:['simulation','digital'], seed:{x:-100,y:-200}},
+    {id:'autonomous', label:'Autonomous\nSystems',     domain:'bridge',     level:2, desc:'Self-driving vehicles, drones, inspection robots. Perception + planning + control + hardware.', tags:['autonomous','navigation'], seed:{x:140,y:-120}},
+    {id:'edgeai',     label:'Edge AI &\nTinyML',       domain:'bridge',     level:2, desc:'Neural nets on MCUs and embedded GPUs. TF Lite, ONNX, quantization.', tags:['ai','embedded','tinyml'], seed:{x:300,y:-60}},
+    // Mechanical L3
+    {id:'composites', label:'Composite\nMaterials',    domain:'mechanical', level:3, desc:'Carbon fiber, fiberglass, hybrid laminates. Extreme stiffness at low weight.', tags:['carbon-fiber','cfrp'], seed:{x:-750,y:-200}},
+    {id:'topology',   label:'Topology\nOptimization',  domain:'mechanical', level:3, desc:'Mathematical material distribution in a design space. Produces organic, minimal-mass geometries.', tags:['optimization','fem','generative'], seed:{x:-800,y:-60}},
+    {id:'fatigue',    label:'Fatigue &\nFracture',     domain:'mechanical', level:3, desc:'Cyclic loading failure, S-N curves, crack growth. Critical for structural life prediction.', tags:['failure','structures'], seed:{x:-860,y:80}},
+    {id:'vibration',  label:'Vibration &\nNVH',        domain:'mechanical', level:3, desc:'Natural frequencies, modal analysis, damping. Affects noise, comfort, and structural integrity.', tags:['dynamics','noise'], seed:{x:-820,y:200}},
+    // Electrical L3
+    {id:'si',         label:'Signal\nIntegrity',       domain:'electrical', level:3, desc:'Transmission lines, reflections, crosstalk, eye diagrams. Keeping signals clean at high speed.', tags:['signal','high-speed'], seed:{x:240,y:520}},
+    {id:'emc',        label:'EMC / EMI',               domain:'electrical', level:3, desc:'Shielding, filtering, grounding. Regulatory compliance (CE, FCC) for connected devices.', tags:['emc','emi','compliance'], seed:{x:360,y:540}},
+    {id:'motors',     label:'Motor\nDrivers',          domain:'electrical', level:3, desc:'H-bridges, FOC, trapezoidal commutation for brushed DC, BLDC, steppers.', tags:['motors','foc','actuators'], seed:{x:580,y:500}},
+    {id:'bms',        label:'Battery\nManagement',     domain:'electrical', level:3, desc:'Cell voltage/temp monitoring, balancing, protection circuits, safe charging algorithms.', tags:['battery','bms','energy'], seed:{x:680,y:460}},
+    {id:'opamp',      label:'Op-Amp\nCircuits',        domain:'electrical', level:3, desc:'Inverting/non-inverting amps, integrators, differentiators, instrumentation amps and comparators.', tags:['analog','opamp'], seed:{x:720,y:280}},
+    {id:'dcdc',       label:'DC-DC\nConverters',       domain:'electrical', level:3, desc:'Buck, boost, buck-boost topologies. Switching losses, inductor sizing, feedback compensation.', tags:['power','switching'], seed:{x:700,y:380}},
+    // IT L3
+    {id:'cv',         label:'Computer\nVision',        domain:'it',         level:3, desc:'Object detection, SLAM, depth estimation. Powers autonomous navigation and inspection.', tags:['vision','opencv','slam'], seed:{x:660,y:-280}},
+    {id:'os',         label:'Operating\nSystems',      domain:'it',         level:3, desc:'Scheduling, memory management, file systems, syscalls. Foundation for all software stacks.', tags:['os','kernel','systems'], seed:{x:180,y:-480}},
+    {id:'git',        label:'Version\nControl',        domain:'it',         level:3, desc:'Git branching, merging, CI/CD pipelines. Collaborative and reproducible development.', tags:['git','devops','collaboration'], seed:{x:80,y:-420}},
+    // Bridge L3
+    {id:'slam',       label:'SLAM',                    domain:'bridge',     level:3, desc:'Simultaneous Localization and Mapping. Fuses IMU, lidar, camera for real-time robot localization.', tags:['robotics','navigation'], seed:{x:200,y:-20}},
+    {id:'foc',        label:'Field-Oriented\nControl', domain:'bridge',     level:3, desc:'High-performance BLDC/PMSM control algorithm. Requires current sensing, coordinate transforms, MCU.', tags:['motors','control'], seed:{x:80,y:300}},
+    {id:'kalman',     label:'Kalman\nFilter',          domain:'bridge',     level:3, desc:'Optimal state estimation from noisy sensor data. Fundamental to navigation, robotics, and control.', tags:['filter','estimation'], seed:{x:200,y:80}},
+    {id:'soft-robotics',label:'Soft\nRobotics',        domain:'bridge',     level:3, desc:'Compliant, deformable robots from silicone and textiles. Safer human interaction, bio-inspired design.', seed:{x:-220,y:-40}},
+    // Mech L3
+    {id:'tribology',  label:'Tribology',               domain:'mechanical', level:2, desc:'Friction, wear, and lubrication. Critical for bearings, gears, seals, and long-life mechanical systems.', seed:{x:-660,y:200}},
+    {id:'mems',       label:'MEMS',                    domain:'mechanical', level:2, desc:'Micro-Electro-Mechanical Systems. Microscale sensors and actuators fabricated with semiconductor processes.', seed:{x:-480,y:-200}},
+    {id:'fatigue',    label:'Fatigue &\nFracture',      domain:'mechanical', level:3, desc:'Cyclic loading failure, S-N curves, crack growth. Critical for structural life prediction.', seed:{x:-860,y:80}},
+    {id:'vibration',  label:'Vibration &\nNVH',         domain:'mechanical', level:3, desc:'Natural frequencies, modal analysis, damping. Affects noise, comfort, and structural integrity.', seed:{x:-820,y:200}},
+    // Elec L2/L3
+    {id:'fpga',       label:'FPGA\nDesign',             domain:'electrical', level:2, desc:'Reconfigurable hardware logic. VHDL/Verilog, timing closure, parallel data processing at high throughput.', seed:{x:500,y:60}},
+    {id:'semiconductor',label:'Semiconductor\nDevices', domain:'electrical', level:2, desc:'Transistors, diodes, MOSFETs, BJTs. Device physics from doping profiles to I-V characteristics.', seed:{x:680,y:140}},
+    {id:'power-integrity',label:'Power\nIntegrity',     domain:'electrical', level:3, desc:'PDN impedance, decoupling capacitors, IR drop, simultaneous switching noise. Critical for high-speed digital.', seed:{x:420,y:480}},
+    {id:'asic',       label:'ASIC\nDesign',             domain:'electrical', level:3, desc:'Custom silicon design flow: RTL, synthesis, place-and-route, DRC/LVS, tape-out.', seed:{x:560,y:140}},
+    // IT L2/L3
+    {id:'cloud',      label:'Cloud\nComputing',         domain:'it',         level:2, desc:'Distributed compute, storage, and services (AWS/GCP/Azure). Microservices, containers, serverless.', seed:{x:560,y:-460}},
+    {id:'data-eng',   label:'Data\nEngineering',        domain:'it',         level:2, desc:'Pipelines, warehousing, streaming (Kafka, Spark). Turning raw data into analysis-ready datasets.', seed:{x:680,y:-400}},
+    {id:'hpc',        label:'HPC &\nParallel Comp.',    domain:'it',         level:2, desc:'High-performance computing, MPI, OpenMP, GPU clusters. Essential for simulation and large ML workloads.', seed:{x:700,y:-280}},
+    {id:'gpu-prog',   label:'GPU\nProgramming',         domain:'it',         level:3, desc:'CUDA, OpenCL, Vulkan Compute. Massively parallel workloads for ML training, simulation, and rendering.', seed:{x:820,y:-360}},
+    {id:'containers', label:'Containers &\nOrchestration',domain:'it',       level:3, desc:'Docker, Kubernetes, CI/CD. Reproducible, scalable deployment of software and data pipelines.', seed:{x:720,y:-480}},
+    // Bridge L2
+    {id:'wearables',  label:'Wearable\nTech',           domain:'bridge',     level:2, desc:'Body-worn electronics combining miniaturized sensors, BLE, flexible PCBs, and low-power MCUs.', seed:{x:520,y:80}},
+    {id:'smart-mfg',  label:'Smart\nManufacturing',     domain:'bridge',     level:2, desc:'AI-driven production lines, predictive maintenance, real-time quality control, and digital workflows.', seed:{x:-300,y:500}},
+    // Aerospace L2/L3
+    {id:'aerodynamics',label:'Aero-\ndynamics',         domain:'aerospace',  level:2, desc:'Subsonic, transonic, supersonic flow. Lift, drag, boundary layers, shock waves.', seed:{x:-220,y:-680}},
+    {id:'propulsion', label:'Propulsion\nSystems',      domain:'aerospace',  level:2, desc:'Jet engines, rockets, turbofans, electric propulsion. Thermodynamic cycle analysis and combustion.', seed:{x:-440,y:-700}},
+    {id:'aerostructures',label:'Aero-\nstructures',     domain:'aerospace',  level:2, desc:'Aircraft structural analysis under aero and inertial loads. Flutter, aeroelasticity, fatigue life.', seed:{x:-540,y:-620}},
+    {id:'gnc',        label:'Guidance Nav\n& Control',  domain:'aerospace',  level:2, desc:'Trajectory planning, attitude control, inertial navigation for aircraft and spacecraft.', seed:{x:-120,y:-720}},
+    {id:'orbital',    label:'Orbital\nMechanics',       domain:'aerospace',  level:2, desc:'Kepler orbits, delta-V maneuvers, launch windows, satellite constellation design.', seed:{x:-60,y:-820}},
+    {id:'turbomachinery',label:'Turbo-\nmachinery',     domain:'aerospace',  level:3, desc:'Compressors, turbines, fans. Blade design, stage analysis, surge/stall margins.', seed:{x:-560,y:-760}},
+    {id:'reentry-thermal',label:'Thermal\nProtection',  domain:'aerospace',  level:3, desc:'Ablative heat shields and TPS tiles for atmospheric reentry. Extreme heat flux at hypersonic speeds.', seed:{x:-400,y:-780}},
+    // Physics L2/L3
+    {id:'classical-mech',label:'Classical\nMechanics',  domain:'physics',    level:2, desc:'Newtonian, Lagrangian and Hamiltonian mechanics. The mathematical backbone of structural analysis.', seed:{x:-1020,y:-60}},
+    {id:'electromag', label:'Electro-\nmagnetism',      domain:'physics',    level:2, desc:"Maxwell's equations, fields, waves, and EM induction. Foundation of all electrical engineering.", seed:{x:-1060,y:-280}},
+    {id:'thermophys', label:'Thermo-\ndynamics',        domain:'physics',    level:2, desc:'Laws of thermodynamics, entropy, statistical mechanics. Governs heat engines and energy conversion.', seed:{x:-1000,y:100}},
+    {id:'optics',     label:'Optics &\nPhotonics',      domain:'physics',    level:2, desc:'Wave optics, lasers, fiber optics, LiDAR. Enabling optical sensing, communication, and display tech.', seed:{x:-920,y:-420}},
+    {id:'quantum',    label:'Quantum\nMechanics',       domain:'physics',    level:2, desc:'Particle-wave duality, quantum states, tunneling. Foundation of semiconductor physics and quantum computing.', seed:{x:-1100,y:-460}},
+    {id:'fem',        label:'Finite Element\nMethod',   domain:'physics',    level:3, desc:'Numerical technique to solve PDEs over complex geometries. Structural, thermal, fluid, and EM analysis.', seed:{x:-880,y:200}},
+    {id:'dsp',        label:'Digital Signal\nProcessing',domain:'physics',   level:3, desc:'Fourier transforms, filters, sampling theory, spectral analysis. Bridges physics and computation.', seed:{x:-900,y:-340}},
+    // Biomedical L2/L3
+    {id:'medical-devices',label:'Medical\nDevices',     domain:'biomedical', level:2, desc:'FDA-regulated hardware for diagnostics and therapy. Combines mechanical design, electronics, and firmware.', seed:{x:900,y:60}},
+    {id:'biomechanics',label:'Bio-\nmechanics',         domain:'biomedical', level:2, desc:'Mechanical analysis of biological structures — bones, joints, soft tissue, gait analysis.', seed:{x:900,y:-200}},
+    {id:'biosensors', label:'Bio-\nsensors',            domain:'biomedical', level:2, desc:'Electrochemical, optical, and piezoelectric sensors for detecting biological molecules.', seed:{x:1000,y:160}},
+    {id:'medical-imaging',label:'Medical\nImaging',     domain:'biomedical', level:2, desc:'MRI, CT, ultrasound, X-ray. Signal acquisition, image reconstruction and AI-assisted diagnosis.', seed:{x:980,y:-340}},
+    {id:'neurotech',  label:'Neuro-\ntechnology',       domain:'biomedical', level:2, desc:'Brain-computer interfaces, neural signal recording, deep brain stimulation.', seed:{x:860,y:-440}},
+    {id:'prosthetics',label:'Prosthetics &\nExoskeletons',domain:'biomedical',level:3,desc:'Motorized limb replacements and assistive exoskeletons. Combines mechanics, actuation, control, and BCI.', seed:{x:1020,y:-200}},
+    {id:'ecg-eeg',    label:'ECG / EEG\nProcessing',   domain:'biomedical', level:3, desc:'Acquisition and analysis of cardiac and brain electrical signals. Low-noise analog front-ends and DSP.', seed:{x:1060,y:20}},
+    // Energy L2/L3
+    {id:'renewables', label:'Renewable\nEnergy',        domain:'energy',     level:2, desc:'Solar PV, wind, hydro, tidal. Engineering the transition from fossil fuels to zero-carbon electricity.', seed:{x:-80,y:820}},
+    {id:'energy-storage',label:'Energy\nStorage',       domain:'energy',     level:2, desc:'Batteries, supercapacitors, pumped hydro, compressed air. Grid-scale and portable storage systems.', seed:{x:220,y:840}},
+    {id:'smart-grid', label:'Smart\nGrid',              domain:'energy',     level:2, desc:'Digitally controlled electrical grids. Demand response, SCADA, distributed generation, cyber-security.', seed:{x:380,y:760}},
+    {id:'hydrogen',   label:'Hydrogen &\nFuel Cells',   domain:'energy',     level:2, desc:'Green hydrogen production via electrolysis, fuel cell stacks, storage and distribution challenges.', seed:{x:-240,y:820}},
+    {id:'solar',      label:'Solar Cell\nDesign',       domain:'energy',     level:3, desc:'PV cell physics, silicon and thin-film technologies, MPPT, panel efficiency and degradation.', seed:{x:-200,y:920}},
+    {id:'wind-turbine',label:'Wind Turbine\nEngineering',domain:'energy',    level:3, desc:'Blade aerodynamics, structural fatigue, gearboxes, generators, and grid connection of wind turbines.', seed:{x:80,y:940}},
+    // Mathematics L2/L3
+    {id:'linear-algebra',label:'Linear\nAlgebra',       domain:'mathematics',level:2, desc:'Vectors, matrices, eigenvalues, transformations. The core language of robotics, ML, and structural analysis.', seed:{x:200,y:-820}},
+    {id:'calculus',   label:'Calculus &\nAnalysis',     domain:'mathematics',level:2, desc:'Differential and integral calculus, complex analysis. Underlies physics, control theory, and signal processing.', seed:{x:-80,y:-860}},
+    {id:'statistics', label:'Statistics &\nProbability',domain:'mathematics',level:2, desc:'Probability distributions, Bayesian inference, hypothesis testing. Essential for ML, measurement, and reliability.', seed:{x:380,y:-820}},
+    {id:'numerical',  label:'Numerical\nMethods',       domain:'mathematics',level:2, desc:'FEM, FDM, FVM, ODE solvers. Turning continuous physics into solvable discrete problems.', seed:{x:0,y:-960}},
+    {id:'optimization',label:'Optimization\nTheory',    domain:'mathematics',level:3, desc:'Gradient descent, convex optimization, linear programming, genetic algorithms. Foundation of ML and design.', seed:{x:400,y:-940}},
+    {id:'ode-pde',    label:'ODEs &\nPDEs',             domain:'mathematics',level:3, desc:'Differential equations governing physical systems. Analytical and numerical solution methods.', seed:{x:-160,y:-980}},
+    {id:'graph-theory',label:'Graph\nTheory',           domain:'mathematics',level:3, desc:'Network topology, shortest paths, spanning trees, graph neural networks. From routing to ML.', seed:{x:560,y:-860}},
+
+    // ── MECHATRONICS SUBTREE ──────────────────────────────
+    {id:'servo-systems', label:'Servo\nSystems',         domain:'mechanical', level:2,
+     desc:'Closed-loop position and velocity control of motors. Combines encoder feedback, drive electronics, and a control loop. Core of CNC, robots, and precision automation.',
+     seed:{x:-300,y:300}},
+    {id:'actuators',     label:'Actuators',               domain:'mechanical', level:2,
+     desc:'Devices that convert energy into motion: electric motors, hydraulic/pneumatic cylinders, solenoids, piezo actuators. Selection drives the whole mechanical design.',
+     seed:{x:-250,y:430}},
+    {id:'plc',           label:'PLC\nProgramming',        domain:'bridge',     level:2,
+     desc:'Programmable Logic Controllers (Siemens, Allen-Bradley). IEC 61131-3 languages: ladder logic, structured text, function blocks. Industrial automation backbone.',
+     seed:{x:-100,y:390}},
+    {id:'hmi',           label:'HMI &\nSCADA',            domain:'bridge',     level:3,
+     desc:'Human-Machine Interfaces and Supervisory Control. Touchscreen panels, alarm management, real-time process visualization and data logging.',
+     seed:{x:-100,y:490}},
+    {id:'gearbox',       label:'Gearbox &\nTransmissions','domain':'mechanical', level:3,
+     desc:'Planetary, spur, helical, worm gears. Gear ratio selection, efficiency, backlash, and thermal rating. Links motor speed to load requirements.',
+     seed:{x:-380,y:350}},
+    {id:'pneumatics',    label:'Pneumatics &\nHydraulics', domain:'mechanical', level:3,
+     desc:'Compressed-air and fluid-power actuators, valves, and cylinders. High force density, fast response — widely used in industrial and mobile machinery.',
+     seed:{x:-300,y:500}},
+    {id:'linear-motion', label:'Linear Motion\nSystems',  domain:'mechanical', level:3,
+     desc:'Ball screws, linear rails, belt drives, rack-and-pinion. Precision linear positioning for CNC, 3D printers, and pick-and-place machines.',
+     seed:{x:-430,y:270}},
+    {id:'encoder-feedback',label:'Encoder\nFeedback',     domain:'electrical', level:3,
+     desc:'Quadrature, absolute, and resolver feedback devices. Resolution, accuracy, noise immunity. The eyes of a servo system.',
+     seed:{x:-340,y:180}},
+
+    // ── ROBOTICS SUBTREE ──────────────────────────────────
+    {id:'ros',           label:'ROS / ROS2',              domain:'bridge',     level:2,
+     desc:'Robot Operating System — publish/subscribe middleware, standardized drivers, tools (rviz, rosbag), and ecosystem of ready-made packages for robot development.',
+     seed:{x:20,y:-280}},
+    {id:'motion-planning',label:'Motion\nPlanning',       domain:'bridge',     level:2,
+     desc:'Generating collision-free trajectories for robots. Configuration space, RRT/PRM sampling planners, trajectory optimization, MoveIt.',
+     seed:{x:60,y:-200}},
+    {id:'hri',           label:'Human-Robot\nInteraction',domain:'bridge',     level:2,
+     desc:'Safe, intuitive collaboration between humans and robots. Force limiting, speed monitoring, ISO 10218/TS 15066, gesture and voice interfaces.',
+     seed:{x:120,y:-60}},
+    {id:'drone',         label:'Drone /\nUAV Design',     domain:'bridge',     level:2,
+     desc:'Multirotor and fixed-wing UAV design. Frame stiffness, propulsion sizing, flight controllers (PX4/ArduPilot), ESC, battery, and RF link.',
+     seed:{x:-200,y:-220}},
+    {id:'inverse-kinematics',label:'Inverse\nKinematics', domain:'bridge',     level:3,
+     desc:'Computing joint angles to reach a target pose. Analytical and numerical (Jacobian) IK solvers. Essential for manipulator path following.',
+     seed:{x:-300,y:-140}},
+    {id:'force-control', label:'Force/Torque\nControl',   domain:'bridge',     level:3,
+     desc:'Compliant and impedance control. Force/torque sensors at the wrist. Enables assembly, polishing, and safe human contact tasks.',
+     seed:{x:120,y:200}},
+    {id:'manipulation',  label:'Grasping &\nManipulation',domain:'bridge',     level:3,
+     desc:'End-effector design, grasp planning, in-hand manipulation. Combines CV, force sensing, and motion planning for pick-and-place and assembly.',
+     seed:{x:100,y:-170}},
+    {id:'mobile-robotics',label:'Mobile\nRobotics',       domain:'bridge',     level:3,
+     desc:'Differential drive, omnidirectional, and legged locomotion. Odometry, wheel slip, terrain adaptation, and navigation stacks.',
+     seed:{x:-180,y:-300}},
+    {id:'legged',        label:'Legged\nRobotics',        domain:'bridge',     level:3,
+     desc:'Bipeds, quadrupeds, and hexapods. Gait generation, dynamic balance, whole-body control. Inspired by Boston Dynamics and ETH Zurich research.',
+     seed:{x:-300,y:-240}},
+    {id:'cobot',         label:'Collaborative\nRobots',   domain:'bridge',     level:3,
+     desc:'ISO 10218-certified cobots (UR, KUKA iiwa). Power-and-force limiting, speed monitoring, shared workspace with humans without fencing.',
+     seed:{x:180,y:-30}},
+    {id:'robot-sim',     label:'Robot\nSimulation',       domain:'bridge',     level:3,
+     desc:'Gazebo, MuJoCo, PyBullet, Isaac Sim. Physics simulation for testing algorithms before hardware deployment. Sim-to-real transfer.',
+     seed:{x:40,y:-380}},
+  ],
+
+  edges:[
+    {from:'root',      to:'mech',        type:'related',      weight:1.0},
+    {from:'root',      to:'elec',        type:'related',      weight:1.0},
+    {from:'root',      to:'it',          type:'related',      weight:1.0},
+    {from:'root',      to:'embedded',    type:'bridge',       weight:1.5},
+    {from:'root',      to:'robotics',    type:'bridge',       weight:1.5},
+    {from:'root',      to:'mechatronics',type:'bridge',       weight:1.5},
+    {from:'mech',      to:'lightweight', type:'subtopic',     weight:1.0},
+    {from:'mech',      to:'materials',   type:'subtopic',     weight:1.0},
+    {from:'mech',      to:'thermal',     type:'subtopic',     weight:1.0},
+    {from:'mech',      to:'additive',    type:'subtopic',     weight:1.0},
+    {from:'mech',      to:'cnc',         type:'subtopic',     weight:1.0},
+    {from:'mech',      to:'fluids',      type:'subtopic',     weight:1.0},
+    {from:'mech',      to:'kinematics',  type:'subtopic',     weight:1.0},
+    {from:'lightweight',to:'composites', type:'subtopic',     weight:1.2},
+    {from:'lightweight',to:'topology',   type:'subtopic',     weight:1.2},
+    {from:'materials', to:'fatigue',     type:'subtopic',     weight:1.0},
+    {from:'kinematics',to:'vibration',   type:'related',      weight:0.8},
+    {from:'mech',      to:'fatigue',     type:'subtopic',     weight:0.9},
+    {from:'mech',      to:'vibration',   type:'subtopic',     weight:0.9},
+    {from:'additive',  to:'composites',  type:'related',      weight:0.7},
+    {from:'thermal',   to:'fluids',      type:'related',      weight:0.8},
+    {from:'elec',      to:'pcb',         type:'subtopic',     weight:1.0},
+    {from:'elec',      to:'power',       type:'subtopic',     weight:1.0},
+    {from:'elec',      to:'sensors',     type:'subtopic',     weight:1.0},
+    {from:'elec',      to:'analog',      type:'subtopic',     weight:1.0},
+    {from:'elec',      to:'rf',          type:'subtopic',     weight:1.0},
+    {from:'pcb',       to:'si',          type:'subtopic',     weight:1.2},
+    {from:'pcb',       to:'emc',         type:'subtopic',     weight:1.0},
+    {from:'power',     to:'motors',      type:'subtopic',     weight:1.0},
+    {from:'power',     to:'bms',         type:'subtopic',     weight:1.0},
+    {from:'power',     to:'dcdc',        type:'subtopic',     weight:1.2},
+    {from:'analog',    to:'opamp',       type:'subtopic',     weight:1.2},
+    {from:'sensors',   to:'analog',      type:'prerequisite', weight:0.9},
+    {from:'it',        to:'software',    type:'subtopic',     weight:1.0},
+    {from:'it',        to:'algorithms',  type:'subtopic',     weight:1.0},
+    {from:'it',        to:'ml',          type:'subtopic',     weight:1.0},
+    {from:'it',        to:'networking',  type:'subtopic',     weight:1.0},
+    {from:'it',        to:'security',    type:'subtopic',     weight:1.0},
+    {from:'ml',        to:'cv',          type:'subtopic',     weight:1.2},
+    {from:'ml',        to:'edgeai',      type:'subtopic',     weight:1.2},
+    {from:'software',  to:'algorithms',  type:'prerequisite', weight:0.8},
+    {from:'software',  to:'git',         type:'subtopic',     weight:0.8},
+    {from:'software',  to:'os',          type:'prerequisite', weight:0.9},
+    {from:'embedded',  to:'elec',        type:'bridge',       weight:1.5},
+    {from:'embedded',  to:'it',          type:'bridge',       weight:1.5},
+    {from:'embedded',  to:'pcb',         type:'related',      weight:1.2},
+    {from:'embedded',  to:'sensors',     type:'related',      weight:1.2},
+    {from:'embedded',  to:'motors',      type:'related',      weight:1.0},
+    {from:'embedded',  to:'networking',  type:'related',      weight:1.0},
+    {from:'embedded',  to:'rtos',        type:'subtopic',     weight:1.3},
+    {from:'mechatronics',to:'mech',      type:'bridge',       weight:1.5},
+    {from:'mechatronics',to:'elec',      type:'bridge',       weight:1.5},
+    {from:'mechatronics',to:'kinematics',type:'related',      weight:1.0},
+    {from:'mechatronics',to:'motors',    type:'related',      weight:1.2},
+    {from:'mechatronics',to:'control',   type:'related',      weight:1.5},
+    {from:'robotics',  to:'mech',        type:'bridge',       weight:1.2},
+    {from:'robotics',  to:'elec',        type:'bridge',       weight:1.2},
+    {from:'robotics',  to:'it',          type:'bridge',       weight:1.2},
+    {from:'robotics',  to:'embedded',    type:'related',      weight:1.3},
+    {from:'robotics',  to:'mechatronics',type:'related',      weight:1.5},
+    {from:'robotics',  to:'control',     type:'related',      weight:1.5},
+    {from:'robotics',  to:'cv',          type:'related',      weight:1.0},
+    {from:'robotics',  to:'autonomous',  type:'subtopic',     weight:1.2},
+    {from:'robotics',  to:'kinematics',  type:'related',      weight:1.0},
+    {from:'iot',       to:'embedded',    type:'related',      weight:1.5},
+    {from:'iot',       to:'networking',  type:'related',      weight:1.2},
+    {from:'iot',       to:'rf',          type:'related',      weight:1.0},
+    {from:'iot',       to:'security',    type:'related',      weight:1.0},
+    {from:'iot',       to:'sensors',     type:'related',      weight:1.0},
+    {from:'iot',       to:'edgeai',      type:'related',      weight:1.0},
+    {from:'control',   to:'algorithms',  type:'prerequisite', weight:0.9},
+    {from:'control',   to:'sensors',     type:'related',      weight:1.0},
+    {from:'control',   to:'motors',      type:'related',      weight:1.2},
+    {from:'control',   to:'kalman',      type:'subtopic',     weight:1.2},
+    {from:'twins',     to:'ml',          type:'related',      weight:1.0},
+    {from:'twins',     to:'fluids',      type:'related',      weight:0.8},
+    {from:'twins',     to:'sensors',     type:'related',      weight:1.0},
+    {from:'twins',     to:'software',    type:'related',      weight:0.8},
+    {from:'autonomous',to:'cv',          type:'related',      weight:1.2},
+    {from:'autonomous',to:'control',     type:'related',      weight:1.3},
+    {from:'autonomous',to:'edgeai',      type:'related',      weight:1.0},
+    {from:'autonomous',to:'slam',        type:'subtopic',     weight:1.3},
+    {from:'edgeai',    to:'embedded',    type:'related',      weight:1.5},
+    {from:'edgeai',    to:'sensors',     type:'related',      weight:0.9},
+    {from:'slam',      to:'cv',          type:'related',      weight:1.2},
+    {from:'slam',      to:'kalman',      type:'prerequisite', weight:1.3},
+    {from:'slam',      to:'sensors',     type:'related',      weight:1.0},
+    {from:'foc',       to:'motors',      type:'subtopic',     weight:1.5},
+    {from:'foc',       to:'control',     type:'related',      weight:1.3},
+    {from:'foc',       to:'embedded',    type:'related',      weight:1.2},
+    {from:'kalman',    to:'algorithms',  type:'prerequisite', weight:0.9},
+    {from:'kalman',    to:'sensors',     type:'related',      weight:1.0},
+    // new domains
+    {from:'root',to:'physics',    type:'related',      weight:0.9},
+    {from:'root',to:'aerospace',  type:'related',      weight:0.9},
+    {from:'root',to:'biomedical', type:'related',      weight:0.9},
+    {from:'root',to:'energy',     type:'related',      weight:0.9},
+    {from:'root',to:'mathematics',type:'related',      weight:0.9},
+    {from:'root',to:'industry4',  type:'bridge',       weight:1.0},
+    // mech extensions
+    {from:'mech',to:'tribology',  type:'subtopic',     weight:0.9},
+    {from:'mech',to:'mems',       type:'subtopic',     weight:0.8},
+    {from:'mech',to:'fatigue',    type:'subtopic',     weight:0.9},
+    {from:'mech',to:'vibration',  type:'subtopic',     weight:0.9},
+    {from:'kinematics',to:'vibration',type:'related',  weight:0.8},
+    // elec extensions
+    {from:'elec',to:'fpga',       type:'subtopic',     weight:1.0},
+    {from:'elec',to:'semiconductor',type:'subtopic',   weight:1.0},
+    {from:'pcb',to:'power-integrity',type:'related',   weight:1.0},
+    {from:'power',to:'dcdc',      type:'subtopic',     weight:1.2},
+    {from:'analog',to:'opamp',    type:'subtopic',     weight:1.2},
+    {from:'fpga',to:'asic',       type:'related',      weight:1.0},
+    {from:'semiconductor',to:'asic',type:'prerequisite',weight:1.0},
+    // it extensions
+    {from:'it',to:'cloud',        type:'subtopic',     weight:1.0},
+    {from:'it',to:'data-eng',     type:'subtopic',     weight:0.9},
+    {from:'it',to:'hpc',          type:'subtopic',     weight:0.8},
+    {from:'ml',to:'gpu-prog',     type:'related',      weight:1.0},
+    {from:'cloud',to:'containers',type:'subtopic',     weight:1.2},
+    {from:'cloud',to:'data-eng',  type:'related',      weight:0.9},
+    {from:'cloud',to:'iot',       type:'related',      weight:1.0},
+    {from:'hpc',to:'gpu-prog',    type:'subtopic',     weight:1.3},
+    {from:'data-eng',to:'ml',     type:'related',      weight:0.9},
+    // bridge extensions
+    {from:'wearables',to:'embedded',type:'related',    weight:1.2},
+    {from:'wearables',to:'sensors', type:'related',    weight:1.2},
+    {from:'wearables',to:'rf',      type:'related',    weight:0.9},
+    {from:'wearables',to:'biomedical',type:'bridge',   weight:1.2},
+    {from:'smart-mfg',to:'industry4',type:'subtopic',  weight:1.3},
+    {from:'smart-mfg',to:'additive', type:'related',   weight:1.0},
+    {from:'smart-mfg',to:'cnc',      type:'related',   weight:1.0},
+    {from:'smart-mfg',to:'ml',       type:'related',   weight:1.0},
+    {from:'smart-mfg',to:'twins',    type:'related',   weight:1.2},
+    {from:'industry4',to:'mech',     type:'bridge',    weight:1.0},
+    {from:'industry4',to:'elec',     type:'bridge',    weight:1.0},
+    {from:'industry4',to:'it',       type:'bridge',    weight:1.0},
+    {from:'soft-robotics',to:'robotics',type:'subtopic',weight:0.9},
+    // aerospace
+    {from:'aerospace',to:'mech',         type:'related',     weight:1.2},
+    {from:'aerospace',to:'elec',         type:'related',     weight:0.8},
+    {from:'aerospace',to:'it',           type:'related',     weight:0.8},
+    {from:'aerospace',to:'aerodynamics', type:'subtopic',    weight:1.2},
+    {from:'aerospace',to:'propulsion',   type:'subtopic',    weight:1.2},
+    {from:'aerospace',to:'aerostructures',type:'subtopic',   weight:1.2},
+    {from:'aerospace',to:'gnc',          type:'subtopic',    weight:1.2},
+    {from:'aerospace',to:'orbital',      type:'subtopic',    weight:1.0},
+    {from:'aerodynamics',to:'fluids',    type:'related',     weight:1.3},
+    {from:'aerostructures',to:'lightweight',type:'related',  weight:1.2},
+    {from:'aerostructures',to:'composites',type:'related',   weight:1.2},
+    {from:'aerostructures',to:'fatigue', type:'related',     weight:1.0},
+    {from:'propulsion',to:'thermal',     type:'related',     weight:1.0},
+    {from:'propulsion',to:'turbomachinery',type:'subtopic',  weight:1.3},
+    {from:'propulsion',to:'fluids',      type:'related',     weight:1.0},
+    {from:'gnc',to:'control',            type:'related',     weight:1.4},
+    {from:'gnc',to:'sensors',            type:'related',     weight:1.0},
+    {from:'gnc',to:'kalman',             type:'related',     weight:1.2},
+    {from:'gnc',to:'embedded',           type:'related',     weight:1.0},
+    {from:'aerodynamics',to:'reentry-thermal',type:'related',weight:0.8},
+    // physics
+    {from:'physics',to:'mech',           type:'prerequisite',weight:1.2},
+    {from:'physics',to:'elec',           type:'prerequisite',weight:1.2},
+    {from:'physics',to:'mathematics',    type:'related',     weight:1.3},
+    {from:'physics',to:'classical-mech', type:'subtopic',    weight:1.2},
+    {from:'physics',to:'electromag',     type:'subtopic',    weight:1.2},
+    {from:'physics',to:'thermophys',     type:'subtopic',    weight:1.2},
+    {from:'physics',to:'optics',         type:'subtopic',    weight:1.0},
+    {from:'physics',to:'quantum',        type:'subtopic',    weight:1.0},
+    {from:'classical-mech',to:'kinematics',type:'related',   weight:1.0},
+    {from:'classical-mech',to:'fem',     type:'related',     weight:1.0},
+    {from:'electromag',to:'rf',          type:'prerequisite',weight:1.2},
+    {from:'electromag',to:'semiconductor',type:'prerequisite',weight:1.0},
+    {from:'thermophys',to:'thermal',     type:'related',     weight:1.2},
+    {from:'quantum',to:'semiconductor',  type:'prerequisite',weight:1.3},
+    {from:'optics',to:'sensors',         type:'related',     weight:0.8},
+    {from:'dsp',to:'analog',             type:'related',     weight:1.0},
+    {from:'dsp',to:'algorithms',         type:'related',     weight:0.9},
+    {from:'dsp',to:'mathematics',        type:'related',     weight:0.8},
+    {from:'fem',to:'fluids',             type:'related',     weight:0.9},
+    {from:'fem',to:'thermal',            type:'related',     weight:0.9},
+    {from:'fem',to:'aerostructures',     type:'related',     weight:1.0},
+    {from:'fem',to:'numerical',          type:'related',     weight:1.3},
+    // biomedical
+    {from:'biomedical',to:'mech',        type:'bridge',      weight:0.9},
+    {from:'biomedical',to:'elec',        type:'bridge',      weight:0.9},
+    {from:'biomedical',to:'it',          type:'bridge',      weight:0.9},
+    {from:'biomedical',to:'medical-devices',type:'subtopic', weight:1.2},
+    {from:'biomedical',to:'biomechanics',type:'subtopic',    weight:1.2},
+    {from:'biomedical',to:'biosensors',  type:'subtopic',    weight:1.2},
+    {from:'biomedical',to:'medical-imaging',type:'subtopic', weight:1.2},
+    {from:'biomedical',to:'neurotech',   type:'subtopic',    weight:1.0},
+    {from:'biomechanics',to:'mech',      type:'related',     weight:1.0},
+    {from:'biomechanics',to:'materials', type:'related',     weight:0.8},
+    {from:'biomechanics',to:'prosthetics',type:'subtopic',   weight:1.2},
+    {from:'biosensors',to:'sensors',     type:'related',     weight:1.2},
+    {from:'biosensors',to:'analog',      type:'related',     weight:1.0},
+    {from:'medical-imaging',to:'cv',     type:'related',     weight:1.0},
+    {from:'medical-imaging',to:'ml',     type:'related',     weight:1.0},
+    {from:'medical-devices',to:'embedded',type:'related',    weight:1.0},
+    {from:'medical-devices',to:'pcb',    type:'related',     weight:0.9},
+    {from:'neurotech',to:'ecg-eeg',      type:'subtopic',    weight:1.2},
+    {from:'neurotech',to:'analog',       type:'related',     weight:1.0},
+    {from:'prosthetics',to:'control',    type:'related',     weight:1.0},
+    {from:'prosthetics',to:'motors',     type:'related',     weight:1.0},
+    {from:'ecg-eeg',to:'analog',         type:'related',     weight:1.0},
+    {from:'ecg-eeg',to:'dsp',            type:'related',     weight:1.0},
+    // energy
+    {from:'energy',to:'elec',            type:'related',     weight:1.0},
+    {from:'energy',to:'mech',            type:'related',     weight:0.9},
+    {from:'energy',to:'renewables',      type:'subtopic',    weight:1.2},
+    {from:'energy',to:'energy-storage',  type:'subtopic',    weight:1.2},
+    {from:'energy',to:'smart-grid',      type:'subtopic',    weight:1.2},
+    {from:'energy',to:'hydrogen',        type:'subtopic',    weight:1.0},
+    {from:'renewables',to:'solar',       type:'subtopic',    weight:1.2},
+    {from:'renewables',to:'wind-turbine',type:'subtopic',    weight:1.2},
+    {from:'energy-storage',to:'bms',     type:'related',     weight:1.2},
+    {from:'energy-storage',to:'power',   type:'related',     weight:1.0},
+    {from:'smart-grid',to:'networking',  type:'related',     weight:0.9},
+    {from:'smart-grid',to:'security',    type:'related',     weight:0.9},
+    {from:'smart-grid',to:'iot',         type:'related',     weight:1.0},
+    {from:'wind-turbine',to:'fluids',    type:'related',     weight:1.0},
+    {from:'wind-turbine',to:'fatigue',   type:'related',     weight:1.0},
+    {from:'solar',to:'semiconductor',    type:'related',     weight:1.0},
+    {from:'solar',to:'power',            type:'related',     weight:0.9},
+    {from:'hydrogen',to:'thermal',       type:'related',     weight:0.8},
+    // mathematics
+    {from:'mathematics',to:'physics',    type:'prerequisite',weight:1.3},
+    {from:'mathematics',to:'it',         type:'related',     weight:1.0},
+    {from:'mathematics',to:'linear-algebra',type:'subtopic', weight:1.2},
+    {from:'mathematics',to:'calculus',   type:'subtopic',    weight:1.2},
+    {from:'mathematics',to:'statistics', type:'subtopic',    weight:1.2},
+    {from:'mathematics',to:'numerical',  type:'subtopic',    weight:1.0},
+    {from:'linear-algebra',to:'ml',      type:'prerequisite',weight:1.2},
+    {from:'linear-algebra',to:'control', type:'prerequisite',weight:1.0},
+    {from:'linear-algebra',to:'cv',      type:'prerequisite',weight:0.9},
+    {from:'calculus',to:'classical-mech',type:'prerequisite',weight:1.0},
+    {from:'calculus',to:'electromag',    type:'prerequisite',weight:1.0},
+    {from:'calculus',to:'ode-pde',       type:'subtopic',    weight:1.3},
+    {from:'statistics',to:'ml',          type:'prerequisite',weight:1.2},
+    {from:'statistics',to:'kalman',      type:'prerequisite',weight:1.0},
+    {from:'numerical',to:'fem',          type:'related',     weight:1.3},
+    {from:'numerical',to:'ode-pde',      type:'related',     weight:1.0},
+    {from:'numerical',to:'hpc',          type:'related',     weight:1.0},
+    {from:'optimization',to:'ml',        type:'prerequisite',weight:1.2},
+    {from:'optimization',to:'topology',  type:'related',     weight:1.0},
+    {from:'optimization',to:'control',   type:'related',     weight:1.0},
+    {from:'optimization',to:'algorithms',type:'related',     weight:1.0},
+    {from:'ode-pde',to:'control',        type:'prerequisite',weight:1.0},
+    {from:'ode-pde',to:'thermophys',     type:'related',     weight:0.9},
+    {from:'graph-theory',to:'algorithms',type:'related',     weight:1.2},
+    {from:'graph-theory',to:'networking',type:'related',     weight:1.0},
+    {from:'graph-theory',to:'ml',        type:'related',     weight:0.8},
+
+    // ── MECHATRONICS SUBTREE EDGES ────────────────────────
+    {from:'mechatronics',to:'servo-systems',  type:'subtopic',     weight:1.3},
+    {from:'mechatronics',to:'actuators',      type:'subtopic',     weight:1.2},
+    {from:'mechatronics',to:'plc',            type:'subtopic',     weight:1.2},
+    {from:'mechatronics',to:'linear-motion',  type:'subtopic',     weight:1.0},
+    {from:'servo-systems',to:'motors',        type:'related',      weight:1.4},
+    {from:'servo-systems',to:'control',       type:'related',      weight:1.3},
+    {from:'servo-systems',to:'encoder-feedback',type:'subtopic',   weight:1.3},
+    {from:'servo-systems',to:'gearbox',       type:'related',      weight:1.0},
+    {from:'actuators',   to:'pneumatics',     type:'subtopic',     weight:1.1},
+    {from:'actuators',   to:'gearbox',        type:'related',      weight:0.9},
+    {from:'actuators',   to:'motors',         type:'related',      weight:1.2},
+    {from:'gearbox',     to:'kinematics',     type:'related',      weight:1.0},
+    {from:'gearbox',     to:'tribology',      type:'related',      weight:1.0},
+    {from:'linear-motion',to:'cnc',          type:'related',      weight:1.1},
+    {from:'linear-motion',to:'gearbox',      type:'related',      weight:0.8},
+    {from:'plc',         to:'industry4',      type:'related',      weight:1.2},
+    {from:'plc',         to:'networking',     type:'related',      weight:1.0},
+    {from:'plc',         to:'hmi',            type:'related',      weight:1.3},
+    {from:'plc',         to:'embedded',       type:'related',      weight:0.9},
+    {from:'hmi',         to:'industry4',      type:'related',      weight:1.0},
+    {from:'hmi',         to:'smart-mfg',      type:'related',      weight:1.0},
+    {from:'encoder-feedback',to:'sensors',   type:'related',      weight:1.1},
+    {from:'encoder-feedback',to:'analog',    type:'related',      weight:0.9},
+
+    // ── ROBOTICS SUBTREE EDGES ────────────────────────────
+    {from:'robotics',    to:'ros',            type:'subtopic',     weight:1.3},
+    {from:'robotics',    to:'motion-planning',type:'subtopic',     weight:1.3},
+    {from:'robotics',    to:'hri',            type:'subtopic',     weight:1.1},
+    {from:'robotics',    to:'drone',          type:'subtopic',     weight:1.0},
+    {from:'robotics',    to:'mobile-robotics',type:'subtopic',     weight:1.2},
+    {from:'robotics',    to:'manipulation',   type:'subtopic',     weight:1.2},
+    {from:'robotics',    to:'legged',         type:'subtopic',     weight:1.0},
+    {from:'robotics',    to:'cobot',          type:'subtopic',     weight:1.0},
+    {from:'robotics',    to:'robot-sim',      type:'subtopic',     weight:1.0},
+    {from:'robotics',    to:'inverse-kinematics',type:'subtopic',  weight:1.2},
+    {from:'robotics',    to:'force-control',  type:'subtopic',     weight:1.1},
+    {from:'ros',         to:'networking',     type:'related',      weight:1.1},
+    {from:'ros',         to:'software',       type:'related',      weight:1.0},
+    {from:'ros',         to:'embedded',       type:'related',      weight:1.0},
+    {from:'ros',         to:'robot-sim',      type:'related',      weight:1.2},
+    {from:'motion-planning',to:'algorithms',  type:'related',      weight:1.2},
+    {from:'motion-planning',to:'control',     type:'related',      weight:1.1},
+    {from:'motion-planning',to:'slam',        type:'related',      weight:1.2},
+    {from:'motion-planning',to:'inverse-kinematics',type:'related',weight:1.1},
+    {from:'inverse-kinematics',to:'kinematics',type:'related',    weight:1.3},
+    {from:'inverse-kinematics',to:'linear-algebra',type:'prerequisite',weight:1.1},
+    {from:'force-control',to:'control',       type:'related',      weight:1.3},
+    {from:'force-control',to:'sensors',       type:'related',      weight:1.1},
+    {from:'force-control',to:'mechatronics',  type:'related',      weight:0.9},
+    {from:'manipulation', to:'cv',            type:'related',      weight:1.2},
+    {from:'manipulation', to:'force-control', type:'related',      weight:1.1},
+    {from:'manipulation', to:'motion-planning',type:'related',     weight:1.1},
+    {from:'mobile-robotics',to:'slam',        type:'related',      weight:1.3},
+    {from:'mobile-robotics',to:'control',     type:'related',      weight:1.1},
+    {from:'mobile-robotics',to:'autonomous',  type:'related',      weight:1.2},
+    {from:'legged',      to:'kinematics',     type:'related',      weight:1.2},
+    {from:'legged',      to:'control',        type:'related',      weight:1.3},
+    {from:'legged',      to:'mobile-robotics',type:'related',      weight:1.0},
+    {from:'cobot',       to:'hri',            type:'related',      weight:1.3},
+    {from:'cobot',       to:'force-control',  type:'related',      weight:1.2},
+    {from:'cobot',       to:'mechatronics',   type:'related',      weight:1.0},
+    {from:'drone',       to:'embedded',       type:'related',      weight:1.2},
+    {from:'drone',       to:'rf',             type:'related',      weight:1.1},
+    {from:'drone',       to:'control',        type:'related',      weight:1.3},
+    {from:'drone',       to:'aerospace',      type:'related',      weight:1.0},
+    {from:'drone',       to:'bms',            type:'related',      weight:0.9},
+    {from:'robot-sim',   to:'ml',             type:'related',      weight:1.0},
+    {from:'robot-sim',   to:'ros',            type:'related',      weight:1.1},
+    {from:'hri',         to:'cv',             type:'related',      weight:1.0},
+    {from:'hri',         to:'cobot',          type:'related',      weight:1.2},
+  ]
+};
+
+// ── BUILD GRAPH ───────────────────────────────────────────
+const ADJ={};
+DATA.nodes.forEach(n=>ADJ[n.id]=[]);
+DATA.edges.forEach(e=>{ADJ[e.from].push(e.to);ADJ[e.to].push(e.from);});
+const NM={};DATA.nodes.forEach(n=>NM[n.id]=n);
+
+// Edge lookup for weight/type
+const EMAP={};
+DATA.edges.forEach(e=>{
+  EMAP[e.from+'|'+e.to]=e;
+  EMAP[e.to+'|'+e.from]=e;
+});
+function edgeInfo(a,b){ return EMAP[a+'|'+b]||{type:'related',weight:1}; }
+
+// ── PHYSICS ───────────────────────────────────────────────
+const phys={};
+DATA.nodes.forEach(n=>{
+  const s=n.seed||{x:0,y:0};
+  phys[n.id]={x:s.x+(Math.random()-.5)*120, y:s.y+(Math.random()-.5)*120, vx:0, vy:0};
+});
+
+// ── BFS DISTANCE ──────────────────────────────────────────
+function bfsDist(from){
+  const d={[from]:0};const q=[from];
+  while(q.length){const id=q.shift();ADJ[id].forEach(nb=>{if(d[nb]==null){d[nb]=d[id]+1;q.push(nb);}});}
+  return d;
+}
+
+// ── FORCE SIM ─────────────────────────────────────────────
+const REPULSE=20000, ATTRACT=0.016, CLUSTER=0.004, BOUND=900;
+
+function simStep(dist){
+  const ids=Object.keys(phys);
+  ids.forEach(id=>{phys[id].fx=0;phys[id].fy=0;});
+
+  // Repulsion
+  for(let i=0;i<ids.length;i++){
+    for(let j=i+1;j<ids.length;j++){
+      const a=phys[ids[i]],b=phys[ids[j]];
+      const dx=b.x-a.x,dy=b.y-a.y;
+      const d2=Math.max(dx*dx+dy*dy,400);
+      const d=Math.sqrt(d2),f=REPULSE/d2;
+      a.fx-=f*dx/d; a.fy-=f*dy/d;
+      b.fx+=f*dx/d; b.fy+=f*dy/d;
+    }
+  }
+
+  // Edge attraction (weighted)
+  DATA.edges.forEach(e=>{
+    const pa=phys[e.from],pb=phys[e.to];
+    if(!pa||!pb) return;
+    const dx=pb.x-pa.x,dy=pb.y-pa.y;
+    const f=ATTRACT*e.weight;
+    pa.fx+=dx*f; pa.fy+=dy*f;
+    pb.fx-=dx*f; pb.fy-=dy*f;
+  });
+
+  // Cluster gravity
+  const SEEDS={mechanical:{x:-520,y:80},electrical:{x:420,y:320},it:{x:380,y:-340},bridge:{x:0,y:0},root:{x:0,y:0},physics:{x:-940,y:-200},aerospace:{x:-340,y:-580},biomedical:{x:800,y:-80},energy:{x:80,y:720},mathematics:{x:80,y:-720}};
+  ids.forEach(id=>{
+    const s=SEEDS[NM[id].domain]||{x:0,y:0};
+    const p=phys[id];
+    p.fx+=(s.x-p.x)*CLUSTER;
+    p.fy+=(s.y-p.y)*CLUSTER;
+  });
+
+  // Integrate
+  ids.forEach(id=>{
+    const p=phys[id];
+    const d=dist[id]??99;
+    const damp=d<=1?0.05:d<=2?0.25:0.86;
+    p.vx=(p.vx+p.fx)*damp;
+    p.vy=(p.vy+p.fy)*damp;
+    p.x+=p.vx; p.y+=p.vy;
+    if(Math.abs(p.x)>BOUND) p.vx-=(p.x>0?1:-1)*2;
+    if(Math.abs(p.y)>BOUND) p.vy-=(p.y>0?1:-1)*2;
+  });
+}
+
+// Warm-up
+const warmDist={};DATA.nodes.forEach(n=>warmDist[n.id]=99);
+for(let i=0;i<300;i++) simStep(warmDist);
+
+// ── STATE ─────────────────────────────────────────────────
+let focused='root', history=[];
+let camX=phys.root.x, camY=phys.root.y;
+let zoom=1, panOffX=0, panOffY=0;
+let dist=bfsDist('root');
+
+// ── CANVAS ────────────────────────────────────────────────
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+let W,H;
+function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;}
+window.addEventListener('resize',resize);
+resize();
+
+// ── DRAW HELPERS ──────────────────────────────────────────
+function w2s(wx,wy){
+  return[(wx-camX)*zoom+W/2+panOffX,(wy-camY)*zoom+H/2+panOffY];
+}
+
+function drawGrid(){
+  const gs=80*zoom;
+  const ox=((W/2+panOffX)%gs+gs)%gs, oy=((H/2+panOffY)%gs+gs)%gs;
+  ctx.strokeStyle='#0c1628';ctx.lineWidth=1;
+  for(let x=ox-gs;x<W;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=oy-gs;y<H;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+}
+
+// Edge dash styles per type
+const EDGE_DASH={subtopic:[],related:[4,7],prerequisite:[2,5],bridge:[6,4]};
+
+function drawEdges(){
+  DATA.edges.forEach(e=>{
+    const da=dist[e.from]??99, db=dist[e.to]??99;
+    if(Math.max(da,db)>=3) return;
+
+    // Both nodes must also pass zoom level threshold
+    const na=NM[e.from],nb2=NM[e.to];
+    const za=zoomAlpha(na.level,zoom), zb=zoomAlpha(nb2.level,zoom);
+    if(za<=0||zb<=0) return;
+
+    const distAlpha=Math.max(da,db)===0?0.7:Math.max(da,db)===1?0.45:0.15;
+    const alpha=distAlpha*Math.min(za,zb);
+
+    const [x1,y1]=w2s(phys[e.from].x,phys[e.from].y);
+    const [x2,y2]=w2s(phys[e.to].x,  phys[e.to].y);
+
+    const dc=DC[na.domain]||DC.root;
+    const isBridge=e.type==='bridge';
+    ctx.save();
+    ctx.globalAlpha=alpha;
+    ctx.strokeStyle=isBridge?'#7030a0':dc.stroke;
+    ctx.lineWidth=isBridge?1.5:1.0;
+    ctx.setLineDash(EDGE_DASH[e.type]||[]);
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+    ctx.restore();
+  });
+}
+
+function drawNode(id){
+  const d=dist[id]??99;
+  if(d>=3) return;
+  const n=NM[id];
+  const za=zoomAlpha(n.level,zoom);
+  if(za<=0) return;
+
+  const p=phys[id];
+  const dc=DC[n.domain]||DC.root;
+  const isCenter=id===focused;
+
+  // Radius: grows with zoom-alpha, sized by level
+  const baseR=BASE_R[n.level]||50;
+  const r=baseR*za*(isCenter?1:d===1?0.95:0.75);
+
+  const distAlpha=d===0?1:d===1?0.92:0.38;
+  const alpha=distAlpha*za;
+
+  const [sx,sy]=w2s(p.x,p.y);
+  ctx.save();ctx.globalAlpha=alpha;
+
+  // glow for focused
+  if(isCenter&&za>0.5){
+    const g=ctx.createRadialGradient(sx,sy,r*.5,sx,sy,r+24*za);
+    g.addColorStop(0,dc.stroke+'55');g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(sx,sy,r+24*za,0,Math.PI*2);ctx.fill();
+  }
+
+  // circle
+  const gf=ctx.createRadialGradient(sx-r*.3,sy-r*.3,0,sx,sy,r);
+  gf.addColorStop(0,dc.fill+'ff');gf.addColorStop(1,dc.fill+'cc');
+  ctx.beginPath();ctx.arc(sx,sy,r,0,Math.PI*2);
+  ctx.fillStyle=gf;ctx.fill();
+  ctx.strokeStyle=isCenter?dc.stroke:dc.stroke+(d===1?'cc':'55');
+  ctx.lineWidth=isCenter?2.5:d===1?1.6:1.0;
+  ctx.setLineDash([]);ctx.stroke();
+
+  // label (only when node is big enough to read)
+  if(r>16){
+    const lines=n.label.split('\n');
+    const fs=Math.max(8,Math.min(isCenter?13:11, r*0.28));
+    ctx.font=`${isCenter?600:500} ${fs}px 'Segoe UI',system-ui,sans-serif`;
+    ctx.fillStyle=dc.text;ctx.textAlign='center';ctx.textBaseline='middle';
+    const lh=fs*1.3,th=lines.length*lh;
+    lines.forEach((l,i)=>ctx.fillText(l,sx,sy-th/2+i*lh+lh/2));
+  }
+
+  // domain dot
+  if(r>20){
+    ctx.beginPath();ctx.arc(sx+r-6,sy-r+6,3.5,0,Math.PI*2);
+    ctx.fillStyle=dc.stroke;ctx.fill();
+  }
+  ctx.restore();
+}
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  drawGrid();
+  drawEdges();
+  // draw far→near so center is always on top
+  [2,1,0].forEach(td=>DATA.nodes.forEach(n=>{if((dist[n.id]??99)===td)drawNode(n.id);}));
+  updateHUD();
+
+  // zoom level label
+  const lvlNames=['','Overview','Fields','Topics','Details'];
+  const activeLvl=zoom>=ZOOM_THR[3]?4:zoom>=ZOOM_THR[2]?3:zoom>=ZOOM_THR[1]?2:1;
+  document.getElementById('zoomlabel').textContent=
+    `zoom ${zoom.toFixed(2)}× · L${activeLvl}: ${lvlNames[activeLvl]}`;
+}
+
+// ── HUD ───────────────────────────────────────────────────
+function updateHUD(){
+  const n=NM[focused],dc=DC[n.domain];
+  document.getElementById('ititle').textContent=n.label.replace('\n',' ');
+  const tag=document.getElementById('dtag');
+  tag.textContent=DL[n.domain];
+  tag.style.cssText=`background:${dc.tag};color:${dc.tagTxt};border:1px solid ${dc.stroke}55;display:inline-block;font-size:10px;font-weight:700;letter-spacing:.8px;padding:2px 8px;border-radius:4px;margin-bottom:8px`;
+  document.getElementById('idesc').textContent=n.desc;
+  document.getElementById('icn').textContent=`${ADJ[focused].length} connections · level ${n.level}`;
+
+  // Resources
+  const res=n.resources||[];
+  const resEl=document.getElementById('ires');
+  resEl.innerHTML=res.length?res.map(r=>`<a href="${r.url}" target="_blank">↗ ${r.label}</a>`).join(''):'';
+
+  // Prereqs
+  const pre=n.prereqs||[];
+  const preEl=document.getElementById('ipre');
+  preEl.textContent=pre.length?'Prereqs: '+pre.map(id=>NM[id]?.label.replace('\n',' ')).join(', '):'';
+
+  // Breadcrumb
+  const trail=[...history,focused];
+  document.getElementById('bc').innerHTML=
+    trail.map(id=>`<b>${NM[id]?.label.replace('\n',' ')}</b>`)
+         .join(' <span style="color:#1e3858"> › </span>');
+}
+
+// ── MAIN LOOP ─────────────────────────────────────────────
+function loop(){
+  simStep(dist);
+  camX+=(phys[focused].x-camX)*0.07;
+  camY+=(phys[focused].y-camY)*0.07;
+  draw();
+  requestAnimationFrame(loop);
+}
+loop();
+
+// ── NAVIGATION ────────────────────────────────────────────
+function goTo(id){
+  if(!NM[id]||id===focused) return;
+  history.push(focused);
+  focused=id;
+  dist=bfsDist(focused);
+}
+function goBack(){
+  if(!history.length) return;
+  focused=history.pop();
+  dist=bfsDist(focused);
+}
+function navDir(angle){
+  const cp=phys[focused];
+  let best=null,bestScore=-Infinity;
+  ADJ[focused].forEach(id=>{
+    const p=phys[id];
+    const a=Math.atan2(p.y-cp.y,p.x-cp.x);
+    const score=Math.cos(a-angle);
+    if(score>bestScore){bestScore=score;best=id;}
+  });
+  if(best) goTo(best);
+}
+
+// ── INPUT ─────────────────────────────────────────────────
+window.addEventListener('keydown',e=>{
+  const prevent=['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Backspace','PageUp','PageDown','Home'];
+  if(prevent.includes(e.key)) e.preventDefault();
+  if(e.key==='ArrowRight') navDir(0);
+  if(e.key==='ArrowDown')  navDir(Math.PI/2);
+  if(e.key==='ArrowLeft')  navDir(Math.PI);
+  if(e.key==='ArrowUp')    navDir(-Math.PI/2);
+  if(e.key==='Backspace')  goBack();
+  if(e.key==='PageUp')   { zoom=Math.min(3,zoom*1.2); }
+  if(e.key==='PageDown') { zoom=Math.max(.15,zoom/1.2); }
+  if(e.key==='Home')     { panOffX=0;panOffY=0;zoom=1; }
+});
+
+canvas.addEventListener('wheel',e=>{
+  e.preventDefault();
+  zoom=Math.max(.15,Math.min(3,zoom*(e.deltaY<0?1.1:.9)));
+},{passive:false});
+
+let drag=false,ds={x:0,y:0},lp={x:0,y:0};
+canvas.addEventListener('mousedown',e=>{drag=true;ds={x:e.clientX,y:e.clientY};lp={x:panOffX,y:panOffY};});
+canvas.addEventListener('mousemove',e=>{if(drag){panOffX=lp.x+e.clientX-ds.x;panOffY=lp.y+e.clientY-ds.y;}});
+canvas.addEventListener('mouseup',e=>{
+  const moved=Math.hypot(e.clientX-ds.x,e.clientY-ds.y);
+  drag=false;
+  if(moved<5){
+    let best=null,bd=Infinity;
+    DATA.nodes.forEach(n=>{
+      if((dist[n.id]??99)>=3||zoomAlpha(n.level,zoom)<=0) return;
+      const [sx,sy]=w2s(phys[n.id].x,phys[n.id].y);
+      const baseR=BASE_R[n.level]||50;
+      const r=baseR*zoomAlpha(n.level,zoom);
+      const dd=Math.hypot(e.clientX-sx,e.clientY-sy);
+      if(dd<r+8&&dd<bd){best=n.id;bd=dd;}
+    });
+    if(best&&best!==focused) goTo(best);
+  }
+});
+canvas.addEventListener('mouseleave',()=>{drag=false;});
+</script>
+</body>
+</html>
