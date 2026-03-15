@@ -3137,6 +3137,3110 @@
         "x": 240,
         "y": -760
       }
+    },
+    {
+      "id": "chem",
+      "label": "Chemistry",
+      "domain": "chemistry",
+      "level": 1,
+      "desc": "The science of matter: its composition, structure, properties and transformations.",
+      "tags": [
+        "science",
+        "materials",
+        "reactions"
+      ],
+      "seed": {
+        "x": -600,
+        "y": 400
+      }
+    },
+    {
+      "id": "organic-chem",
+      "label": "Organic\nChemistry",
+      "domain": "chemistry",
+      "level": 2,
+      "desc": "Carbon-based compounds, functional groups, reaction mechanisms and synthesis.",
+      "tags": [
+        "synthesis",
+        "carbon",
+        "molecules"
+      ]
+    },
+    {
+      "id": "inorganic-chem",
+      "label": "Inorganic\nChemistry",
+      "domain": "chemistry",
+      "level": 2,
+      "desc": "Non-carbon compounds, metals, coordination complexes and solid-state materials.",
+      "tags": [
+        "metals",
+        "coordination",
+        "solid-state"
+      ]
+    },
+    {
+      "id": "physical-chem",
+      "label": "Physical\nChemistry",
+      "domain": "chemistry",
+      "level": 2,
+      "desc": "Thermodynamics, kinetics and quantum mechanics applied to chemical systems.",
+      "tags": [
+        "thermodynamics",
+        "kinetics",
+        "quantum"
+      ]
+    },
+    {
+      "id": "electrochemistry",
+      "label": "Electro-\nchemistry",
+      "domain": "chemistry",
+      "level": 2,
+      "desc": "Electron-transfer reactions, electrodes, batteries and electrodeposition.",
+      "tags": [
+        "batteries",
+        "corrosion",
+        "electrolysis"
+      ]
+    },
+    {
+      "id": "polymer-science",
+      "label": "Polymer\nScience",
+      "domain": "chemistry",
+      "level": 2,
+      "desc": "Synthesis, structure and properties of long-chain macromolecules and plastics.",
+      "tags": [
+        "polymers",
+        "plastics",
+        "macromolecules"
+      ]
+    },
+    {
+      "id": "surface-science",
+      "label": "Surface\nScience",
+      "domain": "chemistry",
+      "level": 2,
+      "desc": "Adsorption, surface reactions, thin films and heterogeneous catalysis.",
+      "tags": [
+        "adsorption",
+        "thin-films",
+        "catalysis"
+      ]
+    },
+    {
+      "id": "analytical-chem",
+      "label": "Analytical\nChemistry",
+      "domain": "chemistry",
+      "level": 2,
+      "desc": "Quantitative and qualitative measurement techniques: spectroscopy, chromatography, titration.",
+      "tags": [
+        "measurement",
+        "spectroscopy",
+        "chromatography"
+      ]
+    },
+    {
+      "id": "reaction-kinetics",
+      "label": "Reaction\nKinetics",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Rate laws, activation energy, reaction mechanisms and catalytic pathways.",
+      "tags": [
+        "kinetics",
+        "rates",
+        "Arrhenius"
+      ]
+    },
+    {
+      "id": "thermochem",
+      "label": "Thermo-\nchemistry",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Enthalpy, entropy, Gibbs energy and equilibrium in chemical reactions.",
+      "tags": [
+        "enthalpy",
+        "Gibbs",
+        "equilibrium"
+      ]
+    },
+    {
+      "id": "spectroscopy",
+      "label": "Spectroscopy",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "NMR, IR, UV-Vis and mass spectrometry for molecular structure elucidation.",
+      "tags": [
+        "NMR",
+        "IR",
+        "mass-spec"
+      ]
+    },
+    {
+      "id": "chromatography",
+      "label": "Chromato-\ngraphy",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "HPLC, GC and column chromatography for separation and identification of compounds.",
+      "tags": [
+        "HPLC",
+        "GC",
+        "separation"
+      ]
+    },
+    {
+      "id": "catalysis",
+      "label": "Catalysis",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Homogeneous and heterogeneous catalysts, enzyme kinetics and industrial processes.",
+      "tags": [
+        "catalyst",
+        "enzyme",
+        "industrial"
+      ]
+    },
+    {
+      "id": "corrosion",
+      "label": "Corrosion\nScience",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Electrochemical and chemical degradation of metals; protection strategies.",
+      "tags": [
+        "oxidation",
+        "protection",
+        "galvanic"
+      ]
+    },
+    {
+      "id": "battery-chem",
+      "label": "Battery\nChemistry",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Electrode materials, electrolytes, intercalation and solid-state battery science.",
+      "tags": [
+        "lithium-ion",
+        "cathode",
+        "anode"
+      ]
+    },
+    {
+      "id": "thin-films",
+      "label": "Thin Film\nDeposition",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "PVD, CVD, ALD and sputtering for semiconductor and optical coating applications.",
+      "tags": [
+        "PVD",
+        "CVD",
+        "ALD"
+      ]
+    },
+    {
+      "id": "sol-gel",
+      "label": "Sol-Gel\nProcessing",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Wet-chemistry route to ceramic and glass coatings via hydrolysis and condensation.",
+      "tags": [
+        "ceramic",
+        "coating",
+        "hydrolysis"
+      ]
+    },
+    {
+      "id": "polymer-synthesis",
+      "label": "Polymer\nSynthesis",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Chain-growth, step-growth and living polymerization techniques.",
+      "tags": [
+        "polymerization",
+        "monomers",
+        "chain-growth"
+      ]
+    },
+    {
+      "id": "polymer-properties",
+      "label": "Polymer\nProperties",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Viscoelasticity, glass transition, crystallinity and mechanical behavior of polymers.",
+      "tags": [
+        "viscoelasticity",
+        "Tg",
+        "crystallinity"
+      ]
+    },
+    {
+      "id": "coord-chem",
+      "label": "Coordination\nChemistry",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Ligand field theory, metal complexes and applications in catalysis and medicine.",
+      "tags": [
+        "ligands",
+        "metal-complexes",
+        "crystal-field"
+      ]
+    },
+    {
+      "id": "materials-chem",
+      "label": "Materials\nChemistry",
+      "domain": "chemistry",
+      "level": 3,
+      "desc": "Synthesis and characterization of functional materials: MOFs, zeolites, ceramics.",
+      "tags": [
+        "MOF",
+        "zeolite",
+        "functional-materials"
+      ]
+    },
+    {
+      "id": "lithium-ion-chem",
+      "label": "Li-ion Cell\nChemistry",
+      "domain": "chemistry",
+      "level": 4,
+      "desc": "NMC, LFP and NCA cathode chemistries; SEI formation and cycle degradation.",
+      "tags": [
+        "NMC",
+        "LFP",
+        "SEI"
+      ]
+    },
+    {
+      "id": "nmr-spectroscopy",
+      "label": "NMR\nSpectroscopy",
+      "domain": "chemistry",
+      "level": 4,
+      "desc": "1H and 13C NMR, chemical shift, coupling constants and 2D techniques.",
+      "tags": [
+        "1H-NMR",
+        "chemical-shift",
+        "COSY"
+      ]
+    },
+    {
+      "id": "xrd",
+      "label": "X-Ray\nDiffraction",
+      "domain": "chemistry",
+      "level": 4,
+      "desc": "Bragg's law, powder and single-crystal XRD for phase identification and structure.",
+      "tags": [
+        "Bragg",
+        "lattice",
+        "crystal-structure"
+      ]
+    },
+    {
+      "id": "systems-eng",
+      "label": "Systems\nEngineering",
+      "domain": "systems",
+      "level": 1,
+      "desc": "Holistic design methodology for complex systems: requirements, architecture, V&V and lifecycle.",
+      "tags": [
+        "MBSE",
+        "requirements",
+        "lifecycle"
+      ],
+      "seed": {
+        "x": 0,
+        "y": -500
+      }
+    },
+    {
+      "id": "requirements-mgmt",
+      "label": "Requirements\nMgmt",
+      "domain": "systems",
+      "level": 2,
+      "desc": "Eliciting, documenting, tracing and managing stakeholder and system requirements.",
+      "tags": [
+        "requirements",
+        "traceability",
+        "SysML"
+      ]
+    },
+    {
+      "id": "sys-arch-se",
+      "label": "System\nArchitecture",
+      "domain": "systems",
+      "level": 2,
+      "desc": "Defining system boundaries, interfaces, subsystems and architectural patterns.",
+      "tags": [
+        "architecture",
+        "interfaces",
+        "decomposition"
+      ]
+    },
+    {
+      "id": "vv-se",
+      "label": "Verification &\nValidation",
+      "domain": "systems",
+      "level": 2,
+      "desc": "Proving that a system is built right (verification) and that it's the right system (validation).",
+      "tags": [
+        "testing",
+        "qualification",
+        "acceptance"
+      ]
+    },
+    {
+      "id": "config-mgmt",
+      "label": "Configuration\nMgmt",
+      "domain": "systems",
+      "level": 2,
+      "desc": "Controlling and tracking changes to system baselines, BOMs and documentation.",
+      "tags": [
+        "baseline",
+        "change-control",
+        "version-control"
+      ]
+    },
+    {
+      "id": "reliability-eng",
+      "label": "Reliability\nEngineering",
+      "domain": "systems",
+      "level": 2,
+      "desc": "Predicting, measuring and improving system reliability: MTBF, fault trees, FMEA.",
+      "tags": [
+        "MTBF",
+        "FMEA",
+        "fault-tolerance"
+      ]
+    },
+    {
+      "id": "interface-mgmt",
+      "label": "Interface\nMgmt",
+      "domain": "systems",
+      "level": 2,
+      "desc": "Defining and controlling physical, functional and data interfaces between subsystems.",
+      "tags": [
+        "ICD",
+        "interface",
+        "integration"
+      ]
+    },
+    {
+      "id": "mbse",
+      "label": "MBSE",
+      "domain": "systems",
+      "level": 3,
+      "desc": "Model-Based Systems Engineering using SysML/UML to capture requirements and architecture.",
+      "tags": [
+        "SysML",
+        "UML",
+        "model-based"
+      ]
+    },
+    {
+      "id": "fmea",
+      "label": "FMEA",
+      "domain": "systems",
+      "level": 3,
+      "desc": "Failure Mode and Effects Analysis: systematic identification and mitigation of failure modes.",
+      "tags": [
+        "failure-modes",
+        "risk",
+        "criticality"
+      ]
+    },
+    {
+      "id": "traceability",
+      "label": "Requirements\nTraceability",
+      "domain": "systems",
+      "level": 3,
+      "desc": "Maintaining bidirectional links from stakeholder needs through design to test evidence.",
+      "tags": [
+        "traceability-matrix",
+        "coverage",
+        "verification"
+      ]
+    },
+    {
+      "id": "design-reviews",
+      "label": "Design\nReviews",
+      "domain": "systems",
+      "level": 3,
+      "desc": "PDR, CDR, SRR and PRR milestones to assess technical readiness and risk.",
+      "tags": [
+        "PDR",
+        "CDR",
+        "milestones"
+      ]
+    },
+    {
+      "id": "system-integration-se",
+      "label": "System\nIntegration",
+      "domain": "systems",
+      "level": 3,
+      "desc": "Assembling and testing subsystems progressively from unit to system level.",
+      "tags": [
+        "integration",
+        "AIVT",
+        "testing"
+      ]
+    },
+    {
+      "id": "safety-analysis-se",
+      "label": "Safety\nAnalysis",
+      "domain": "systems",
+      "level": 3,
+      "desc": "FHA, FMEA, FTA and HAZOP to identify and mitigate safety-critical failure modes.",
+      "tags": [
+        "FTA",
+        "HAZOP",
+        "safety-critical"
+      ]
+    },
+    {
+      "id": "trade-space",
+      "label": "Trade Space\nAnalysis",
+      "domain": "systems",
+      "level": 3,
+      "desc": "Systematic evaluation of design alternatives using metrics, MOEs and MOPs.",
+      "tags": [
+        "MOE",
+        "MOP",
+        "Pareto"
+      ]
+    },
+    {
+      "id": "life-cycle-cost",
+      "label": "Life-Cycle\nCosting",
+      "domain": "systems",
+      "level": 3,
+      "desc": "Estimating total ownership cost including development, production and disposal.",
+      "tags": [
+        "LCC",
+        "TCO",
+        "cost-estimation"
+      ]
+    },
+    {
+      "id": "digital-thread",
+      "label": "Digital\nThread",
+      "domain": "systems",
+      "level": 3,
+      "desc": "Connected data flow linking design, manufacturing and operations through a system's lifecycle.",
+      "tags": [
+        "digital-thread",
+        "PLM",
+        "MBD"
+      ]
+    },
+    {
+      "id": "sysml",
+      "label": "SysML\nModeling",
+      "domain": "systems",
+      "level": 4,
+      "desc": "Block diagrams (BDD/IBD), parametric diagrams and activity diagrams in SysML.",
+      "tags": [
+        "BDD",
+        "IBD",
+        "parametric"
+      ]
+    },
+    {
+      "id": "fault-tree-se",
+      "label": "Fault Tree\nConstruction",
+      "domain": "systems",
+      "level": 4,
+      "desc": "Boolean logic trees linking top-level hazards to root-cause basic events.",
+      "tags": [
+        "AND-gate",
+        "OR-gate",
+        "minimal-cutsets"
+      ]
+    },
+    {
+      "id": "orbital-mechanics",
+      "label": "Orbital\nMechanics",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Kepler's laws, Hohmann transfers, delta-v budgets and perturbation theory.",
+      "tags": [
+        "Kepler",
+        "delta-v",
+        "Hohmann"
+      ]
+    },
+    {
+      "id": "attitude-control",
+      "label": "Attitude\nControl",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Reaction wheels, magnetorquers and thrusters for spacecraft orientation control.",
+      "tags": [
+        "reaction-wheels",
+        "ADCS",
+        "pointing"
+      ]
+    },
+    {
+      "id": "spacecraft-power",
+      "label": "Spacecraft\nPower",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Solar panel sizing, battery selection, power conditioning and eclipse management.",
+      "tags": [
+        "solar-array",
+        "eclipse",
+        "EPS"
+      ]
+    },
+    {
+      "id": "nanosatellites",
+      "label": "Nano-\nsatellites",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "CubeSat standards, miniaturized payloads and commercial small-sat ecosystem.",
+      "tags": [
+        "CubeSat",
+        "smallsat",
+        "LEO"
+      ]
+    },
+    {
+      "id": "launch-vehicles",
+      "label": "Launch\nVehicles",
+      "domain": "aerospace",
+      "level": 2,
+      "desc": "Rockets and launch systems: staging, trajectory optimization and rideshare.",
+      "tags": [
+        "staging",
+        "launch",
+        "trajectory"
+      ]
+    },
+    {
+      "id": "space-debris",
+      "label": "Space\nDebris",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Orbital debris environment, collision risk, deorbit strategies and mitigation guidelines.",
+      "tags": [
+        "debris",
+        "Kessler",
+        "deorbit"
+      ]
+    },
+    {
+      "id": "delta-v-budget",
+      "label": "Delta-V\nBudget",
+      "domain": "aerospace",
+      "level": 4,
+      "desc": "Mission delta-v analysis including gravity losses, margins and propellant mass fractions.",
+      "tags": [
+        "Tsiolkovsky",
+        "mass-fraction",
+        "mission-design"
+      ]
+    },
+    {
+      "id": "orbit-determination",
+      "label": "Orbit\nDetermination",
+      "domain": "aerospace",
+      "level": 4,
+      "desc": "Ground-based and onboard state estimation from radar, GPS and optical tracking data.",
+      "tags": [
+        "Kalman",
+        "tracking",
+        "state-estimation"
+      ]
+    },
+    {
+      "id": "electric-propulsion",
+      "label": "Electric\nPropulsion",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Ion thrusters, Hall-effect thrusters and electrospray for high-Isp low-thrust missions.",
+      "tags": [
+        "ion",
+        "Hall-thruster",
+        "Isp"
+      ]
+    },
+    {
+      "id": "liquid-rocket",
+      "label": "Liquid Rocket\nPropulsion",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Bipropellant engines, injector design, combustion instability and turbopump systems.",
+      "tags": [
+        "bipropellant",
+        "turbopump",
+        "Isp"
+      ]
+    },
+    {
+      "id": "solid-rocket",
+      "label": "Solid Rocket\nPropulsion",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Grain design, burn rate, propellant formulation and ballistic prediction.",
+      "tags": [
+        "grain",
+        "burn-rate",
+        "SRM"
+      ]
+    },
+    {
+      "id": "air-breathing",
+      "label": "Air-Breathing\nPropulsion",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Turbojets, turbofans, ramjets and scramjets: thermodynamic cycle analysis.",
+      "tags": [
+        "turbojet",
+        "turbofan",
+        "ramjet"
+      ]
+    },
+    {
+      "id": "compressor-design",
+      "label": "Compressor\nDesign",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Axial and centrifugal compressor aerodynamics, blade profiles and surge margins.",
+      "tags": [
+        "axial",
+        "centrifugal",
+        "blade-design"
+      ]
+    },
+    {
+      "id": "turbine-cooling",
+      "label": "Turbine\nBlade Cooling",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Film cooling, internal convection and thermal barrier coatings for hot-section blades.",
+      "tags": [
+        "film-cooling",
+        "TBC",
+        "hot-section"
+      ]
+    },
+    {
+      "id": "turbopump",
+      "label": "Turbopump\nDesign",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "High-speed pump and turbine design for liquid rocket engine propellant delivery.",
+      "tags": [
+        "pump",
+        "turbine",
+        "cavitation"
+      ]
+    },
+    {
+      "id": "thermal-protection",
+      "label": "Thermal\nProtection",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "TPS design: ablative, ceramic tile and metallic heat shield concepts.",
+      "tags": [
+        "TPS",
+        "ablative",
+        "heat-shield"
+      ]
+    },
+    {
+      "id": "hypersonic",
+      "label": "Hypersonic\nAerodynamics",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "High Mach flow: shock interactions, real-gas effects and aerothermodynamics.",
+      "tags": [
+        "Mach",
+        "shock-wave",
+        "aerothermodynamics"
+      ]
+    },
+    {
+      "id": "ablatives",
+      "label": "Ablative\nMaterials",
+      "domain": "aerospace",
+      "level": 4,
+      "desc": "PICA, carbon-phenolic and silicone ablators: ablation mechanisms and sizing.",
+      "tags": [
+        "PICA",
+        "carbon-phenolic",
+        "mass-loss"
+      ]
+    },
+    {
+      "id": "cfd",
+      "label": "CFD",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Computational Fluid Dynamics: Navier-Stokes solvers, meshing and turbulence models.",
+      "tags": [
+        "Navier-Stokes",
+        "OpenFOAM",
+        "RANS"
+      ]
+    },
+    {
+      "id": "boundary-layer",
+      "label": "Boundary\nLayer Theory",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Laminar and turbulent boundary layers, transition, separation and friction drag.",
+      "tags": [
+        "laminar",
+        "turbulent",
+        "transition"
+      ]
+    },
+    {
+      "id": "aeroelasticity",
+      "label": "Aero-\nelasticity",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Fluid-structure interaction: flutter, divergence and gust response of lifting surfaces.",
+      "tags": [
+        "flutter",
+        "divergence",
+        "FSI"
+      ]
+    },
+    {
+      "id": "buckling-analysis",
+      "label": "Buckling\nAnalysis",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Euler column buckling, panel buckling and post-buckling reserve in thin-walled structures.",
+      "tags": [
+        "Euler",
+        "panel",
+        "post-buckling"
+      ]
+    },
+    {
+      "id": "sandwich-panels",
+      "label": "Sandwich\nPanels",
+      "domain": "aerospace",
+      "level": 3,
+      "desc": "Honeycomb and foam core panels: shear stiffness, face sheet design and face wrinkling.",
+      "tags": [
+        "honeycomb",
+        "core",
+        "face-sheet"
+      ]
+    },
+    {
+      "id": "diff-pair-routing",
+      "label": "Diff-Pair\nRouting",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Length matching, spacing rules, via stitching and return path for differential signals.",
+      "tags": [
+        "PCB",
+        "routing",
+        "differential"
+      ]
+    },
+    {
+      "id": "via-stitching",
+      "label": "Via\nStitching",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Ground via arrays beside traces to minimize loop inductance and EMI.",
+      "tags": [
+        "via",
+        "ground",
+        "inductance"
+      ]
+    },
+    {
+      "id": "stackup-design",
+      "label": "PCB Stack-Up\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Layer ordering for controlled impedance: ground planes, prepreg selection and Dk values.",
+      "tags": [
+        "impedance",
+        "prepreg",
+        "dielectric"
+      ]
+    },
+    {
+      "id": "shielding-emc",
+      "label": "Shielding\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Faraday enclosures, aperture control, gaskets and shielding effectiveness calculation.",
+      "tags": [
+        "Faraday",
+        "aperture",
+        "SE"
+      ]
+    },
+    {
+      "id": "filter-emc",
+      "label": "EMC\nFiltering",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Common-mode chokes, ferrite beads, LC filters and feed-through capacitors.",
+      "tags": [
+        "common-mode",
+        "ferrite",
+        "LC-filter"
+      ]
+    },
+    {
+      "id": "emissions-testing",
+      "label": "Emissions\nTesting",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Radiated and conducted emissions measurement per CISPR/FCC/CE standards.",
+      "tags": [
+        "CISPR",
+        "radiated",
+        "conducted"
+      ]
+    },
+    {
+      "id": "bldc-design",
+      "label": "BLDC Motor\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Winding topology, slot-pole combinations, back-EMF and cogging torque minimisation.",
+      "tags": [
+        "BLDC",
+        "winding",
+        "cogging"
+      ]
+    },
+    {
+      "id": "motor-drives",
+      "label": "Motor Drive\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Three-phase inverter topology, PWM strategies and dead-time compensation.",
+      "tags": [
+        "inverter",
+        "PWM",
+        "dead-time"
+      ]
+    },
+    {
+      "id": "thermal-motor",
+      "label": "Motor\nThermal Model",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Lumped thermal networks for winding and magnet temperature under load cycles.",
+      "tags": [
+        "thermal-network",
+        "winding-temp",
+        "cooling"
+      ]
+    },
+    {
+      "id": "cell-balancing",
+      "label": "Cell\nBalancing",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Passive and active balancing topologies: dissipative vs energy-transfer methods.",
+      "tags": [
+        "balancing",
+        "SoC",
+        "passive"
+      ]
+    },
+    {
+      "id": "soc-estimation",
+      "label": "SoC\nEstimation",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Coulomb counting, OCV lookup and Kalman filter methods for state-of-charge.",
+      "tags": [
+        "Coulomb",
+        "OCV",
+        "Kalman"
+      ]
+    },
+    {
+      "id": "battery-protection",
+      "label": "Battery\nProtection",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Overvoltage, undervoltage, overcurrent and thermal runaway protection circuits.",
+      "tags": [
+        "OVP",
+        "UVP",
+        "thermal-runaway"
+      ]
+    },
+    {
+      "id": "opamp-compensation",
+      "label": "Op-Amp\nCompensation",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Phase margin, gain margin, dominant-pole and lead-lag compensation techniques.",
+      "tags": [
+        "phase-margin",
+        "Bode",
+        "stability"
+      ]
+    },
+    {
+      "id": "instrumentation-amp",
+      "label": "Instrumentation\nAmplifier",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Three op-amp INA topology, CMRR, input impedance and precision measurement.",
+      "tags": [
+        "INA",
+        "CMRR",
+        "precision"
+      ]
+    },
+    {
+      "id": "active-filters",
+      "label": "Active\nFilter Design",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Sallen-Key, MFB and state-variable topologies; Butterworth, Chebyshev and Bessel.",
+      "tags": [
+        "Sallen-Key",
+        "Butterworth",
+        "Chebyshev"
+      ]
+    },
+    {
+      "id": "buck-converter",
+      "label": "Buck\nConverter",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "CCM/DCM operation, inductor sizing, output capacitor selection and control loop.",
+      "tags": [
+        "CCM",
+        "DCM",
+        "inductor"
+      ]
+    },
+    {
+      "id": "boost-converter",
+      "label": "Boost\nConverter",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Non-inverting topology, RHP zero implications and current-mode control.",
+      "tags": [
+        "boost",
+        "RHP-zero",
+        "current-mode"
+      ]
+    },
+    {
+      "id": "gate-driver-design",
+      "label": "Gate Driver\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Turn-on/off timing, Miller plateau, isolation requirements and bootstrap circuits.",
+      "tags": [
+        "gate-drive",
+        "Miller",
+        "bootstrap"
+      ]
+    },
+    {
+      "id": "rtl-design",
+      "label": "RTL\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Register-transfer level description in VHDL/Verilog: pipelining, FSM and timing.",
+      "tags": [
+        "RTL",
+        "Verilog",
+        "VHDL"
+      ]
+    },
+    {
+      "id": "synthesis-asic",
+      "label": "Logic\nSynthesis",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Technology mapping, area/speed/power trade-offs and timing constraint closure.",
+      "tags": [
+        "synthesis",
+        "timing-closure",
+        "STA"
+      ]
+    },
+    {
+      "id": "physical-design",
+      "label": "Physical\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Floorplanning, placement, routing, CTS and sign-off for ASIC/SoC tapeout.",
+      "tags": [
+        "floorplan",
+        "routing",
+        "tapeout"
+      ]
+    },
+    {
+      "id": "decoupling-caps",
+      "label": "Decoupling\nStrategy",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Capacitor placement, self-resonance, power delivery network impedance profiling.",
+      "tags": [
+        "decoupling",
+        "PDN",
+        "self-resonance"
+      ]
+    },
+    {
+      "id": "pdn-analysis",
+      "label": "PDN\nAnalysis",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Target impedance, simulation with VRM model and validation with TDR/VNA.",
+      "tags": [
+        "PDN",
+        "target-impedance",
+        "VRM"
+      ]
+    },
+    {
+      "id": "power-planes",
+      "label": "Power Plane\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Plane splits, anti-pads and return current continuity for power and ground planes.",
+      "tags": [
+        "plane-split",
+        "anti-pad",
+        "return-current"
+      ]
+    },
+    {
+      "id": "antenna-design",
+      "label": "Antenna\nDesign",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Dipole, patch and phased-array antennas: gain, radiation pattern and matching.",
+      "tags": [
+        "antenna",
+        "gain",
+        "radiation-pattern"
+      ]
+    },
+    {
+      "id": "rf-link-budget",
+      "label": "RF Link\nBudget",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "EIRP, path loss, noise figure and received SNR analysis for wireless links.",
+      "tags": [
+        "EIRP",
+        "path-loss",
+        "SNR"
+      ]
+    },
+    {
+      "id": "rf-matching",
+      "label": "RF Matching\nNetworks",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "L-network, Pi-network and Smith chart techniques for impedance matching.",
+      "tags": [
+        "Smith-chart",
+        "impedance",
+        "L-network"
+      ]
+    },
+    {
+      "id": "rf-filters",
+      "label": "RF Filters",
+      "domain": "electrical",
+      "level": 4,
+      "desc": "Bandpass, low-pass and notch filters at RF: microstrip, cavity and LC realisations.",
+      "tags": [
+        "bandpass",
+        "microstrip",
+        "cavity"
+      ]
+    },
+    {
+      "id": "layup-design",
+      "label": "Layup\nSequence Design",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Ply angle selection, balanced and symmetric laminates, ABD matrix calculation.",
+      "tags": [
+        "laminate",
+        "ABD-matrix",
+        "ply-angle"
+      ]
+    },
+    {
+      "id": "cure-cycle",
+      "label": "Cure Cycle\nDesign",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Autoclave and OOA cure profiles: ramp rates, dwell temperatures and vacuum.",
+      "tags": [
+        "autoclave",
+        "OOA",
+        "cure"
+      ]
+    },
+    {
+      "id": "ndt-composites",
+      "label": "NDT for\nComposites",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Ultrasonic C-scan, thermography and X-ray CT for delamination and void detection.",
+      "tags": [
+        "C-scan",
+        "thermography",
+        "CT"
+      ]
+    },
+    {
+      "id": "sn-curve",
+      "label": "S-N Curve\nAnalysis",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "W\u00f6hler curves, endurance limit, mean stress correction and R-ratio effects.",
+      "tags": [
+        "W\u00f6hler",
+        "endurance",
+        "Goodman"
+      ]
+    },
+    {
+      "id": "damage-accumulation",
+      "label": "Damage\nAccumulation",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Miner's rule, rainflow counting and variable-amplitude fatigue life prediction.",
+      "tags": [
+        "Miner",
+        "rainflow",
+        "variable-amplitude"
+      ]
+    },
+    {
+      "id": "fatigue-testing",
+      "label": "Fatigue\nTesting",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Servo-hydraulic test rigs, specimen design, da/dN crack growth measurement.",
+      "tags": [
+        "servo-hydraulic",
+        "ASTM",
+        "da-dN"
+      ]
+    },
+    {
+      "id": "modal-analysis-vib",
+      "label": "Modal\nAnalysis",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Experimental and computational extraction of natural frequencies and mode shapes.",
+      "tags": [
+        "eigenvalue",
+        "mode-shape",
+        "EMA"
+      ]
+    },
+    {
+      "id": "vibration-isolation",
+      "label": "Vibration\nIsolation",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Passive mounts, active isolation, transmissibility and insertion loss design.",
+      "tags": [
+        "transmissibility",
+        "isolator",
+        "active"
+      ]
+    },
+    {
+      "id": "dynamic-balancing",
+      "label": "Dynamic\nBalancing",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Two-plane balancing of rotating machinery; ISO 1940 balance quality grades.",
+      "tags": [
+        "balance",
+        "ISO-1940",
+        "rotor"
+      ]
+    },
+    {
+      "id": "topology-opt",
+      "label": "Topology\nOptimization",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "SIMP and level-set methods for minimum-compliance structural optimization.",
+      "tags": [
+        "SIMP",
+        "level-set",
+        "compliance"
+      ]
+    },
+    {
+      "id": "generative-design",
+      "label": "Generative\nDesign",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Cloud-based multi-objective topology exploration with manufacturing constraints.",
+      "tags": [
+        "generative",
+        "multi-objective",
+        "DfAM"
+      ]
+    },
+    {
+      "id": "lattice-structures",
+      "label": "Lattice\nStructures",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Unit cell design, relative density, stiffness and AM-specific design rules.",
+      "tags": [
+        "lattice",
+        "unit-cell",
+        "AM"
+      ]
+    },
+    {
+      "id": "g-code-prog",
+      "label": "G-Code\nProgramming",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "ISO G/M codes, coordinate systems, canned cycles and postprocessor configuration.",
+      "tags": [
+        "G-code",
+        "M-code",
+        "postprocessor"
+      ]
+    },
+    {
+      "id": "toolpath-strategy",
+      "label": "Toolpath\nStrategy",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "HSM, trochoidal milling, adaptive clearing and 5-axis simultaneous strategies.",
+      "tags": [
+        "HSM",
+        "trochoidal",
+        "5-axis"
+      ]
+    },
+    {
+      "id": "fixturing",
+      "label": "Fixturing\nDesign",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "3-2-1 locating, clamping forces, fixture compliance and modular fixture systems.",
+      "tags": [
+        "3-2-1",
+        "clamping",
+        "modular"
+      ]
+    },
+    {
+      "id": "pipe-flow-design",
+      "label": "Pipe Flow\nDesign",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Friction factor, Darcy-Weisbach, minor losses and system curve construction.",
+      "tags": [
+        "Darcy",
+        "friction-factor",
+        "minor-loss"
+      ]
+    },
+    {
+      "id": "pump-selection",
+      "label": "Pump\nSelection",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Affinity laws, NPSH, specific speed and pump curve matching to system curve.",
+      "tags": [
+        "affinity-laws",
+        "NPSH",
+        "pump-curve"
+      ]
+    },
+    {
+      "id": "cfd-analysis",
+      "label": "CFD\nAnalysis",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Mesh generation, boundary conditions, RANS solver setup and result validation.",
+      "tags": [
+        "mesh",
+        "RANS",
+        "validation"
+      ]
+    },
+    {
+      "id": "wear-mechanisms",
+      "label": "Wear\nMechanisms",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Adhesive, abrasive, erosive and fatigue wear modes and their dominant regimes.",
+      "tags": [
+        "adhesive",
+        "abrasive",
+        "Archard"
+      ]
+    },
+    {
+      "id": "lubricant-selection",
+      "label": "Lubricant\nSelection",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Viscosity grade, additive packages, synthetic vs mineral oils and grease selection.",
+      "tags": [
+        "viscosity",
+        "additive",
+        "grease"
+      ]
+    },
+    {
+      "id": "surface-treatment",
+      "label": "Surface\nTreatment",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Nitriding, carburising, PVD/CVD coatings and shot peening for wear resistance.",
+      "tags": [
+        "nitriding",
+        "PVD",
+        "shot-peening"
+      ]
+    },
+    {
+      "id": "design-for-manufacture",
+      "label": "DfM /\nDfA",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Design-for-Manufacture and Assembly rules: tolerances, draft angles, fastener access.",
+      "tags": [
+        "DfM",
+        "DfA",
+        "tolerancing"
+      ]
+    },
+    {
+      "id": "dfmea",
+      "label": "Design\nFMEA",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "AIAG/VDA DFMEA: failure modes, effects, severity-occurrence-detection ratings.",
+      "tags": [
+        "DFMEA",
+        "severity",
+        "detection"
+      ]
+    },
+    {
+      "id": "tolerancing",
+      "label": "GD&T /\nTolerancing",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Geometric dimensioning and tolerancing, datum reference frames and stack-up analysis.",
+      "tags": [
+        "GDT",
+        "datum",
+        "stack-up"
+      ]
+    },
+    {
+      "id": "laser-cutting",
+      "label": "Laser\nCutting",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "CO\u2082 and fiber laser cutting: kerf width, assist gas, parameter optimization.",
+      "tags": [
+        "CO2",
+        "fiber",
+        "kerf"
+      ]
+    },
+    {
+      "id": "laser-welding",
+      "label": "Laser\nWelding",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Conduction vs keyhole welding, beam shaping and weld quality assessment.",
+      "tags": [
+        "keyhole",
+        "conduction",
+        "HAZ"
+      ]
+    },
+    {
+      "id": "lpbf",
+      "label": "LPBF\nProcess",
+      "domain": "mechanical",
+      "level": 4,
+      "desc": "Laser Powder Bed Fusion: layer thickness, hatch spacing, support strategy and post-processing.",
+      "tags": [
+        "SLM",
+        "hatch",
+        "support"
+      ]
+    },
+    {
+      "id": "object-detection",
+      "label": "Object\nDetection",
+      "domain": "it",
+      "level": 4,
+      "desc": "YOLO, Faster R-CNN and DETR architectures for real-time bounding-box detection.",
+      "tags": [
+        "YOLO",
+        "DETR",
+        "bounding-box"
+      ]
+    },
+    {
+      "id": "semantic-segmentation",
+      "label": "Semantic\nSegmentation",
+      "domain": "it",
+      "level": 4,
+      "desc": "FCN, U-Net and DeepLab for pixel-wise scene understanding.",
+      "tags": [
+        "U-Net",
+        "FCN",
+        "pixel-wise"
+      ]
+    },
+    {
+      "id": "visual-slam",
+      "label": "Visual\nSLAM",
+      "domain": "it",
+      "level": 4,
+      "desc": "Feature-based and direct methods for simultaneous localisation and mapping.",
+      "tags": [
+        "ORB-SLAM",
+        "dense",
+        "monocular"
+      ]
+    },
+    {
+      "id": "cuda-kernels",
+      "label": "CUDA\nKernels",
+      "domain": "it",
+      "level": 4,
+      "desc": "Thread hierarchy, shared memory, warp divergence and occupancy optimisation.",
+      "tags": [
+        "CUDA",
+        "warp",
+        "occupancy"
+      ]
+    },
+    {
+      "id": "memory-coalescing",
+      "label": "Memory\nCoalescing",
+      "domain": "it",
+      "level": 4,
+      "desc": "Coalesced global memory access patterns for maximising GPU memory bandwidth.",
+      "tags": [
+        "coalescing",
+        "global-memory",
+        "bandwidth"
+      ]
+    },
+    {
+      "id": "shader-programming",
+      "label": "Shader\nProgramming",
+      "domain": "it",
+      "level": 4,
+      "desc": "GLSL/HLSL vertex and fragment shaders, compute shaders and render pipeline.",
+      "tags": [
+        "GLSL",
+        "HLSL",
+        "compute-shader"
+      ]
+    },
+    {
+      "id": "type-systems",
+      "label": "Type\nSystems",
+      "domain": "it",
+      "level": 4,
+      "desc": "Static vs dynamic typing, type inference, generics and dependent types.",
+      "tags": [
+        "static",
+        "type-inference",
+        "generics"
+      ]
+    },
+    {
+      "id": "language-runtimes",
+      "label": "Language\nRuntimes",
+      "domain": "it",
+      "level": 4,
+      "desc": "JVM, CPython, V8: garbage collection, JIT compilation and runtime optimisation.",
+      "tags": [
+        "JVM",
+        "JIT",
+        "GC"
+      ]
+    },
+    {
+      "id": "compilers",
+      "label": "Compiler\nDesign",
+      "domain": "it",
+      "level": 4,
+      "desc": "Lexing, parsing, SSA IR, optimisation passes and code generation.",
+      "tags": [
+        "LLVM",
+        "AST",
+        "IR"
+      ]
+    },
+    {
+      "id": "creational-dp",
+      "label": "Creational\nPatterns",
+      "domain": "it",
+      "level": 4,
+      "desc": "Factory, Builder, Singleton, Prototype and Abstract Factory patterns.",
+      "tags": [
+        "Factory",
+        "Builder",
+        "Singleton"
+      ]
+    },
+    {
+      "id": "structural-dp",
+      "label": "Structural\nPatterns",
+      "domain": "it",
+      "level": 4,
+      "desc": "Adapter, Decorator, Facade, Proxy and Composite patterns.",
+      "tags": [
+        "Adapter",
+        "Decorator",
+        "Facade"
+      ]
+    },
+    {
+      "id": "behavioral-dp",
+      "label": "Behavioral\nPatterns",
+      "domain": "it",
+      "level": 4,
+      "desc": "Observer, Strategy, Command, Iterator and State patterns.",
+      "tags": [
+        "Observer",
+        "Strategy",
+        "Command"
+      ]
+    },
+    {
+      "id": "rest-api-design",
+      "label": "REST API\nDesign",
+      "domain": "it",
+      "level": 4,
+      "desc": "Resource modelling, HTTP semantics, versioning, pagination and OpenAPI specs.",
+      "tags": [
+        "REST",
+        "OpenAPI",
+        "HTTP"
+      ]
+    },
+    {
+      "id": "graphql-api",
+      "label": "GraphQL",
+      "domain": "it",
+      "level": 4,
+      "desc": "Schema definition, resolvers, N+1 problem and federation for distributed graphs.",
+      "tags": [
+        "GraphQL",
+        "resolver",
+        "federation"
+      ]
+    },
+    {
+      "id": "event-driven",
+      "label": "Event-Driven\nArchitecture",
+      "domain": "it",
+      "level": 4,
+      "desc": "Event sourcing, CQRS, message brokers and saga pattern for async systems.",
+      "tags": [
+        "event-sourcing",
+        "CQRS",
+        "saga"
+      ]
+    },
+    {
+      "id": "component-model",
+      "label": "Component\nModel",
+      "domain": "it",
+      "level": 4,
+      "desc": "React/Vue/Angular component lifecycle, props, state and composition patterns.",
+      "tags": [
+        "React",
+        "Vue",
+        "component"
+      ]
+    },
+    {
+      "id": "state-mgmt",
+      "label": "State\nManagement",
+      "domain": "it",
+      "level": 4,
+      "desc": "Flux, Redux, Zustand and reactive stores for predictable UI state.",
+      "tags": [
+        "Redux",
+        "Flux",
+        "reactive"
+      ]
+    },
+    {
+      "id": "web-perf",
+      "label": "Web\nPerformance",
+      "domain": "it",
+      "level": 4,
+      "desc": "Core Web Vitals, code splitting, lazy loading, CDN and caching strategies.",
+      "tags": [
+        "Core-Web-Vitals",
+        "lazy-loading",
+        "CDN"
+      ]
+    },
+    {
+      "id": "symmetric-crypto",
+      "label": "Symmetric\nCryptography",
+      "domain": "it",
+      "level": 4,
+      "desc": "AES, ChaCha20, block vs stream ciphers, modes of operation and key management.",
+      "tags": [
+        "AES",
+        "ChaCha20",
+        "block-cipher"
+      ]
+    },
+    {
+      "id": "asymmetric-crypto",
+      "label": "Asymmetric\nCryptography",
+      "domain": "it",
+      "level": 4,
+      "desc": "RSA, ECC, ECDH key exchange, digital signatures and PKI infrastructure.",
+      "tags": [
+        "RSA",
+        "ECC",
+        "PKI"
+      ]
+    },
+    {
+      "id": "hash-functions",
+      "label": "Cryptographic\nHash Functions",
+      "domain": "it",
+      "level": 4,
+      "desc": "SHA-2/SHA-3, HMAC, password hashing with Argon2/bcrypt and Merkle trees.",
+      "tags": [
+        "SHA-3",
+        "HMAC",
+        "Argon2"
+      ]
+    },
+    {
+      "id": "kernel-modules",
+      "label": "Kernel\nModules",
+      "domain": "it",
+      "level": 4,
+      "desc": "Writing and loading Linux kernel modules: character devices, interrupts and DMA.",
+      "tags": [
+        "LKM",
+        "character-device",
+        "DMA"
+      ]
+    },
+    {
+      "id": "linux-networking",
+      "label": "Linux\nNetworking Stack",
+      "domain": "it",
+      "level": 4,
+      "desc": "netfilter, iptables/nftables, tc and eBPF for packet processing.",
+      "tags": [
+        "iptables",
+        "eBPF",
+        "netfilter"
+      ]
+    },
+    {
+      "id": "systemd-services",
+      "label": "systemd\nServices",
+      "domain": "it",
+      "level": 4,
+      "desc": "Unit files, service dependencies, journald logging and socket activation.",
+      "tags": [
+        "systemd",
+        "unit-file",
+        "journald"
+      ]
+    },
+    {
+      "id": "use-case-modeling",
+      "label": "Use Case\nModeling",
+      "domain": "it",
+      "level": 4,
+      "desc": "UML use case diagrams, actors, include/extend relationships and scenario flows.",
+      "tags": [
+        "UML",
+        "actor",
+        "scenario"
+      ]
+    },
+    {
+      "id": "user-stories",
+      "label": "User\nStories",
+      "domain": "it",
+      "level": 4,
+      "desc": "Agile user stories: As a/I want/So that, acceptance criteria and story mapping.",
+      "tags": [
+        "Agile",
+        "acceptance-criteria",
+        "story-map"
+      ]
+    },
+    {
+      "id": "formal-specs",
+      "label": "Formal\nSpecifications",
+      "domain": "it",
+      "level": 4,
+      "desc": "Z notation, TLA+, alloy and model checking for safety-critical requirements.",
+      "tags": [
+        "TLA+",
+        "Z",
+        "model-checking"
+      ]
+    },
+    {
+      "id": "native-mobile",
+      "label": "Native\nMobile Dev",
+      "domain": "it",
+      "level": 4,
+      "desc": "iOS (Swift/SwiftUI) and Android (Kotlin/Jetpack Compose) native development.",
+      "tags": [
+        "Swift",
+        "Kotlin",
+        "Jetpack"
+      ]
+    },
+    {
+      "id": "cross-platform-mobile",
+      "label": "Cross-Platform\nMobile",
+      "domain": "it",
+      "level": 4,
+      "desc": "Flutter, React Native and Expo for shared codebase mobile apps.",
+      "tags": [
+        "Flutter",
+        "React-Native",
+        "Expo"
+      ]
+    },
+    {
+      "id": "mobile-perf",
+      "label": "Mobile\nPerformance",
+      "domain": "it",
+      "level": 4,
+      "desc": "Frame rendering, battery impact, memory profiling and ANR/crash analysis.",
+      "tags": [
+        "frame-rate",
+        "battery",
+        "profiling"
+      ]
+    },
+    {
+      "id": "ux-research",
+      "label": "UX\nResearch",
+      "domain": "it",
+      "level": 4,
+      "desc": "User interviews, usability testing, card sorting and quantitative UX metrics.",
+      "tags": [
+        "usability",
+        "interview",
+        "metrics"
+      ]
+    },
+    {
+      "id": "ui-design-principles",
+      "label": "UI Design\nPrinciples",
+      "domain": "it",
+      "level": 4,
+      "desc": "Gestalt, Fitts's law, affordances, visual hierarchy and accessibility.",
+      "tags": [
+        "Gestalt",
+        "Fitts",
+        "a11y"
+      ]
+    },
+    {
+      "id": "prototyping-ux",
+      "label": "Rapid\nPrototyping",
+      "domain": "it",
+      "level": 4,
+      "desc": "Wireframing, paper prototyping, Figma mockups and interactive prototypes.",
+      "tags": [
+        "wireframe",
+        "Figma",
+        "lo-fi"
+      ]
+    },
+    {
+      "id": "rtos-scheduling",
+      "label": "RTOS\nScheduling",
+      "domain": "it",
+      "level": 4,
+      "desc": "Rate-monotonic, EDF scheduling, priority inversion and priority inheritance.",
+      "tags": [
+        "RMS",
+        "EDF",
+        "priority-inversion"
+      ]
+    },
+    {
+      "id": "rtos-ipc",
+      "label": "RTOS\nIPC Mechanisms",
+      "domain": "it",
+      "level": 4,
+      "desc": "Queues, semaphores, mutexes, event flags and message passing in embedded RTOS.",
+      "tags": [
+        "semaphore",
+        "mutex",
+        "queue"
+      ]
+    },
+    {
+      "id": "rtos-porting",
+      "label": "RTOS\nPorting",
+      "domain": "it",
+      "level": 4,
+      "desc": "BSP development, hardware abstraction layer and port layer for FreeRTOS/Zephyr.",
+      "tags": [
+        "BSP",
+        "HAL",
+        "Zephyr"
+      ]
+    },
+    {
+      "id": "hvdc-transmission",
+      "label": "HVDC\nTransmission",
+      "domain": "energy",
+      "level": 4,
+      "desc": "VSC-HVDC and LCC-HVDC: converter stations, cable sizing and power flow.",
+      "tags": [
+        "VSC",
+        "LCC",
+        "HVDC"
+      ]
+    },
+    {
+      "id": "transformer-design",
+      "label": "Transformer\nDesign",
+      "domain": "energy",
+      "level": 4,
+      "desc": "Core material, winding design, leakage inductance, efficiency and insulation.",
+      "tags": [
+        "core",
+        "winding",
+        "insulation"
+      ]
+    },
+    {
+      "id": "grid-protection",
+      "label": "Grid\nProtection",
+      "domain": "energy",
+      "level": 4,
+      "desc": "Distance, differential and overcurrent relays; coordinated protection schemes.",
+      "tags": [
+        "relay",
+        "protection",
+        "coordination"
+      ]
+    },
+    {
+      "id": "demand-response",
+      "label": "Demand\nResponse",
+      "domain": "energy",
+      "level": 4,
+      "desc": "Price-based and incentive-based DR programs, aggregators and VPP architectures.",
+      "tags": [
+        "DR",
+        "VPP",
+        "aggregator"
+      ]
+    },
+    {
+      "id": "load-forecasting",
+      "label": "Load\nForecasting",
+      "domain": "energy",
+      "level": 4,
+      "desc": "Short-term and long-term load prediction using statistical and ML methods.",
+      "tags": [
+        "STLF",
+        "regression",
+        "ML"
+      ]
+    },
+    {
+      "id": "flexibility-trading",
+      "label": "Flexibility\nTrading",
+      "domain": "energy",
+      "level": 4,
+      "desc": "Intraday and balancing markets, ancillary services and flexibility product design.",
+      "tags": [
+        "balancing",
+        "ancillary",
+        "intraday"
+      ]
+    },
+    {
+      "id": "measurement-uncertainty",
+      "label": "Measurement\nUncertainty",
+      "domain": "physics",
+      "level": 4,
+      "desc": "Type A/B uncertainty, error propagation, calibration and GUM methodology.",
+      "tags": [
+        "GUM",
+        "calibration",
+        "error-propagation"
+      ]
+    },
+    {
+      "id": "vacuum-tech",
+      "label": "Vacuum\nTechnology",
+      "domain": "physics",
+      "level": 4,
+      "desc": "Turbomolecular pumps, pressure gauges, leak detection and UHV techniques.",
+      "tags": [
+        "UHV",
+        "turbomolecular",
+        "leak-detection"
+      ]
+    },
+    {
+      "id": "cryogenic-systems",
+      "label": "Cryogenic\nSystems",
+      "domain": "physics",
+      "level": 4,
+      "desc": "Dilution refrigerators, cryostat design, thermal isolation and temperature sensors.",
+      "tags": [
+        "dilution",
+        "cryostat",
+        "mK"
+      ]
+    },
+    {
+      "id": "waveguide-design",
+      "label": "Photonic\nWaveguide Design",
+      "domain": "physics",
+      "level": 4,
+      "desc": "Single-mode conditions, coupling loss, bend radius and mode field diameter.",
+      "tags": [
+        "single-mode",
+        "mode-field",
+        "coupling"
+      ]
+    },
+    {
+      "id": "pic-design",
+      "label": "Photonic\nIntegrated Circuit",
+      "domain": "physics",
+      "level": 4,
+      "desc": "Silicon photonics, InP and LiNbO\u2083 platforms, MZI modulators and ring resonators.",
+      "tags": [
+        "silicon-photonics",
+        "MZI",
+        "ring-resonator"
+      ]
+    },
+    {
+      "id": "optical-amplification",
+      "label": "Optical\nAmplification",
+      "domain": "physics",
+      "level": 4,
+      "desc": "EDFA, Raman and SOA amplifiers: gain, noise figure and saturation.",
+      "tags": [
+        "EDFA",
+        "Raman",
+        "gain"
+      ]
+    },
+    {
+      "id": "how-might-we",
+      "label": "How Might\nWe...",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Reframing problems as opportunity questions to unlock creative solution spaces.",
+      "tags": [
+        "HMW",
+        "design-thinking",
+        "framing"
+      ]
+    },
+    {
+      "id": "job-stories",
+      "label": "Job\nStories",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "When/I want/So I can format for capturing user motivation over features.",
+      "tags": [
+        "JTBD",
+        "user-need",
+        "context"
+      ]
+    },
+    {
+      "id": "problem-framing",
+      "label": "Problem\nFraming Canvas",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Structuring the problem space: actors, context, root cause and criteria for success.",
+      "tags": [
+        "canvas",
+        "stakeholder",
+        "criteria"
+      ]
+    },
+    {
+      "id": "wbs",
+      "label": "Work Breakdown\nStructure",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Hierarchical decomposition of project deliverables to manageable work packages.",
+      "tags": [
+        "WBS",
+        "deliverable",
+        "work-package"
+      ]
+    },
+    {
+      "id": "functional-decomp",
+      "label": "Functional\nDecomposition",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Breaking system functions into sub-functions using IDEF0 or N\u00b2 diagrams.",
+      "tags": [
+        "IDEF0",
+        "N2",
+        "function"
+      ]
+    },
+    {
+      "id": "hierarchical-breakdown",
+      "label": "Issue\nTree",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "McKinsey-style MECE issue trees for structured hypothesis-driven analysis.",
+      "tags": [
+        "MECE",
+        "hypothesis",
+        "issue-tree"
+      ]
+    },
+    {
+      "id": "brainstorming",
+      "label": "Brainstorming\nTechniques",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Classic brainstorming, brainwriting, round-robin and silent generation methods.",
+      "tags": [
+        "brainwriting",
+        "ideation",
+        "quantity"
+      ]
+    },
+    {
+      "id": "lateral-thinking",
+      "label": "Lateral\nThinking",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "De Bono's six hats, provocations, random entry and escape techniques.",
+      "tags": [
+        "de-Bono",
+        "six-hats",
+        "provocation"
+      ]
+    },
+    {
+      "id": "scamper",
+      "label": "SCAMPER",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Substitute, Combine, Adapt, Modify, Put-to-other-use, Eliminate, Reverse ideation.",
+      "tags": [
+        "SCAMPER",
+        "ideation",
+        "creativity"
+      ]
+    },
+    {
+      "id": "via-negativa",
+      "label": "Via\nNegativa",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Identifying what to avoid or remove rather than what to add: subtraction as strategy.",
+      "tags": [
+        "subtraction",
+        "avoidance",
+        "Taleb"
+      ]
+    },
+    {
+      "id": "failure-mode-thinking",
+      "label": "Failure Mode\nThinking",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Deliberately imagining failure scenarios to reveal hidden risks and assumptions.",
+      "tags": [
+        "failure",
+        "risk",
+        "assumption"
+      ]
+    },
+    {
+      "id": "assumption-inversion",
+      "label": "Assumption\nInversion",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Listing all assumptions then inverting them to generate counter-intuitive solutions.",
+      "tags": [
+        "assumption",
+        "invert",
+        "reframe"
+      ]
+    },
+    {
+      "id": "pugh-matrix",
+      "label": "Pugh\nMatrix",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Concept selection matrix comparing alternatives against weighted criteria.",
+      "tags": [
+        "Pugh",
+        "concept-selection",
+        "criteria"
+      ]
+    },
+    {
+      "id": "pareto-analysis",
+      "label": "Pareto\nAnalysis",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "80/20 rule applied to defect, cause and resource allocation decisions.",
+      "tags": [
+        "80-20",
+        "Pareto",
+        "prioritization"
+      ]
+    },
+    {
+      "id": "weighted-criteria",
+      "label": "Weighted\nCriteria Matrix",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Assigning weights to evaluation criteria and scoring design alternatives.",
+      "tags": [
+        "weighted",
+        "scoring",
+        "criteria"
+      ]
+    },
+    {
+      "id": "wind-analysis",
+      "label": "WIND\nAnalysis",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Wishes, Impediments, New ideas and Decisions \u2014 structured scenario workshop.",
+      "tags": [
+        "WIND",
+        "workshop",
+        "futures"
+      ]
+    },
+    {
+      "id": "contingency-plans",
+      "label": "Contingency\nPlanning",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "If-then playbooks for identified risk triggers and response escalation.",
+      "tags": [
+        "if-then",
+        "trigger",
+        "response"
+      ]
+    },
+    {
+      "id": "futures-thinking",
+      "label": "Futures\nThinking",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Horizon scanning, megatrends and weak signals for long-range strategic foresight.",
+      "tags": [
+        "horizon",
+        "megatrend",
+        "foresight"
+      ]
+    },
+    {
+      "id": "power-interest-grid",
+      "label": "Power\u2013Interest\nGrid",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Classifying stakeholders by power and interest level to guide engagement strategy.",
+      "tags": [
+        "power",
+        "interest",
+        "engagement"
+      ]
+    },
+    {
+      "id": "influence-mapping",
+      "label": "Influence\nMapping",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Charting who influences whom in an organisation to identify leverage points.",
+      "tags": [
+        "influence",
+        "network",
+        "leverage"
+      ]
+    },
+    {
+      "id": "raci",
+      "label": "RACI\nMatrix",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Responsible, Accountable, Consulted, Informed matrix for role clarity.",
+      "tags": [
+        "RACI",
+        "responsible",
+        "accountable"
+      ]
+    },
+    {
+      "id": "theory-of-constraints",
+      "label": "Theory of\nConstraints",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Goldratt's five focusing steps: identify, exploit, subordinate, elevate, repeat.",
+      "tags": [
+        "Goldratt",
+        "bottleneck",
+        "throughput"
+      ]
+    },
+    {
+      "id": "bottleneck-analysis",
+      "label": "Bottleneck\nAnalysis",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Identifying the constraint limiting system throughput using flow analysis.",
+      "tags": [
+        "flow",
+        "throughput",
+        "limit"
+      ]
+    },
+    {
+      "id": "limiting-factor",
+      "label": "Limiting\nFactor Analysis",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Identifying the single resource or condition that caps system performance.",
+      "tags": [
+        "constraint",
+        "resource",
+        "performance"
+      ]
+    },
+    {
+      "id": "pov-shift",
+      "label": "Point of View\nShift",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Re-stating the problem from different stakeholder perspectives to reveal new solutions.",
+      "tags": [
+        "perspective",
+        "empathy",
+        "reframe"
+      ]
+    },
+    {
+      "id": "systems-reframing",
+      "label": "Systems\nReframing",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Zooming in/out on system boundaries to change what is seen as problem vs context.",
+      "tags": [
+        "boundary",
+        "zoom",
+        "context"
+      ]
+    },
+    {
+      "id": "analogy-reasoning",
+      "label": "Analogical\nReasoning",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Using structural analogies from other domains to generate novel solutions.",
+      "tags": [
+        "analogy",
+        "transfer",
+        "biomimicry"
+      ]
+    },
+    {
+      "id": "eisenhower-matrix",
+      "label": "Eisenhower\nMatrix",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Urgency vs importance quadrant for task and project prioritisation.",
+      "tags": [
+        "urgent",
+        "important",
+        "quadrant"
+      ]
+    },
+    {
+      "id": "moscow-method",
+      "label": "MoSCoW\nMethod",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Must have / Should have / Could have / Won't have for scope management.",
+      "tags": [
+        "MoSCoW",
+        "scope",
+        "requirements"
+      ]
+    },
+    {
+      "id": "value-effort-matrix",
+      "label": "Value\u2013Effort\nMatrix",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Plotting initiatives by business value vs implementation effort to guide sequencing.",
+      "tags": [
+        "value",
+        "effort",
+        "roadmap"
+      ]
+    },
+    {
+      "id": "rapid-prototyping-ps",
+      "label": "Rapid\nPrototyping",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Build\u2013measure\u2013learn loops with minimum viable artefacts to test assumptions fast.",
+      "tags": [
+        "BML",
+        "MVP",
+        "lean"
+      ]
+    },
+    {
+      "id": "feedback-loops-ps",
+      "label": "Feedback\nLoops",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Structuring fast and slow feedback cycles to accelerate learning and adaptation.",
+      "tags": [
+        "fast-feedback",
+        "retro",
+        "learning"
+      ]
+    },
+    {
+      "id": "minimum-viable",
+      "label": "Minimum Viable\nSolution",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Defining the smallest change that tests the core hypothesis or delivers core value.",
+      "tags": [
+        "MVS",
+        "hypothesis",
+        "lean"
+      ]
+    },
+    {
+      "id": "workshop-design",
+      "label": "Workshop\nDesign",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Agenda setting, energy management, diverge\u2013converge structure and warm-ups.",
+      "tags": [
+        "agenda",
+        "energy",
+        "diverge-converge"
+      ]
+    },
+    {
+      "id": "meeting-facilitation",
+      "label": "Meeting\nFacilitation",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Parking lots, time-boxing, decision protocols and silent voting techniques.",
+      "tags": [
+        "time-boxing",
+        "decision",
+        "silent-vote"
+      ]
+    },
+    {
+      "id": "retrospectives",
+      "label": "Retrospectives",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Agile retrospective formats: Start/Stop/Continue, 4Ls, mad/sad/glad.",
+      "tags": [
+        "retro",
+        "agile",
+        "Start-Stop-Continue"
+      ]
+    },
+    {
+      "id": "timeline-reconstruction",
+      "label": "Timeline\nReconstruction",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Building a chronological event map from logs, alerts and eyewitness accounts.",
+      "tags": [
+        "timeline",
+        "logs",
+        "incident"
+      ]
+    },
+    {
+      "id": "contributing-factors",
+      "label": "Contributing\nFactors Analysis",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Moving beyond single root cause to a causal system of contributing factors.",
+      "tags": [
+        "causal",
+        "system",
+        "factors"
+      ]
+    },
+    {
+      "id": "action-items-pm",
+      "label": "Action\nItems Tracking",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "SMART action items with owners, deadlines and follow-up cadence from postmortems.",
+      "tags": [
+        "SMART",
+        "owner",
+        "follow-up"
+      ]
+    },
+    {
+      "id": "pivot-strategies",
+      "label": "Pivot\nStrategies",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Recognising when to persist vs redirect: signal types, sunk cost and strategic pivots.",
+      "tags": [
+        "pivot",
+        "sunk-cost",
+        "redirect"
+      ]
+    },
+    {
+      "id": "cognitive-flexibility",
+      "label": "Cognitive\nFlexibility",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Task-switching, reappraisal, mental set shifting and multi-framework thinking.",
+      "tags": [
+        "task-switching",
+        "reappraisal",
+        "mindset"
+      ]
+    },
+    {
+      "id": "learning-from-failure",
+      "label": "Learning\nfrom Failure",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Psychological safety, blameless culture and extracting actionable lessons from errors.",
+      "tags": [
+        "blameless",
+        "safety",
+        "lessons"
+      ]
+    },
+    {
+      "id": "kotter-model",
+      "label": "Kotter's 8-Step\nModel",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Creating urgency, building coalition, enabling action and sustaining change.",
+      "tags": [
+        "Kotter",
+        "coalition",
+        "urgency"
+      ]
+    },
+    {
+      "id": "resistance-mgmt",
+      "label": "Resistance\nManagement",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Identifying resistance sources, addressing concerns and building commitment.",
+      "tags": [
+        "resistance",
+        "commitment",
+        "concerns"
+      ]
+    },
+    {
+      "id": "stakeholder-buy-in",
+      "label": "Stakeholder\nBuy-In",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Co-creation, early wins and communication strategies to gain organisational support.",
+      "tags": [
+        "co-creation",
+        "early-win",
+        "communication"
+      ]
+    },
+    {
+      "id": "decision-trees-di",
+      "label": "Decision\nTrees",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Structuring choices as sequential decision nodes with probabilistic outcomes.",
+      "tags": [
+        "decision-node",
+        "expected-value",
+        "tree"
+      ]
+    },
+    {
+      "id": "bayesian-reasoning",
+      "label": "Bayesian\nReasoning",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Updating beliefs with evidence: prior, likelihood and posterior in everyday decisions.",
+      "tags": [
+        "Bayes",
+        "prior",
+        "posterior"
+      ]
+    },
+    {
+      "id": "heuristics",
+      "label": "Cognitive\nHeuristics",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Availability, representativeness and anchoring heuristics and when they mislead.",
+      "tags": [
+        "availability",
+        "anchoring",
+        "bias"
+      ]
+    },
+    {
+      "id": "data-interpretation",
+      "label": "Data\nInterpretation",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Reading charts correctly: avoiding Simpson's paradox, survivorship bias and base rates.",
+      "tags": [
+        "Simpson",
+        "bias",
+        "base-rate"
+      ]
+    },
+    {
+      "id": "statistical-literacy",
+      "label": "Statistical\nLiteracy",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "p-values, confidence intervals, effect sizes and common misinterpretations.",
+      "tags": [
+        "p-value",
+        "CI",
+        "effect-size"
+      ]
+    },
+    {
+      "id": "data-storytelling",
+      "label": "Data\nStorytelling",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Choosing chart types, narrative structure and audience framing for data communication.",
+      "tags": [
+        "chart",
+        "narrative",
+        "communication"
+      ]
+    },
+    {
+      "id": "fairness-ml",
+      "label": "ML\nFairness",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Demographic parity, equalised odds and counterfactual fairness metrics.",
+      "tags": [
+        "fairness",
+        "bias",
+        "demographic-parity"
+      ]
+    },
+    {
+      "id": "explainability-ai",
+      "label": "Explainability\n& XAI",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "LIME, SHAP, attention visualization and model-agnostic explanation methods.",
+      "tags": [
+        "SHAP",
+        "LIME",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "ethics-frameworks-ai",
+      "label": "AI Ethics\nFrameworks",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "IEEE Ethically Aligned Design, EU AI Act principles and value-sensitive design.",
+      "tags": [
+        "EU-AI-Act",
+        "IEEE",
+        "value-sensitive"
+      ]
+    },
+    {
+      "id": "model-cards",
+      "label": "Model\nCards",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Structured documentation of intended use, performance, limitations and biases.",
+      "tags": [
+        "documentation",
+        "transparency",
+        "bias"
+      ]
+    },
+    {
+      "id": "algorithmic-auditing",
+      "label": "Algorithmic\nAuditing",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Third-party assessment of AI systems for bias, accuracy and compliance.",
+      "tags": [
+        "audit",
+        "compliance",
+        "third-party"
+      ]
+    },
+    {
+      "id": "ai-regulation",
+      "label": "AI\nRegulation",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "EU AI Act, NIST AI RMF, sector-specific rules and compliance obligations.",
+      "tags": [
+        "EU-AI-Act",
+        "NIST",
+        "compliance"
+      ]
+    },
+    {
+      "id": "adversarial-ml",
+      "label": "Adversarial\nML",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Evasion attacks, adversarial examples, FGSM and certified robustness defences.",
+      "tags": [
+        "FGSM",
+        "evasion",
+        "robustness"
+      ]
+    },
+    {
+      "id": "model-inversion-attack",
+      "label": "Model Inversion\nAttacks",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Reconstructing training data or sensitive inputs from model outputs.",
+      "tags": [
+        "privacy",
+        "reconstruction",
+        "membership-inference"
+      ]
+    },
+    {
+      "id": "data-poisoning",
+      "label": "Data\nPoisoning",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Backdoor attacks, label flipping and defence through data sanitisation.",
+      "tags": [
+        "backdoor",
+        "label-flipping",
+        "sanitisation"
+      ]
+    },
+    {
+      "id": "predictive-maintenance",
+      "label": "Predictive\nMaintenance",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Vibration analysis, anomaly detection and remaining useful life prediction for machinery.",
+      "tags": [
+        "RUL",
+        "anomaly",
+        "vibration"
+      ]
+    },
+    {
+      "id": "quality-inspection-ai",
+      "label": "AI Quality\nInspection",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Computer vision for surface defect detection, dimensional measurement and SPC.",
+      "tags": [
+        "defect",
+        "SPC",
+        "vision"
+      ]
+    },
+    {
+      "id": "process-opt-ai",
+      "label": "Process\nOptimisation AI",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Reinforcement learning and Bayesian optimisation for industrial process control.",
+      "tags": [
+        "RL",
+        "Bayesian",
+        "process-control"
+      ]
+    },
+    {
+      "id": "digital-twin-energy",
+      "label": "Digital Twin\nfor Energy",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Real-time grid models, dynamic line rating and virtual power plant simulation.",
+      "tags": [
+        "digital-twin",
+        "grid",
+        "VPP"
+      ]
+    },
+    {
+      "id": "grid-analytics",
+      "label": "Grid\nAnalytics",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "PMU data, state estimation, fault location and predictive grid analytics.",
+      "tags": [
+        "PMU",
+        "state-estimation",
+        "fault"
+      ]
+    },
+    {
+      "id": "energy-forecasting",
+      "label": "Energy\nForecasting",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Solar and wind generation forecasting using NWP models and ML ensembles.",
+      "tags": [
+        "NWP",
+        "ensemble",
+        "solar-wind"
+      ]
+    },
+    {
+      "id": "ot-security",
+      "label": "OT\nSecurity",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "SCADA and DCS security: network segmentation, unidirectional gateways and IDS.",
+      "tags": [
+        "SCADA",
+        "DCS",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "scada-security",
+      "label": "SCADA\nHardening",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Patch management, remote access control and NERC CIP compliance for SCADA.",
+      "tags": [
+        "NERC-CIP",
+        "patching",
+        "remote-access"
+      ]
+    },
+    {
+      "id": "ics-protocols",
+      "label": "ICS Protocol\nSecurity",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Securing Modbus, DNP3, IEC 61850 and OPC-UA communications.",
+      "tags": [
+        "Modbus",
+        "DNP3",
+        "OPC-UA"
+      ]
+    },
+    {
+      "id": "privacy-by-design",
+      "label": "Privacy\nby Design",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Ann Cavoukian's 7 principles: proactive, default, embedded and full-lifecycle.",
+      "tags": [
+        "Cavoukian",
+        "proactive",
+        "default"
+      ]
+    },
+    {
+      "id": "data-minimization",
+      "label": "Data\nMinimization",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Purpose limitation, storage limits and differential privacy for minimal collection.",
+      "tags": [
+        "GDPR",
+        "differential-privacy",
+        "purpose"
+      ]
+    },
+    {
+      "id": "anonymization",
+      "label": "Anonymization\nTechniques",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "k-anonymity, l-diversity, t-closeness and synthetic data for de-identification.",
+      "tags": [
+        "k-anonymity",
+        "l-diversity",
+        "synthetic"
+      ]
+    },
+    {
+      "id": "incident-response",
+      "label": "Incident\nResponse",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "NIST IR lifecycle: prepare, detect, contain, eradicate, recover and lessons learned.",
+      "tags": [
+        "NIST",
+        "contain",
+        "eradicate"
+      ]
+    },
+    {
+      "id": "backup-recovery",
+      "label": "Backup &\nRecovery",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "RTO/RPO targets, 3-2-1 backup strategy, immutable backups and recovery testing.",
+      "tags": [
+        "RTO",
+        "RPO",
+        "immutable"
+      ]
+    },
+    {
+      "id": "business-continuity",
+      "label": "Business\nContinuity",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "BIA, continuity plans, crisis communication and exercise/testing cadence.",
+      "tags": [
+        "BIA",
+        "BCP",
+        "crisis"
+      ]
+    },
+    {
+      "id": "compliant-mechanisms",
+      "label": "Compliant\nMechanisms",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Flexure hinges, living hinges and topology-optimised compliant structures.",
+      "tags": [
+        "flexure",
+        "living-hinge",
+        "compliance"
+      ]
+    },
+    {
+      "id": "pneumatic-actuators",
+      "label": "Pneumatic\nSoft Actuators",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "McKibben muscles, PneuNets and fiber-reinforced bending actuators.",
+      "tags": [
+        "McKibben",
+        "PneuNets",
+        "silicone"
+      ]
+    },
+    {
+      "id": "soft-grippers",
+      "label": "Soft\nGrippers",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Jamming-based, tendon-driven and electroactive gripper designs for delicate grasping.",
+      "tags": [
+        "jamming",
+        "tendon",
+        "electroactive"
+      ]
+    },
+    {
+      "id": "bom-management",
+      "label": "BOM\nManagement",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Engineering BOM vs manufacturing BOM, effectivity, variant management and where-used.",
+      "tags": [
+        "eBOM",
+        "mBOM",
+        "variant"
+      ]
+    },
+    {
+      "id": "change-control-plm",
+      "label": "Change\nControl",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "ECR/ECO process: impact assessment, approval workflow and drawing release.",
+      "tags": [
+        "ECR",
+        "ECO",
+        "approval"
+      ]
+    },
+    {
+      "id": "plm-tools",
+      "label": "PLM\nTooling",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Teamcenter, Windchill, Arena and open-source PLM platforms.",
+      "tags": [
+        "Teamcenter",
+        "Windchill",
+        "Arena"
+      ]
+    },
+    {
+      "id": "iso-13485",
+      "label": "ISO 13485\nQMS",
+      "domain": "biomedical",
+      "level": 4,
+      "desc": "Quality management system requirements for design, production and post-market of medical devices.",
+      "tags": [
+        "QMS",
+        "ISO-13485",
+        "CAPA"
+      ]
+    },
+    {
+      "id": "fda-510k",
+      "label": "FDA 510(k)\nSubmission",
+      "domain": "biomedical",
+      "level": 4,
+      "desc": "Substantial equivalence pathway: predicate selection, testing and technical documentation.",
+      "tags": [
+        "FDA",
+        "510k",
+        "predicate"
+      ]
+    },
+    {
+      "id": "ce-marking",
+      "label": "CE Marking\nMDR",
+      "domain": "biomedical",
+      "level": 4,
+      "desc": "EU Medical Device Regulation 2017/745: conformity assessment, notified body and PMS.",
+      "tags": [
+        "MDR",
+        "notified-body",
+        "conformity"
+      ]
+    },
+    {
+      "id": "axiom-identification",
+      "label": "Axiom\nIdentification",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Stripping a problem to its irreducible truths before building up solutions.",
+      "tags": [
+        "axiom",
+        "foundation",
+        "fundamental"
+      ]
+    },
+    {
+      "id": "rebuilding-from-basics",
+      "label": "Rebuilding\nfrom Basics",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Reconstructing reasoning chain from verified fundamentals without assumptions.",
+      "tags": [
+        "reasoning",
+        "fundamentals",
+        "Musk"
+      ]
+    },
+    {
+      "id": "cross-domain-analogy",
+      "label": "Cross-Domain\nAnalogy",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Applying structural solutions from biology, physics or other fields to engineering.",
+      "tags": [
+        "analogy",
+        "biomimicry",
+        "transfer"
+      ]
+    },
+    {
+      "id": "t-shaped-skills",
+      "label": "T-Shaped\nSkills",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Deep expertise in one domain plus breadth across several adjacent fields.",
+      "tags": [
+        "T-shaped",
+        "breadth",
+        "depth"
+      ]
+    },
+    {
+      "id": "boundary-objects",
+      "label": "Boundary\nObjects",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Artefacts and representations that enable coordination across disciplines.",
+      "tags": [
+        "Star",
+        "boundary",
+        "coordination"
+      ]
+    },
+    {
+      "id": "knowledge-transfer",
+      "label": "Knowledge\nTransfer",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Mechanisms for transferring insights between domains: analogy, abstraction, pattern.",
+      "tags": [
+        "transfer",
+        "analogy",
+        "abstraction"
+      ]
     }
   ],
   "edges": [
@@ -5720,6 +8824,1890 @@
       "from": "documentation-practice",
       "to": "software",
       "type": "related"
+    },
+    {
+      "from": "root",
+      "to": "chem",
+      "type": "subtopic",
+      "weight": 1.5
+    },
+    {
+      "from": "chem",
+      "to": "organic-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "chem",
+      "to": "inorganic-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "chem",
+      "to": "physical-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "chem",
+      "to": "electrochemistry",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "chem",
+      "to": "polymer-science",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "chem",
+      "to": "surface-science",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "chem",
+      "to": "analytical-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "physical-chem",
+      "to": "reaction-kinetics",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "physical-chem",
+      "to": "thermochem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "analytical-chem",
+      "to": "spectroscopy",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "analytical-chem",
+      "to": "chromatography",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "surface-science",
+      "to": "catalysis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "surface-science",
+      "to": "thin-films",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "surface-science",
+      "to": "sol-gel",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "electrochemistry",
+      "to": "corrosion",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "electrochemistry",
+      "to": "battery-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "polymer-science",
+      "to": "polymer-synthesis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "polymer-science",
+      "to": "polymer-properties",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "inorganic-chem",
+      "to": "coord-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "inorganic-chem",
+      "to": "materials-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "battery-chem",
+      "to": "lithium-ion-chem",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "spectroscopy",
+      "to": "nmr-spectroscopy",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "materials-chem",
+      "to": "xrd",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "electrochemistry",
+      "to": "energy-storage",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "battery-chem",
+      "to": "bms",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "polymer-science",
+      "to": "composites",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "materials-chem",
+      "to": "materials",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "corrosion",
+      "to": "tribology",
+      "type": "bridge",
+      "weight": 0.8
+    },
+    {
+      "from": "thin-films",
+      "to": "semiconductor",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "catalysis",
+      "to": "energy-generation-storage",
+      "type": "bridge",
+      "weight": 0.8
+    },
+    {
+      "from": "thermochem",
+      "to": "thermophys",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "root",
+      "to": "systems-eng",
+      "type": "subtopic",
+      "weight": 1.5
+    },
+    {
+      "from": "systems-eng",
+      "to": "requirements-mgmt",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "sys-arch-se",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "vv-se",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "config-mgmt",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "reliability-eng",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "interface-mgmt",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "requirements-mgmt",
+      "to": "mbse",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "requirements-mgmt",
+      "to": "traceability",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "sys-arch-se",
+      "to": "trade-space",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "sys-arch-se",
+      "to": "digital-thread",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "vv-se",
+      "to": "design-reviews",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "vv-se",
+      "to": "system-integration-se",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "reliability-eng",
+      "to": "fmea",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "reliability-eng",
+      "to": "safety-analysis-se",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "reliability-eng",
+      "to": "life-cycle-cost",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mbse",
+      "to": "sysml",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "safety-analysis-se",
+      "to": "fault-tree-se",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "requirements-engineering",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "systems-thinking",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "systems-eng",
+      "to": "testing-validation",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "systems-eng",
+      "to": "product-lifecycle-management",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "vv-se",
+      "to": "testing-validation",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "reliability-eng",
+      "to": "fault-tree-analysis",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "fmea",
+      "to": "safety-analysis-se",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "systems-eng",
+      "to": "mechatronics",
+      "type": "bridge",
+      "weight": 0.8
+    },
+    {
+      "from": "systems-eng",
+      "to": "aerospace",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "digital-thread",
+      "to": "twins",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "config-mgmt",
+      "to": "ci-cd",
+      "type": "bridge",
+      "weight": 0.8
+    },
+    {
+      "from": "trade-space",
+      "to": "trade-off-analysis",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "orbital",
+      "to": "orbital-mechanics",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "orbital",
+      "to": "attitude-control",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "orbital",
+      "to": "spacecraft-power",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "orbital",
+      "to": "nanosatellites",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "orbital",
+      "to": "space-debris",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "aerospace",
+      "to": "launch-vehicles",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "orbital-mechanics",
+      "to": "delta-v-budget",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "orbital-mechanics",
+      "to": "orbit-determination",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "attitude-control",
+      "to": "gnc",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "spacecraft-power",
+      "to": "bms",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "orbit-determination",
+      "to": "kalman",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "propulsion",
+      "to": "electric-propulsion",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "propulsion",
+      "to": "liquid-rocket",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "propulsion",
+      "to": "solid-rocket",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "propulsion",
+      "to": "air-breathing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "air-breathing",
+      "to": "turbomachinery",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "liquid-rocket",
+      "to": "turbomachinery",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "turbomachinery",
+      "to": "compressor-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "turbomachinery",
+      "to": "turbine-cooling",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "turbomachinery",
+      "to": "turbopump",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "turbine-cooling",
+      "to": "thermal",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "reentry-thermal",
+      "to": "thermal-protection",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "reentry-thermal",
+      "to": "hypersonic",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "thermal-protection",
+      "to": "ablatives",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "thermal-protection",
+      "to": "thermal",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "hypersonic",
+      "to": "aerodynamics",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "aerodynamics",
+      "to": "cfd",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "aerodynamics",
+      "to": "boundary-layer",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "aerodynamics",
+      "to": "aeroelasticity",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cfd",
+      "to": "fluids",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "cfd",
+      "to": "numerical",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "aeroelasticity",
+      "to": "aerostructures",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "aeroelasticity",
+      "to": "vibration",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "aerostructures",
+      "to": "buckling-analysis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "aerostructures",
+      "to": "sandwich-panels",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "buckling-analysis",
+      "to": "fem",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "sandwich-panels",
+      "to": "composites",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "si",
+      "to": "diff-pair-routing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "si",
+      "to": "via-stitching",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "si",
+      "to": "stackup-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "emc",
+      "to": "shielding-emc",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "emc",
+      "to": "filter-emc",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "emc",
+      "to": "emissions-testing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "motors",
+      "to": "bldc-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "motors",
+      "to": "motor-drives",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "motors",
+      "to": "thermal-motor",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "motor-drives",
+      "to": "foc",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "bms",
+      "to": "cell-balancing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "bms",
+      "to": "soc-estimation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "bms",
+      "to": "battery-protection",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "soc-estimation",
+      "to": "kalman",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "opamp",
+      "to": "opamp-compensation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "opamp",
+      "to": "instrumentation-amp",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "opamp",
+      "to": "active-filters",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "dcdc",
+      "to": "buck-converter",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "dcdc",
+      "to": "boost-converter",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "dcdc",
+      "to": "gate-driver-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "asic",
+      "to": "rtl-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "asic",
+      "to": "synthesis-asic",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "asic",
+      "to": "physical-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rtl-design",
+      "to": "digital-design",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "rtl-design",
+      "to": "fpga",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "power-integrity",
+      "to": "decoupling-caps",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "power-integrity",
+      "to": "pdn-analysis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "power-integrity",
+      "to": "power-planes",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rf",
+      "to": "antenna-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rf",
+      "to": "rf-link-budget",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rf",
+      "to": "rf-matching",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rf",
+      "to": "rf-filters",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "composites",
+      "to": "layup-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "composites",
+      "to": "cure-cycle",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "composites",
+      "to": "ndt-composites",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "fatigue",
+      "to": "sn-curve",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "fatigue",
+      "to": "damage-accumulation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "fatigue",
+      "to": "fatigue-testing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "vibration",
+      "to": "modal-analysis-vib",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "vibration",
+      "to": "vibration-isolation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "vibration",
+      "to": "dynamic-balancing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "modal-analysis-vib",
+      "to": "fem",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "topology",
+      "to": "topology-opt",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "topology",
+      "to": "generative-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "topology",
+      "to": "lattice-structures",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "lattice-structures",
+      "to": "additive",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "cnc",
+      "to": "g-code-prog",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cnc",
+      "to": "toolpath-strategy",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cnc",
+      "to": "fixturing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "fluids",
+      "to": "pipe-flow-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "fluids",
+      "to": "pump-selection",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "fluids",
+      "to": "cfd-analysis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cfd-analysis",
+      "to": "cfd",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "tribology",
+      "to": "wear-mechanisms",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "tribology",
+      "to": "lubricant-selection",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "tribology",
+      "to": "surface-treatment",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "surface-treatment",
+      "to": "thin-films",
+      "type": "bridge",
+      "weight": 0.8
+    },
+    {
+      "from": "product-development",
+      "to": "design-for-manufacture",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "product-development",
+      "to": "dfmea",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "product-development",
+      "to": "tolerancing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "dfmea",
+      "to": "fmea",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "laser-manufacturing",
+      "to": "laser-cutting",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "laser-manufacturing",
+      "to": "laser-welding",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "laser-manufacturing",
+      "to": "lpbf",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "lpbf",
+      "to": "additive",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "cv",
+      "to": "object-detection",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cv",
+      "to": "semantic-segmentation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cv",
+      "to": "visual-slam",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "visual-slam",
+      "to": "slam",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "gpu-prog",
+      "to": "cuda-kernels",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "gpu-prog",
+      "to": "memory-coalescing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "gpu-prog",
+      "to": "shader-programming",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "programming-languages",
+      "to": "type-systems",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "programming-languages",
+      "to": "language-runtimes",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "programming-languages",
+      "to": "compilers",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "design-patterns",
+      "to": "creational-dp",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "design-patterns",
+      "to": "structural-dp",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "design-patterns",
+      "to": "behavioral-dp",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "backend-engineering",
+      "to": "rest-api-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "backend-engineering",
+      "to": "graphql-api",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "backend-engineering",
+      "to": "event-driven",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "frontend-engineering",
+      "to": "component-model",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "frontend-engineering",
+      "to": "state-mgmt",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "frontend-engineering",
+      "to": "web-perf",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cryptography",
+      "to": "symmetric-crypto",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cryptography",
+      "to": "asymmetric-crypto",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cryptography",
+      "to": "hash-functions",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "linux-systems",
+      "to": "kernel-modules",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "linux-systems",
+      "to": "linux-networking",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "linux-systems",
+      "to": "systemd-services",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "requirements-engineering",
+      "to": "use-case-modeling",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "requirements-engineering",
+      "to": "user-stories",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "requirements-engineering",
+      "to": "formal-specs",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mobile-development",
+      "to": "native-mobile",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mobile-development",
+      "to": "cross-platform-mobile",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mobile-development",
+      "to": "mobile-perf",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "human-computer-interaction",
+      "to": "ux-research",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "human-computer-interaction",
+      "to": "ui-design-principles",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "human-computer-interaction",
+      "to": "prototyping-ux",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rtos",
+      "to": "rtos-scheduling",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rtos",
+      "to": "rtos-ipc",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "rtos",
+      "to": "rtos-porting",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "power-transport",
+      "to": "hvdc-transmission",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "power-transport",
+      "to": "transformer-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "power-transport",
+      "to": "grid-protection",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "demand-side-management",
+      "to": "demand-response",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "demand-side-management",
+      "to": "load-forecasting",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "demand-side-management",
+      "to": "flexibility-trading",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "load-forecasting",
+      "to": "ml",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "experimental-physics",
+      "to": "measurement-uncertainty",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "experimental-physics",
+      "to": "vacuum-tech",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "experimental-physics",
+      "to": "cryogenic-systems",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cryogenic-systems",
+      "to": "quantum",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "photonic-system-design",
+      "to": "waveguide-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "photonic-system-design",
+      "to": "pic-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "photonic-system-design",
+      "to": "optical-amplification",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "problem-definition",
+      "to": "how-might-we",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "problem-definition",
+      "to": "job-stories",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "problem-definition",
+      "to": "problem-framing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "decomposition",
+      "to": "wbs",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "decomposition",
+      "to": "functional-decomp",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "decomposition",
+      "to": "hierarchical-breakdown",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "divergent-thinking",
+      "to": "brainstorming",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "divergent-thinking",
+      "to": "lateral-thinking",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "divergent-thinking",
+      "to": "scamper",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "inversion-thinking",
+      "to": "via-negativa",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "inversion-thinking",
+      "to": "failure-mode-thinking",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "inversion-thinking",
+      "to": "assumption-inversion",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "trade-off-analysis",
+      "to": "pugh-matrix",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "trade-off-analysis",
+      "to": "pareto-analysis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "trade-off-analysis",
+      "to": "weighted-criteria",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "scenario-planning",
+      "to": "wind-analysis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "scenario-planning",
+      "to": "contingency-plans",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "scenario-planning",
+      "to": "futures-thinking",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "stakeholder-mapping",
+      "to": "power-interest-grid",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "stakeholder-mapping",
+      "to": "influence-mapping",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "stakeholder-mapping",
+      "to": "raci",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "constraint-identification",
+      "to": "theory-of-constraints",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "constraint-identification",
+      "to": "bottleneck-analysis",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "constraint-identification",
+      "to": "limiting-factor",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "reframing",
+      "to": "pov-shift",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "reframing",
+      "to": "systems-reframing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "reframing",
+      "to": "analogy-reasoning",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "prioritization",
+      "to": "eisenhower-matrix",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "prioritization",
+      "to": "moscow-method",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "prioritization",
+      "to": "value-effort-matrix",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "iteration-refinement",
+      "to": "rapid-prototyping-ps",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "iteration-refinement",
+      "to": "feedback-loops-ps",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "iteration-refinement",
+      "to": "minimum-viable",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "facilitation",
+      "to": "workshop-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "facilitation",
+      "to": "meeting-facilitation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "facilitation",
+      "to": "retrospectives",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "postmortem-analysis",
+      "to": "timeline-reconstruction",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "postmortem-analysis",
+      "to": "contributing-factors",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "postmortem-analysis",
+      "to": "action-items-pm",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "adaptive-problem-solving",
+      "to": "pivot-strategies",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "adaptive-problem-solving",
+      "to": "cognitive-flexibility",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "adaptive-problem-solving",
+      "to": "learning-from-failure",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "change-management",
+      "to": "kotter-model",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "change-management",
+      "to": "resistance-mgmt",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "change-management",
+      "to": "stakeholder-buy-in",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "decision-intelligence",
+      "to": "decision-trees-di",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "decision-intelligence",
+      "to": "bayesian-reasoning",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "decision-intelligence",
+      "to": "heuristics",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "bayesian-reasoning",
+      "to": "statistics",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "data-literacy",
+      "to": "data-interpretation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "data-literacy",
+      "to": "statistical-literacy",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "data-literacy",
+      "to": "data-storytelling",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "responsible-ai",
+      "to": "fairness-ml",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "responsible-ai",
+      "to": "explainability-ai",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "responsible-ai",
+      "to": "ethics-frameworks-ai",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "ai-governance",
+      "to": "model-cards",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "ai-governance",
+      "to": "algorithmic-auditing",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "ai-governance",
+      "to": "ai-regulation",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "ai-security",
+      "to": "adversarial-ml",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "ai-security",
+      "to": "model-inversion-attack",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "ai-security",
+      "to": "data-poisoning",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "industrial-ai",
+      "to": "predictive-maintenance",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "industrial-ai",
+      "to": "quality-inspection-ai",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "industrial-ai",
+      "to": "process-opt-ai",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "predictive-maintenance",
+      "to": "ml",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "quality-inspection-ai",
+      "to": "cv",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "energy-digitalization",
+      "to": "digital-twin-energy",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "energy-digitalization",
+      "to": "grid-analytics",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "energy-digitalization",
+      "to": "energy-forecasting",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "digital-twin-energy",
+      "to": "twins",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "energy-forecasting",
+      "to": "ml",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "industrial-iot-security",
+      "to": "ot-security",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "industrial-iot-security",
+      "to": "scada-security",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "industrial-iot-security",
+      "to": "ics-protocols",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "ot-security",
+      "to": "zero-trust",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "privacy-engineering",
+      "to": "privacy-by-design",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "privacy-engineering",
+      "to": "data-minimization",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "privacy-engineering",
+      "to": "anonymization",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "anonymization",
+      "to": "synthetic-data",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "cyber-resilience",
+      "to": "incident-response",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cyber-resilience",
+      "to": "backup-recovery",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "cyber-resilience",
+      "to": "business-continuity",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "incident-response",
+      "to": "security-operations",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "soft-robotics",
+      "to": "compliant-mechanisms",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "soft-robotics",
+      "to": "pneumatic-actuators",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "soft-robotics",
+      "to": "soft-grippers",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "compliant-mechanisms",
+      "to": "topology",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "product-lifecycle-management",
+      "to": "bom-management",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "product-lifecycle-management",
+      "to": "change-control-plm",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "product-lifecycle-management",
+      "to": "plm-tools",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "medical-device-certification",
+      "to": "iso-13485",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "medical-device-certification",
+      "to": "fda-510k",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "medical-device-certification",
+      "to": "ce-marking",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "first-principles-thinking",
+      "to": "axiom-identification",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "first-principles-thinking",
+      "to": "rebuilding-from-basics",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "first-principles-thinking",
+      "to": "cross-domain-analogy",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "interdisciplinary-thinking",
+      "to": "t-shaped-skills",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "interdisciplinary-thinking",
+      "to": "boundary-objects",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "interdisciplinary-thinking",
+      "to": "knowledge-transfer",
+      "type": "subtopic",
+      "weight": 1.0
     }
   ]
 }

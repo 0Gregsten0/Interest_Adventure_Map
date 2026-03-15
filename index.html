@@ -18,8 +18,6 @@ canvas{display:block;cursor:crosshair}
 #info .pre{margin-top:5px;font-size:10px;color:#2a5070}
 #hint{position:fixed;top:16px;right:16px;background:rgba(7,13,26,.85);border:1px solid #1a3050;border-radius:8px;padding:10px 14px;font-size:11px;color:#3a5878;line-height:1.9}
 #hint kbd{background:#0d1f3a;border:1px solid #1e3a5f;border-radius:3px;padding:1px 5px;font-size:10px;color:#4a7090}
-#bc{position:fixed;top:16px;left:20px;font-size:11px;color:#2a4060;max-width:60vw}
-#bc b{color:#5a90c0}
 #legend{position:fixed;bottom:20px;right:16px;background:rgba(7,13,26,.85);border:1px solid #1a3050;border-radius:8px;padding:10px 14px;font-size:11px;line-height:2}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
 #zoomlabel{position:fixed;top:52px;right:16px;font-size:10px;color:#2a4868;text-align:right;pointer-events:none}
@@ -29,11 +27,23 @@ canvas{display:block;cursor:crosshair}
 #vfx input[type=range]{width:90px;accent-color:#2a6090;cursor:pointer}
 #vfx .vfx-val{width:34px;text-align:right;color:#4a7090;font-size:10px}
 #vfx .vfx-title{font-size:10px;color:#2a4060;letter-spacing:.6px;margin-bottom:6px;text-align:center}
+#search-wrap{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;width:260px}
+#search-input{width:100%;background:rgba(7,13,26,.92);border:1px solid #1e3a5f;border-radius:6px;padding:7px 12px;color:#6ab4ff;font-size:12px;outline:none;font-family:inherit}
+#search-input::placeholder{color:#2a4868}
+#search-input:focus{border-color:#2a7fbf;box-shadow:0 0 8px #1a4a8040}
+#search-results{background:rgba(7,13,26,.97);border:1px solid #1e3a5f;border-top:none;border-radius:0 0 6px 6px;max-height:260px;overflow-y:auto;display:none}
+.sr{padding:7px 12px;cursor:pointer;font-size:11px;color:#5a90c0;border-bottom:1px solid #0d1f3a;display:flex;align-items:center;justify-content:space-between}
+.sr:last-child{border-bottom:none}
+.sr:hover,.sr.sr-active{background:#0d1f3a;color:#6ab4ff}
+.sr-dom{font-size:9px;color:#2a4868;letter-spacing:.5px;text-transform:uppercase;margin-left:8px;flex-shrink:0}
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
-<div id="bc"></div>
+<div id="search-wrap">
+  <input id="search-input" type="text" placeholder="/ Search nodes…" autocomplete="off" spellcheck="false">
+  <div id="search-results"></div>
+</div>
 <div id="info">
   <h2 id="ititle"></h2>
   <div id="dtag"></div>
@@ -47,7 +57,8 @@ canvas{display:block;cursor:crosshair}
   <kbd>Bksp</kbd> go back<br>
   <kbd>PgUp</kbd><kbd>PgDn</kbd> zoom<br>
   <kbd>Scroll</kbd> zoom &nbsp;<kbd>Drag</kbd> pan<br>
-  <kbd>Home</kbd> reset view
+  <kbd>Home</kbd> reset view<br>
+  <kbd>/</kbd> search nodes
 </div>
 <div id="zoomlabel"></div>
 <div id="vfx">
@@ -66,6 +77,27 @@ canvas{display:block;cursor:crosshair}
     <span class="vfx-label">Orb Size</span>
     <input type="range" id="oslider" min="30" max="200" value="100">
     <span class="vfx-val" id="oval">100%</span>
+  </div>
+  <div class="vfx-row">
+    <span class="vfx-label">Depth</span>
+    <input type="range" id="dslider" min="1" max="4" value="2" step="1">
+    <span class="vfx-val" id="dval">2 hops</span>
+  </div>
+  <div class="vfx-title" style="margin-top:8px">FORCES</div>
+  <div class="vfx-row">
+    <span class="vfx-label">Repulsion</span>
+    <input type="range" id="rslider" min="1000" max="80000" value="20000" step="500">
+    <span class="vfx-val" id="rval">20k</span>
+  </div>
+  <div class="vfx-row">
+    <span class="vfx-label">Attraction</span>
+    <input type="range" id="aslider" min="1" max="100" value="16">
+    <span class="vfx-val" id="aval">16</span>
+  </div>
+  <div class="vfx-row">
+    <span class="vfx-label">Clustering</span>
+    <input type="range" id="gslider" min="0" max="40" value="4">
+    <span class="vfx-val" id="gval">4</span>
   </div>
 </div>
 <div id="legend">
@@ -99,11 +131,11 @@ const DL={mechanical:'MECHANICAL',electrical:'ELECTRICAL',it:'IT',bridge:'INTERD
 
 // ── ZOOM LEVEL THRESHOLDS ─────────────────────────────────
 // level 1→always, 2→zoom≥0.45, 3→zoom≥1.1, 4→zoom≥1.9
-const ZOOM_THR=[0, 0.45, 1.1, 1.9];
+const ZOOM_THR=[0, 0.45, 1.1, 1.9, 3.2];
 const ZOOM_FADE=0.28; // units of zoom over which node fades/grows in
 
 // Base radius per level (fully zoomed in to that level)
-const BASE_R=[0, 68, 50, 36, 24]; // index = level
+const BASE_R=[0, 68, 50, 36, 24, 16]; // index = level
 
 function zoomAlpha(level, zoom){
   const thr=ZOOM_THR[level-1];
@@ -657,21 +689,38 @@ function bfsDist(from){
 }
 
 // ── FORCE SIM ─────────────────────────────────────────────
-const REPULSE=20000, ATTRACT=0.016, CLUSTER=0.004, BOUND=900;
+let REPULSE=20000, ATTRACT=0.016, CLUSTER=0.004; const BOUND=900;
+const SEEDS={mechanical:{x:-520,y:80},electrical:{x:420,y:320},it:{x:380,y:-340},bridge:{x:0,y:0},root:{x:0,y:0},physics:{x:-940,y:-200},aerospace:{x:-340,y:-580},biomedical:{x:800,y:-80},energy:{x:80,y:720},mathematics:{x:80,y:-720},chemistry:{x:-780,y:400},systems:{x:200,y:-520}};
 
 function simStep(dist){
   const ids=Object.keys(phys);
   ids.forEach(id=>{phys[id].fx=0;phys[id].fy=0;});
 
-  // Repulsion
+  // Repulsion — spatial grid O(n·k) instead of O(n²)
+  const CELL=200;
+  const grid=new Map();
   for(let i=0;i<ids.length;i++){
-    for(let j=i+1;j<ids.length;j++){
-      const a=phys[ids[i]],b=phys[ids[j]];
-      const dx=b.x-a.x,dy=b.y-a.y;
-      const d2=Math.max(dx*dx+dy*dy,400);
-      const d=Math.sqrt(d2),f=REPULSE/d2;
-      a.fx-=f*dx/d; a.fy-=f*dy/d;
-      b.fx+=f*dx/d; b.fy+=f*dy/d;
+    const p=phys[ids[i]];
+    const key=(Math.floor(p.x/CELL)*10000+Math.floor(p.y/CELL));
+    if(!grid.has(key)) grid.set(key,[]);
+    grid.get(key).push(i);
+  }
+  for(let i=0;i<ids.length;i++){
+    const a=phys[ids[i]];
+    const cx=Math.floor(a.x/CELL), cy=Math.floor(a.y/CELL);
+    for(let ddx=-1;ddx<=1;ddx++){
+      for(let ddy=-1;ddy<=1;ddy++){
+        const neighbors=grid.get((cx+ddx)*10000+(cy+ddy))||[];
+        for(let ni=0;ni<neighbors.length;ni++){
+          const j=neighbors[ni]; if(j<=i) continue;
+          const b=phys[ids[j]];
+          const dx=b.x-a.x,dy=b.y-a.y;
+          const d2=Math.max(dx*dx+dy*dy,400);
+          const d=Math.sqrt(d2),f=REPULSE/d2;
+          a.fx-=f*dx/d; a.fy-=f*dy/d;
+          b.fx+=f*dx/d; b.fy+=f*dy/d;
+        }
+      }
     }
   }
 
@@ -686,7 +735,6 @@ function simStep(dist){
   });
 
   // Cluster gravity
-  const SEEDS={mechanical:{x:-520,y:80},electrical:{x:420,y:320},it:{x:380,y:-340},bridge:{x:0,y:0},root:{x:0,y:0},physics:{x:-940,y:-200},aerospace:{x:-340,y:-580},biomedical:{x:800,y:-80},energy:{x:80,y:720},mathematics:{x:80,y:-720}};
   ids.forEach(id=>{
     const s=SEEDS[NM[id].domain]||{x:0,y:0};
     const p=phys[id];
@@ -694,28 +742,49 @@ function simStep(dist){
     p.fy+=(s.y-p.y)*CLUSTER;
   });
 
-  // Integrate
+  // Cool forces — alpha decays each frame so the graph fully settles
+  simAlpha=Math.max(0.001, simAlpha*0.9965);
+
+  // Integrate — proper Euler: apply cooled force, then damp velocity
+  const MAX_V=10;
   ids.forEach(id=>{
     const p=phys[id];
     const d=dist[id]??99;
-    const damp=d<=1?0.05:d<=2?0.25:0.86;
-    p.vx=(p.vx+p.fx)*damp;
-    p.vy=(p.vy+p.fy)*damp;
+    // Near nodes freeze fast; far nodes cool via simAlpha
+    const damp=d<=1?0.06:d<=2?0.18:0.62;
+    p.vx=(p.vx+p.fx*simAlpha)*damp;
+    p.vy=(p.vy+p.fy*simAlpha)*damp;
+    // Velocity cap prevents runaway oscillation
+    if(p.vx>MAX_V)p.vx=MAX_V; else if(p.vx<-MAX_V)p.vx=-MAX_V;
+    if(p.vy>MAX_V)p.vy=MAX_V; else if(p.vy<-MAX_V)p.vy=-MAX_V;
     p.x+=p.vx; p.y+=p.vy;
     if(Math.abs(p.x)>BOUND) p.vx-=(p.x>0?1:-1)*2;
     if(Math.abs(p.y)>BOUND) p.vy-=(p.y>0?1:-1)*2;
   });
 }
 
-// Warm-up
+// Async warm-up: spread 300 iterations across rAF frames so page loads instantly
+// simAlpha starts at 1.0 during warmup and decays, giving a fully settled layout
 const warmDist={};DATA.nodes.forEach(n=>warmDist[n.id]=99);
-for(let i=0;i<300;i++) simStep(warmDist);
+let _warmLeft=300;
+function _warmTick(){
+  for(let i=0;i<20;i++) simStep(warmDist);
+  _warmLeft-=20;
+  if(_warmLeft>0){requestAnimationFrame(_warmTick);}
+  else{simAlpha=0.6; loop();} // start navigation with a gentle reheat
+}
+requestAnimationFrame(_warmTick);
 
 // ── STATE ─────────────────────────────────────────────────
 let focused='root', history=[];
 let camX=phys.root.x, camY=phys.root.y;
 let zoom=1, panOffX=0, panOffY=0;
 let orbScale=1;
+let maxDist=2;   // how many BFS hops away are visible
+let simAlpha=1.0; // cooling factor — decays toward 0, reheated on navigation
+// Per-distance alpha tables (index = dist)
+const NODE_ALPHA=[1,0.92,0.38,0.18,0.08];
+const EDGE_ALPHA=[0.70,0.45,0.15,0.07,0.03];
 let dist=bfsDist('root');
 
 // ── CANVAS ────────────────────────────────────────────────
@@ -735,44 +804,58 @@ function drawGrid(){
   const gs=80*zoom;
   const ox=((W/2+panOffX)%gs+gs)%gs, oy=((H/2+panOffY)%gs+gs)%gs;
   ctx.strokeStyle='#0c1628';ctx.lineWidth=1;
-  for(let x=ox-gs;x<W;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-  for(let y=oy-gs;y<H;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  ctx.beginPath();
+  for(let x=ox-gs;x<W;x+=gs){ctx.moveTo(x,0);ctx.lineTo(x,H);}
+  for(let y=oy-gs;y<H;y+=gs){ctx.moveTo(0,y);ctx.lineTo(W,y);}
+  ctx.stroke();
 }
 
 // Edge dash styles per type
 const EDGE_DASH={subtopic:[],related:[4,7],prerequisite:[2,5],bridge:[6,4]};
 
 function drawEdges(){
+  // Batch edges by style key to minimise canvas state changes
+  const batches=new Map();
   DATA.edges.forEach(e=>{
     const da=dist[e.from]??99, db=dist[e.to]??99;
-    if(Math.max(da,db)>=3) return;
-
-    // Both nodes must also pass zoom level threshold
+    if(Math.max(da,db)>maxDist) return;
     const na=NM[e.from],nb2=NM[e.to];
     const za=zoomAlpha(na.level,zoom), zb=zoomAlpha(nb2.level,zoom);
     if(za<=0||zb<=0) return;
-
-    const distAlpha=Math.max(da,db)===0?0.7:Math.max(da,db)===1?0.45:0.15;
+    const distAlpha=EDGE_ALPHA[Math.max(da,db)]||0.03;
     const alpha=distAlpha*Math.min(za,zb);
-
     const [x1,y1]=w2s(phys[e.from].x,phys[e.from].y);
     const [x2,y2]=w2s(phys[e.to].x,  phys[e.to].y);
-
-    const dc=DC[na.domain]||DC.root;
+    // Viewport cull edges — skip if both endpoints off screen
+    if(x1<-20&&x2<-20||x1>W+20&&x2>W+20||y1<-20&&y2<-20||y1>H+20&&y2>H+20) return;
     const isBridge=e.type==='bridge';
-    ctx.save();
-    ctx.globalAlpha=alpha;
-    ctx.strokeStyle=isBridge?'#7030a0':dc.stroke;
-    ctx.lineWidth=isBridge?1.5:1.0;
-    ctx.setLineDash(EDGE_DASH[e.type]||[]);
-    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
-    ctx.restore();
+    const dc=DC[na.domain]||DC.root;
+    const color=isBridge?'#7030a0':dc.stroke;
+    const lw=isBridge?1.5:1.0;
+    const dash=EDGE_DASH[e.type]||[];
+    // Round alpha to 2dp to group near-identical values
+    const aKey=Math.round(alpha*50)/50;
+    const key=`${color}|${lw}|${dash.join(',')}|${aKey}`;
+    if(!batches.has(key)) batches.set(key,{color,lw,dash,alpha:aKey,lines:[]});
+    batches.get(key).lines.push(x1,y1,x2,y2);
   });
+  batches.forEach(({color,lw,dash,alpha,lines})=>{
+    ctx.globalAlpha=alpha;
+    ctx.strokeStyle=color;
+    ctx.lineWidth=lw;
+    ctx.setLineDash(dash);
+    ctx.beginPath();
+    for(let i=0;i<lines.length;i+=4){
+      ctx.moveTo(lines[i],lines[i+1]);ctx.lineTo(lines[i+2],lines[i+3]);
+    }
+    ctx.stroke();
+  });
+  ctx.globalAlpha=1;ctx.setLineDash([]);
 }
 
 function drawNode(id){
   const d=dist[id]??99;
-  if(d>=3) return;
+  if(d>maxDist) return;
   const n=NM[id];
   const za=zoomAlpha(n.level,zoom);
   if(za<=0) return;
@@ -781,14 +864,17 @@ function drawNode(id){
   const dc=DC[n.domain]||DC.root;
   const isCenter=id===focused;
 
-  // Radius: grows with zoom-alpha, sized by level
+  // Radius: grows with zoom-alpha, sized by level; shrink nodes beyond dist 1
   const baseR=(BASE_R[n.level]||50)*orbScale;
-  const r=baseR*za*(isCenter?1:d===1?0.95:0.75);
+  const distScale=isCenter?1:d===1?0.95:d===2?0.75:0.55;
+  const r=baseR*za*distScale;
 
-  const distAlpha=d===0?1:d===1?0.92:0.38;
+  const distAlpha=NODE_ALPHA[d]||0.08;
   const alpha=distAlpha*za;
 
   const [sx,sy]=w2s(p.x,p.y);
+  // Viewport cull — skip if completely off screen
+  if(sx+r<0||sx-r>W||sy+r<0||sy-r>H) return;
   ctx.save();ctx.globalAlpha=alpha;
 
   // glow for focused
@@ -829,13 +915,15 @@ function draw(){
   ctx.clearRect(0,0,W,H);
   drawGrid();
   drawEdges();
-  // draw far→near so center is always on top
-  [2,1,0].forEach(td=>DATA.nodes.forEach(n=>{if((dist[n.id]??99)===td)drawNode(n.id);}));
+  // Bucket nodes by dist in one pass, then draw far→near so center is on top
+  const _byDist=Array.from({length:maxDist+1},()=>[]);
+  DATA.nodes.forEach(n=>{const d=dist[n.id]??99;if(d<=maxDist)_byDist[d].push(n.id);});
+  for(let td=maxDist;td>=0;td--) _byDist[td].forEach(id=>drawNode(id));
   updateHUD();
 
   // zoom level label
-  const lvlNames=['','Overview','Fields','Topics','Details'];
-  const activeLvl=zoom>=ZOOM_THR[3]?4:zoom>=ZOOM_THR[2]?3:zoom>=ZOOM_THR[1]?2:1;
+  const lvlNames=['','Overview','Fields','Topics','Details','Specifics'];
+  const activeLvl=zoom>=ZOOM_THR[4]?5:zoom>=ZOOM_THR[3]?4:zoom>=ZOOM_THR[2]?3:zoom>=ZOOM_THR[1]?2:1;
   document.getElementById('zoomlabel').textContent=
     `zoom ${zoom.toFixed(2)}× · L${activeLvl}: ${lvlNames[activeLvl]}`;
 }
@@ -860,11 +948,6 @@ function updateHUD(){
   const preEl=document.getElementById('ipre');
   preEl.textContent=pre.length?'Prereqs: '+pre.map(id=>NM[id]?.label.replace('\n',' ')).join(', '):'';
 
-  // Breadcrumb
-  const trail=[...history,focused];
-  document.getElementById('bc').innerHTML=
-    trail.map(id=>`<b>${NM[id]?.label.replace('\n',' ')}</b>`)
-         .join(' <span style="color:#1e3858"> › </span>');
 }
 
 // ── MAIN LOOP ─────────────────────────────────────────────
@@ -875,7 +958,6 @@ function loop(){
   draw();
   requestAnimationFrame(loop);
 }
-loop();
 
 // ── NAVIGATION ────────────────────────────────────────────
 function goTo(id){
@@ -883,11 +965,13 @@ function goTo(id){
   history.push(focused);
   focused=id;
   dist=bfsDist(focused);
+  simAlpha=Math.max(simAlpha,0.5); // reheat so neighbourhood re-settles
 }
 function goBack(){
   if(!history.length) return;
   focused=history.pop();
   dist=bfsDist(focused);
+  simAlpha=Math.max(simAlpha,0.5);
 }
 function navDir(angle){
   const cp=phys[focused];
@@ -903,6 +987,7 @@ function navDir(angle){
 
 // ── INPUT ─────────────────────────────────────────────────
 window.addEventListener('keydown',e=>{
+  if(document.activeElement===searchInput) return; // let search box handle its own keys
   const prevent=['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Backspace','PageUp','PageDown','Home'];
   if(prevent.includes(e.key)) e.preventDefault();
   if(e.key==='ArrowRight') navDir(0);
@@ -929,7 +1014,7 @@ canvas.addEventListener('mouseup',e=>{
   if(moved<5){
     let best=null,bd=Infinity;
     DATA.nodes.forEach(n=>{
-      if((dist[n.id]??99)>=3||zoomAlpha(n.level,zoom)<=0) return;
+      if((dist[n.id]??99)>maxDist||zoomAlpha(n.level,zoom)<=0) return;
       const [sx,sy]=w2s(phys[n.id].x,phys[n.id].y);
       const baseR=(BASE_R[n.level]||50)*orbScale;
       const r=baseR*zoomAlpha(n.level,zoom);
@@ -955,6 +1040,96 @@ function applyVfx(){
 bSlider.addEventListener('input',applyVfx);
 cSlider.addEventListener('input',applyVfx);
 oSlider.addEventListener('input',applyVfx);
+
+// ── DEPTH SLIDER ───────────────────────────────────────────
+const dSlider=document.getElementById('dslider');
+const dVal=document.getElementById('dval');
+dSlider.addEventListener('input',()=>{
+  maxDist=parseInt(dSlider.value);
+  dVal.textContent=maxDist+(maxDist===1?' hop':' hops');
+});
+
+// ── FORCE SLIDERS ──────────────────────────────────────────
+document.getElementById('rslider').addEventListener('input',function(){
+  REPULSE=parseInt(this.value);
+  const k=REPULSE>=1000?Math.round(REPULSE/1000)+'k':REPULSE;
+  document.getElementById('rval').textContent=k;
+  simAlpha=Math.max(simAlpha,0.5);
+});
+document.getElementById('aslider').addEventListener('input',function(){
+  ATTRACT=parseInt(this.value)/1000;
+  document.getElementById('aval').textContent=this.value;
+  simAlpha=Math.max(simAlpha,0.5);
+});
+document.getElementById('gslider').addEventListener('input',function(){
+  CLUSTER=parseInt(this.value)/1000;
+  document.getElementById('gval').textContent=this.value;
+  simAlpha=Math.max(simAlpha,0.5);
+});
+
+// ── SEARCH ─────────────────────────────────────────────────
+const searchInput=document.getElementById('search-input');
+const searchResults=document.getElementById('search-results');
+let searchCursor=-1;
+
+function runSearch(q){
+  const ql=q.trim().toLowerCase();
+  if(!ql){searchResults.style.display='none';return;}
+  const matches=[];
+  DATA.nodes.forEach(n=>{
+    const lbl=n.label.toLowerCase().replace('\n',' ');
+    const score=(lbl.startsWith(ql)?4:lbl.includes(ql)?3:0)+
+                (n.id.includes(ql)?2:0)+
+                ((n.tags||[]).some(t=>t.toLowerCase().includes(ql))?1:0)+
+                (n.desc.toLowerCase().includes(ql)?0.5:0);
+    if(score>0) matches.push({n,score});
+  });
+  matches.sort((a,b)=>b.score-a.score);
+  const top=matches.slice(0,12);
+  searchCursor=-1;
+  if(!top.length){searchResults.style.display='none';return;}
+  searchResults.innerHTML=top.map((m,i)=>
+    `<div class="sr" data-id="${m.n.id}" data-i="${i}">
+       <span>${m.n.label.replace('\n',' ')}</span>
+       <span class="sr-dom">${m.n.domain}</span>
+     </div>`
+  ).join('');
+  searchResults.querySelectorAll('.sr').forEach(el=>{
+    el.addEventListener('mousedown',e=>{
+      e.preventDefault();
+      goTo(el.dataset.id);
+      searchInput.value='';searchInput.blur();searchResults.style.display='none';
+    });
+  });
+  searchResults.style.display='block';
+}
+
+function updateCursor(){
+  searchResults.querySelectorAll('.sr').forEach((el,i)=>
+    el.classList.toggle('sr-active',i===searchCursor));
+}
+
+searchInput.addEventListener('input',()=>runSearch(searchInput.value));
+searchInput.addEventListener('keydown',e=>{
+  const items=searchResults.querySelectorAll('.sr');
+  if(e.key==='ArrowDown'){e.preventDefault();searchCursor=Math.min(searchCursor+1,items.length-1);updateCursor();}
+  else if(e.key==='ArrowUp'){e.preventDefault();searchCursor=Math.max(searchCursor-1,-1);updateCursor();}
+  else if(e.key==='Enter'&&items.length){
+    const t=searchCursor>=0?items[searchCursor]:items[0];
+    goTo(t.dataset.id);
+    searchInput.value='';searchInput.blur();searchResults.style.display='none';
+  } else if(e.key==='Escape'){
+    searchInput.value='';searchInput.blur();searchResults.style.display='none';
+  }
+});
+searchInput.addEventListener('blur',()=>setTimeout(()=>searchResults.style.display='none',160));
+
+// Press '/' to open search (when not typing elsewhere)
+window.addEventListener('keydown',e=>{
+  if(e.key==='/'&&document.activeElement!==searchInput&&document.activeElement.tagName!=='INPUT'){
+    e.preventDefault();searchInput.focus();
+  }
+});
 </script>
 </body>
 </html>
