@@ -23,6 +23,12 @@ canvas{display:block;cursor:crosshair}
 #legend{position:fixed;bottom:20px;right:16px;background:rgba(7,13,26,.85);border:1px solid #1a3050;border-radius:8px;padding:10px 14px;font-size:11px;line-height:2}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
 #zoomlabel{position:fixed;top:52px;right:16px;font-size:10px;color:#2a4868;text-align:right;pointer-events:none}
+#vfx{position:fixed;top:50%;right:16px;transform:translateY(-50%);background:rgba(7,13,26,.85);border:1px solid #1a3050;border-radius:8px;padding:10px 14px;font-size:11px;color:#3a5878;line-height:1.8}
+#vfx .vfx-row{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+#vfx .vfx-label{width:64px;color:#3a5878}
+#vfx input[type=range]{width:90px;accent-color:#2a6090;cursor:pointer}
+#vfx .vfx-val{width:34px;text-align:right;color:#4a7090;font-size:10px}
+#vfx .vfx-title{font-size:10px;color:#2a4060;letter-spacing:.6px;margin-bottom:6px;text-align:center}
 </style>
 </head>
 <body>
@@ -44,6 +50,24 @@ canvas{display:block;cursor:crosshair}
   <kbd>Home</kbd> reset view
 </div>
 <div id="zoomlabel"></div>
+<div id="vfx">
+  <div class="vfx-title">DISPLAY</div>
+  <div class="vfx-row">
+    <span class="vfx-label">Brightness</span>
+    <input type="range" id="bslider" min="20" max="200" value="100">
+    <span class="vfx-val" id="bval">100%</span>
+  </div>
+  <div class="vfx-row">
+    <span class="vfx-label">Contrast</span>
+    <input type="range" id="cslider" min="20" max="200" value="100">
+    <span class="vfx-val" id="cval">100%</span>
+  </div>
+  <div class="vfx-row">
+    <span class="vfx-label">Orb Size</span>
+    <input type="range" id="oslider" min="30" max="200" value="100">
+    <span class="vfx-val" id="oval">100%</span>
+  </div>
+</div>
 <div id="legend">
   <div><span class="dot" style="background:#2a7fbf"></span>Mechanical</div>
   <div><span class="dot" style="background:#bf8020"></span>Electrical</div>
@@ -691,6 +715,7 @@ for(let i=0;i<300;i++) simStep(warmDist);
 let focused='root', history=[];
 let camX=phys.root.x, camY=phys.root.y;
 let zoom=1, panOffX=0, panOffY=0;
+let orbScale=1;
 let dist=bfsDist('root');
 
 // ── CANVAS ────────────────────────────────────────────────
@@ -757,7 +782,7 @@ function drawNode(id){
   const isCenter=id===focused;
 
   // Radius: grows with zoom-alpha, sized by level
-  const baseR=BASE_R[n.level]||50;
+  const baseR=(BASE_R[n.level]||50)*orbScale;
   const r=baseR*za*(isCenter?1:d===1?0.95:0.75);
 
   const distAlpha=d===0?1:d===1?0.92:0.38;
@@ -885,14 +910,14 @@ window.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft')  navDir(Math.PI);
   if(e.key==='ArrowUp')    navDir(-Math.PI/2);
   if(e.key==='Backspace')  goBack();
-  if(e.key==='PageUp')   { zoom=Math.min(3,zoom*1.2); }
-  if(e.key==='PageDown') { zoom=Math.max(.15,zoom/1.2); }
+  if(e.key==='PageUp')   { zoom=Math.min(8,zoom*1.2); }
+  if(e.key==='PageDown') { zoom=Math.max(.03,zoom/1.2); }
   if(e.key==='Home')     { panOffX=0;panOffY=0;zoom=1; }
 });
 
 canvas.addEventListener('wheel',e=>{
   e.preventDefault();
-  zoom=Math.max(.15,Math.min(3,zoom*(e.deltaY<0?1.1:.9)));
+  zoom=Math.max(.03,Math.min(8,zoom*(e.deltaY<0?1.1:.9)));
 },{passive:false});
 
 let drag=false,ds={x:0,y:0},lp={x:0,y:0};
@@ -906,7 +931,7 @@ canvas.addEventListener('mouseup',e=>{
     DATA.nodes.forEach(n=>{
       if((dist[n.id]??99)>=3||zoomAlpha(n.level,zoom)<=0) return;
       const [sx,sy]=w2s(phys[n.id].x,phys[n.id].y);
-      const baseR=BASE_R[n.level]||50;
+      const baseR=(BASE_R[n.level]||50)*orbScale;
       const r=baseR*zoomAlpha(n.level,zoom);
       const dd=Math.hypot(e.clientX-sx,e.clientY-sy);
       if(dd<r+8&&dd<bd){best=n.id;bd=dd;}
@@ -915,6 +940,21 @@ canvas.addEventListener('mouseup',e=>{
   }
 });
 canvas.addEventListener('mouseleave',()=>{drag=false;});
+
+// ── BRIGHTNESS / CONTRAST / ORB SIZE ──────────────────────
+const bSlider=document.getElementById('bslider');
+const cSlider=document.getElementById('cslider');
+const oSlider=document.getElementById('oslider');
+function applyVfx(){
+  canvas.style.filter=`brightness(${bSlider.value}%) contrast(${cSlider.value}%)`;
+  document.getElementById('bval').textContent=bSlider.value+'%';
+  document.getElementById('cval').textContent=cSlider.value+'%';
+  orbScale=oSlider.value/100;
+  document.getElementById('oval').textContent=oSlider.value+'%';
+}
+bSlider.addEventListener('input',applyVfx);
+cSlider.addEventListener('input',applyVfx);
+oSlider.addEventListener('input',applyVfx);
 </script>
 </body>
 </html>

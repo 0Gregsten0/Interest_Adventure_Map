@@ -1,675 +1,5725 @@
 {
   "_comment": "Source of truth for nodes/edges. Sync DATA object in index.html after edits here.",
-
   "domains": {
-    "mechanical": {"stroke":"#2a7fbf", "description":"Physical systems, materials, manufacturing, fluids, structures"},
-    "electrical":  {"stroke":"#bf8020", "description":"Circuits, power, RF, PCB, sensors, semiconductors"},
-    "it":          {"stroke":"#20a060", "description":"Software, algorithms, networking, AI/ML, data"},
-    "bridge":      {"stroke":"#9040c0", "description":"Interdisciplinary topics spanning 2+ domains"},
-    "physics":     {"stroke":"#20b0b0", "description":"Foundational physical theory underlying all engineering"},
-    "aerospace":   {"stroke":"#c06020", "description":"Flight, space, propulsion, aerostructures, GNC"},
-    "biomedical":  {"stroke":"#c03070", "description":"Medical devices, biomechanics, biosensors, neurotech"},
-    "energy":      {"stroke":"#70a020", "description":"Renewables, storage, grids, hydrogen, power systems"},
-    "mathematics": {"stroke":"#a09020", "description":"The language underlying all quantitative engineering"},
-    "root":        {"stroke":"#4060a0", "description":"Top-level entry points"}
+    "mechanical": {
+      "stroke": "#2a7fbf",
+      "description": "Physical systems, materials, manufacturing, fluids, structures"
+    },
+    "electrical": {
+      "stroke": "#bf8020",
+      "description": "Circuits, power, RF, PCB, sensors, semiconductors"
+    },
+    "it": {
+      "stroke": "#20a060",
+      "description": "Software, algorithms, networking, AI/ML, data"
+    },
+    "bridge": {
+      "stroke": "#9040c0",
+      "description": "Interdisciplinary topics spanning 2+ domains"
+    },
+    "physics": {
+      "stroke": "#20b0b0",
+      "description": "Foundational physical theory underlying all engineering"
+    },
+    "aerospace": {
+      "stroke": "#c06020",
+      "description": "Flight, space, propulsion, aerostructures, GNC"
+    },
+    "biomedical": {
+      "stroke": "#c03070",
+      "description": "Medical devices, biomechanics, biosensors, neurotech"
+    },
+    "energy": {
+      "stroke": "#70a020",
+      "description": "Renewables, storage, grids, hydrogen, power systems"
+    },
+    "mathematics": {
+      "stroke": "#a09020",
+      "description": "The language underlying all quantitative engineering"
+    },
+    "root": {
+      "stroke": "#4060a0",
+      "description": "Top-level entry points"
+    }
   },
-
   "nodes": [
-
-    { "id": "root",         "label": "Engineering\nDisciplines", "domain": "root",       "level": 1,
+    {
+      "id": "root",
+      "label": "Engineering\nDisciplines",
+      "domain": "root",
+      "level": 1,
       "desc": "The intersection of all engineering and tech disciplines. Navigate to explore fields and their connections.",
-      "seed": {"x":0, "y":0} },
-
-    { "id": "mech",         "label": "Mechanical\nEngineering",  "domain": "mechanical", "level": 1,
-      "desc": "Design and analysis of physical systems — mechanics, thermodynamics, materials, manufacturing.",
-      "tags": ["engineering","physical"], "seed": {"x":-520, "y":80} },
-
-    { "id": "elec",         "label": "Electrical\nEngineering",  "domain": "electrical", "level": 1,
-      "desc": "Design of electrical systems, circuits, and power — from high-voltage to microelectronics.",
-      "tags": ["engineering","circuits"], "seed": {"x":420, "y":320} },
-
-    { "id": "it",           "label": "Information\nTechnology",  "domain": "it",         "level": 1,
-      "desc": "Software, algorithms, networking, data — from cloud infrastructure to bare-metal firmware.",
-      "tags": ["software","computing"], "seed": {"x":380, "y":-340} },
-
-    { "id": "physics",      "label": "Physics",                  "domain": "physics",    "level": 1,
+      "seed": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "mech",
+      "label": "Mechanical\nEngineering",
+      "domain": "mechanical",
+      "level": 1,
+      "desc": "Design and analysis of physical systems \u2014 mechanics, thermodynamics, materials, manufacturing.",
+      "tags": [
+        "engineering",
+        "physical"
+      ],
+      "seed": {
+        "x": -520,
+        "y": 80
+      }
+    },
+    {
+      "id": "elec",
+      "label": "Electrical\nEngineering",
+      "domain": "electrical",
+      "level": 1,
+      "desc": "Design of electrical systems, circuits, and power \u2014 from high-voltage to microelectronics.",
+      "tags": [
+        "engineering",
+        "circuits"
+      ],
+      "seed": {
+        "x": 420,
+        "y": 320
+      }
+    },
+    {
+      "id": "it",
+      "label": "Information\nTechnology",
+      "domain": "it",
+      "level": 1,
+      "desc": "Software, algorithms, networking, data \u2014 from cloud infrastructure to bare-metal firmware.",
+      "tags": [
+        "software",
+        "computing"
+      ],
+      "seed": {
+        "x": 380,
+        "y": -340
+      }
+    },
+    {
+      "id": "physics",
+      "label": "Physics",
+      "domain": "physics",
+      "level": 1,
       "desc": "The foundational science underlying all engineering. From classical mechanics to electromagnetism, thermodynamics, and quantum effects.",
-      "tags": ["science","foundation"], "seed": {"x":-940, "y":-200} },
-
-    { "id": "aerospace",    "label": "Aerospace\nEngineering",   "domain": "aerospace",  "level": 1,
+      "tags": [
+        "science",
+        "foundation"
+      ],
+      "seed": {
+        "x": -940,
+        "y": -200
+      }
+    },
+    {
+      "id": "aerospace",
+      "label": "Aerospace\nEngineering",
+      "domain": "aerospace",
+      "level": 1,
       "desc": "Design of aircraft and spacecraft. Combines aerodynamics, propulsion, structures, GNC, and materials at extreme performance margins.",
-      "tags": ["flight","space","aircraft"], "seed": {"x":-340, "y":-580} },
-
-    { "id": "biomedical",   "label": "Biomedical\nEngineering",  "domain": "biomedical", "level": 1,
+      "tags": [
+        "flight",
+        "space",
+        "aircraft"
+      ],
+      "seed": {
+        "x": -340,
+        "y": -580
+      }
+    },
+    {
+      "id": "biomedical",
+      "label": "Biomedical\nEngineering",
+      "domain": "biomedical",
+      "level": 1,
       "desc": "Engineering applied to medicine and biology. Medical devices, implants, diagnostics, prosthetics, and bioinformatics.",
-      "tags": ["medicine","biology","devices"], "seed": {"x":800, "y":-80} },
-
-    { "id": "energy",       "label": "Energy\nSystems",          "domain": "energy",     "level": 1,
+      "tags": [
+        "medicine",
+        "biology",
+        "devices"
+      ],
+      "seed": {
+        "x": 800,
+        "y": -80
+      }
+    },
+    {
+      "id": "energy",
+      "label": "Energy\nSystems",
+      "domain": "energy",
+      "level": 1,
       "desc": "Generation, storage, and distribution of energy. Renewables, grid infrastructure, hydrogen, and sustainable power.",
-      "tags": ["renewables","power","sustainability"], "seed": {"x":80, "y":720} },
-
-    { "id": "mathematics",  "label": "Mathematics",              "domain": "mathematics","level": 1,
+      "tags": [
+        "renewables",
+        "power",
+        "sustainability"
+      ],
+      "seed": {
+        "x": 80,
+        "y": 720
+      }
+    },
+    {
+      "id": "mathematics",
+      "label": "Mathematics",
+      "domain": "mathematics",
+      "level": 1,
       "desc": "The universal language of engineering. Linear algebra, calculus, statistics, and numerical methods underpin every technical discipline.",
-      "tags": ["foundation","theory"], "seed": {"x":80, "y":-720} },
-
-    { "id": "embedded",     "label": "Embedded\nSystems",        "domain": "bridge",     "level": 1,
+      "tags": [
+        "foundation",
+        "theory"
+      ],
+      "seed": {
+        "x": 80,
+        "y": -720
+      }
+    },
+    {
+      "id": "embedded",
+      "label": "Embedded\nSystems",
+      "domain": "bridge",
+      "level": 1,
       "desc": "The crossroads of HW and SW. MCUs (STM32, ESP32, RP2040), HAL, drivers, real-time constraints.",
-      "tags": ["hardware","software","microcontroller"], "seed": {"x":-60, "y":120} },
-
-    { "id": "robotics",     "label": "Robotics",                 "domain": "bridge",     "level": 1,
+      "tags": [
+        "hardware",
+        "software",
+        "microcontroller"
+      ],
+      "seed": {
+        "x": -60,
+        "y": 120
+      }
+    },
+    {
+      "id": "robotics",
+      "label": "Robotics",
+      "domain": "bridge",
+      "level": 1,
       "desc": "Mechanical structure + electrical actuation + sensing + AI control. Arms, mobile robots, drones.",
-      "tags": ["automation","mechatronics","ai"], "seed": {"x":-80, "y":-80} },
-
-    { "id": "mechatronics", "label": "Mecha-\ntronics",          "domain": "bridge",     "level": 1,
+      "tags": [
+        "automation",
+        "mechatronics",
+        "ai"
+      ],
+      "seed": {
+        "x": -80,
+        "y": -80
+      }
+    },
+    {
+      "id": "mechatronics",
+      "label": "Mecha-\ntronics",
+      "domain": "bridge",
+      "level": 1,
       "desc": "Integration of mechanical and electrical engineering. Servo systems, CNC, industrial automation.",
-      "tags": ["integration","automation"], "seed": {"x":-200, "y":250} },
-
-    { "id": "industry4",    "label": "Industry 4.0",             "domain": "bridge",     "level": 1,
+      "tags": [
+        "integration",
+        "automation"
+      ],
+      "seed": {
+        "x": -200,
+        "y": 250
+      }
+    },
+    {
+      "id": "industry4",
+      "label": "Industry 4.0",
+      "domain": "bridge",
+      "level": 1,
       "desc": "The fourth industrial revolution: smart factories, digital threads, cyber-physical systems, and AI-driven manufacturing.",
-      "tags": ["manufacturing","digital","automation"], "seed": {"x":-180, "y":440} },
-
-
-    { "id": "lightweight",  "label": "Lightweight\nStructures",  "domain": "mechanical", "level": 2,
+      "tags": [
+        "manufacturing",
+        "digital",
+        "automation"
+      ],
+      "seed": {
+        "x": -180,
+        "y": 440
+      }
+    },
+    {
+      "id": "lightweight",
+      "label": "Lightweight\nStructures",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "Maximizing strength-to-weight ratio. Critical for aerospace, automotive, and wearable robotics.",
-      "tags": ["structures","weight","aerospace"], "seed": {"x":-680, "y":-120} },
-
-    { "id": "materials",    "label": "Material\nSelection",      "domain": "mechanical", "level": 2,
+      "tags": [
+        "structures",
+        "weight",
+        "aerospace"
+      ],
+      "seed": {
+        "x": -680,
+        "y": -120
+      }
+    },
+    {
+      "id": "materials",
+      "label": "Material\nSelection",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "Systematic property evaluation via Ashby charts. Mechanical, thermal, electrical tradeoffs.",
-      "tags": ["materials","selection","ashby"], "seed": {"x":-700, "y":80} },
-
-    { "id": "thermal",      "label": "Thermal\nManagement",      "domain": "mechanical", "level": 2,
+      "tags": [
+        "materials",
+        "selection",
+        "ashby"
+      ],
+      "seed": {
+        "x": -700,
+        "y": 80
+      }
+    },
+    {
+      "id": "thermal",
+      "label": "Thermal\nManagement",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "Heat transfer, cooling systems, heat pipes, TIMs. Essential for electronics and high-power systems.",
-      "tags": ["heat","cooling","thermal"], "seed": {"x":-560, "y":260} },
-
-    { "id": "additive",     "label": "Additive\nMfg.",           "domain": "mechanical", "level": 2,
+      "tags": [
+        "heat",
+        "cooling",
+        "thermal"
+      ],
+      "seed": {
+        "x": -560,
+        "y": 260
+      }
+    },
+    {
+      "id": "additive",
+      "label": "Additive\nMfg.",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "FDM, SLA, SLS, DMLS. Complex geometries impossible with subtractive methods.",
-      "tags": ["3dprinting","manufacturing","prototyping"], "seed": {"x":-400, "y":300} },
-
-    { "id": "cnc",          "label": "CNC\nMachining",           "domain": "mechanical", "level": 2,
+      "tags": [
+        "3dprinting",
+        "manufacturing",
+        "prototyping"
+      ],
+      "seed": {
+        "x": -400,
+        "y": 300
+      }
+    },
+    {
+      "id": "cnc",
+      "label": "CNC\nMachining",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "Computer-controlled milling and turning. High-precision metal and plastic parts.",
-      "tags": ["manufacturing","precision","subtractive"], "seed": {"x":-580, "y":360} },
-
-    { "id": "fluids",       "label": "Fluid\nDynamics",          "domain": "mechanical", "level": 2,
+      "tags": [
+        "manufacturing",
+        "precision",
+        "subtractive"
+      ],
+      "seed": {
+        "x": -580,
+        "y": 360
+      }
+    },
+    {
+      "id": "fluids",
+      "label": "Fluid\nDynamics",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "CFD, aerodynamics, hydraulics. Essential for cooling loops and aerodynamic design.",
-      "tags": ["cfd","aerodynamics","simulation"], "seed": {"x":-440, "y":220} },
-
-    { "id": "kinematics",   "label": "Kinematics &\nDynamics",   "domain": "mechanical", "level": 2,
+      "tags": [
+        "cfd",
+        "aerodynamics",
+        "simulation"
+      ],
+      "seed": {
+        "x": -440,
+        "y": 220
+      }
+    },
+    {
+      "id": "kinematics",
+      "label": "Kinematics &\nDynamics",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "Motion analysis with and without forces. Foundation for robot arms and linkage design.",
-      "tags": ["motion","mechanisms","dynamics"], "seed": {"x":-380, "y":-80} },
-
-    { "id": "tribology",    "label": "Tribology",                "domain": "mechanical", "level": 2,
+      "tags": [
+        "motion",
+        "mechanisms",
+        "dynamics"
+      ],
+      "seed": {
+        "x": -380,
+        "y": -80
+      }
+    },
+    {
+      "id": "tribology",
+      "label": "Tribology",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "Friction, wear, and lubrication. Critical for bearings, gears, seals, and long-life mechanical systems.",
-      "tags": ["friction","wear","lubrication"], "seed": {"x":-660, "y":200} },
-
-    { "id": "mems",         "label": "MEMS",                     "domain": "mechanical", "level": 2,
+      "tags": [
+        "friction",
+        "wear",
+        "lubrication"
+      ],
+      "seed": {
+        "x": -660,
+        "y": 200
+      }
+    },
+    {
+      "id": "mems",
+      "label": "MEMS",
+      "domain": "mechanical",
+      "level": 2,
       "desc": "Micro-Electro-Mechanical Systems. Microscale sensors and actuators fabricated with semiconductor processes.",
-      "tags": ["micro","fabrication","sensors"], "seed": {"x":-480, "y":-200} },
-
-
-    { "id": "pcb",          "label": "PCB\nDesign",              "domain": "electrical", "level": 2,
+      "tags": [
+        "micro",
+        "fabrication",
+        "sensors"
+      ],
+      "seed": {
+        "x": -480,
+        "y": -200
+      }
+    },
+    {
+      "id": "pcb",
+      "label": "PCB\nDesign",
+      "domain": "electrical",
+      "level": 2,
       "desc": "Schematic capture, layout, routing, DRC. Signal integrity, impedance, manufacturing rules.",
-      "tags": ["pcb","hardware","layout"], "seed": {"x":300, "y":420} },
-
-    { "id": "power",        "label": "Power\nElectronics",       "domain": "electrical", "level": 2,
+      "tags": [
+        "pcb",
+        "hardware",
+        "layout"
+      ],
+      "seed": {
+        "x": 300,
+        "y": 420
+      }
+    },
+    {
+      "id": "power",
+      "label": "Power\nElectronics",
+      "domain": "electrical",
+      "level": 2,
       "desc": "DC-DC converters, inverters, motor drives. High-efficiency energy conversion.",
-      "tags": ["power","converters","efficiency"], "seed": {"x":560, "y":420} },
-
-    { "id": "sensors",      "label": "Sensors &\nMeasurement",   "domain": "electrical", "level": 2,
+      "tags": [
+        "power",
+        "converters",
+        "efficiency"
+      ],
+      "seed": {
+        "x": 560,
+        "y": 420
+      }
+    },
+    {
+      "id": "sensors",
+      "label": "Sensors &\nMeasurement",
+      "domain": "electrical",
+      "level": 2,
       "desc": "IMUs, encoders, load cells, pressure/temperature/current sensors.",
-      "tags": ["sensors","measurement","transducers"], "seed": {"x":480, "y":180} },
-
-    { "id": "analog",       "label": "Analog\nCircuits",         "domain": "electrical", "level": 2,
+      "tags": [
+        "sensors",
+        "measurement",
+        "transducers"
+      ],
+      "seed": {
+        "x": 480,
+        "y": 180
+      }
+    },
+    {
+      "id": "analog",
+      "label": "Analog\nCircuits",
+      "domain": "electrical",
+      "level": 2,
       "desc": "Op-amps, filters, ADC/DAC, signal conditioning. Bridge between physics and digital.",
-      "tags": ["analog","opamp","filter"], "seed": {"x":620, "y":240} },
-
-    { "id": "rf",           "label": "RF &\nWireless",           "domain": "electrical", "level": 2,
+      "tags": [
+        "analog",
+        "opamp",
+        "filter"
+      ],
+      "seed": {
+        "x": 620,
+        "y": 240
+      }
+    },
+    {
+      "id": "rf",
+      "label": "RF &\nWireless",
+      "domain": "electrical",
+      "level": 2,
       "desc": "Antenna theory, Bluetooth, WiFi, LoRa, 5G. Sub-GHz IoT to mmWave radar.",
-      "tags": ["rf","wireless","antenna"], "seed": {"x":600, "y":380} },
-
-    { "id": "fpga",         "label": "FPGA\nDesign",             "domain": "electrical", "level": 2,
+      "tags": [
+        "rf",
+        "wireless",
+        "antenna"
+      ],
+      "seed": {
+        "x": 600,
+        "y": 380
+      }
+    },
+    {
+      "id": "fpga",
+      "label": "FPGA\nDesign",
+      "domain": "electrical",
+      "level": 2,
       "desc": "Reconfigurable hardware logic. VHDL/Verilog, timing closure, parallel data processing.",
-      "tags": ["fpga","digital","hdl","reconfigurable"], "seed": {"x":500, "y":60} },
-
-    { "id": "semiconductor","label": "Semiconductor\nDevices",   "domain": "electrical", "level": 2,
+      "tags": [
+        "fpga",
+        "digital",
+        "hdl",
+        "reconfigurable"
+      ],
+      "seed": {
+        "x": 500,
+        "y": 60
+      }
+    },
+    {
+      "id": "semiconductor",
+      "label": "Semiconductor\nDevices",
+      "domain": "electrical",
+      "level": 2,
       "desc": "Transistors, diodes, MOSFETs, BJTs. Device physics from doping profiles to I-V characteristics.",
-      "tags": ["semiconductor","transistor","physics"], "seed": {"x":680, "y":140} },
-
-
-    { "id": "software",     "label": "Software\nDevelopment",    "domain": "it",         "level": 2,
+      "tags": [
+        "semiconductor",
+        "transistor",
+        "physics"
+      ],
+      "seed": {
+        "x": 680,
+        "y": 140
+      }
+    },
+    {
+      "id": "software",
+      "label": "Software\nDevelopment",
+      "domain": "it",
+      "level": 2,
       "desc": "Paradigms, design patterns, version control. Python, Rust, C/C++ for systems programming.",
-      "tags": ["software","programming"], "seed": {"x":240, "y":-400} },
-
-    { "id": "algorithms",   "label": "Algorithms &\nData Struct","domain": "it",         "level": 2,
+      "tags": [
+        "software",
+        "programming"
+      ],
+      "seed": {
+        "x": 240,
+        "y": -400
+      }
+    },
+    {
+      "id": "algorithms",
+      "label": "Algorithms &\nData Struct",
+      "domain": "it",
+      "level": 2,
       "desc": "Sorting, search, graph algorithms, dynamic programming. Foundation of efficient computing.",
-      "tags": ["algorithms","cs"], "seed": {"x":440, "y":-420} },
-
-    { "id": "ml",           "label": "Machine\nLearning",        "domain": "it",         "level": 2,
+      "tags": [
+        "algorithms",
+        "cs"
+      ],
+      "seed": {
+        "x": 440,
+        "y": -420
+      }
+    },
+    {
+      "id": "ml",
+      "label": "Machine\nLearning",
+      "domain": "it",
+      "level": 2,
       "desc": "Neural networks, CNNs, transformers. From anomaly detection to generative AI.",
-      "tags": ["ml","ai","deeplearning"], "seed": {"x":560, "y":-300} },
-
-    { "id": "networking",   "label": "Networking &\nProtocols",  "domain": "it",         "level": 2,
+      "tags": [
+        "ml",
+        "ai",
+        "deeplearning"
+      ],
+      "seed": {
+        "x": 560,
+        "y": -300
+      }
+    },
+    {
+      "id": "networking",
+      "label": "Networking &\nProtocols",
+      "domain": "it",
+      "level": 2,
       "desc": "TCP/IP, CAN bus, SPI, I2C, UART, Ethernet. Chip-level to internet-scale.",
-      "tags": ["networking","protocols"], "seed": {"x":200, "y":-260} },
-
-    { "id": "security",     "label": "Cyber-\nsecurity",         "domain": "it",         "level": 2,
+      "tags": [
+        "networking",
+        "protocols"
+      ],
+      "seed": {
+        "x": 200,
+        "y": -260
+      }
+    },
+    {
+      "id": "security",
+      "label": "Cyber-\nsecurity",
+      "domain": "it",
+      "level": 2,
       "desc": "Firmware security, secure boot, encryption, vulnerability analysis.",
-      "tags": ["security","firmware"], "seed": {"x":340, "y":-200} },
-
-    { "id": "rtos",         "label": "Real-Time\nSystems",       "domain": "it",         "level": 2,
+      "tags": [
+        "security",
+        "firmware"
+      ],
+      "seed": {
+        "x": 340,
+        "y": -200
+      }
+    },
+    {
+      "id": "rtos",
+      "label": "Real-Time\nSystems",
+      "domain": "it",
+      "level": 2,
       "desc": "Deterministic timing, FreeRTOS/Zephyr, interrupt handling, task scheduling.",
-      "tags": ["rtos","realtime"], "seed": {"x":100, "y":-160} },
-
-    { "id": "cloud",        "label": "Cloud\nComputing",         "domain": "it",         "level": 2,
+      "tags": [
+        "rtos",
+        "realtime"
+      ],
+      "seed": {
+        "x": 100,
+        "y": -160
+      }
+    },
+    {
+      "id": "cloud",
+      "label": "Cloud\nComputing",
+      "domain": "it",
+      "level": 2,
       "desc": "Distributed compute, storage, and services (AWS/GCP/Azure). Microservices, containers, serverless.",
-      "tags": ["cloud","aws","devops"], "seed": {"x":560, "y":-460} },
-
-    { "id": "data-eng",     "label": "Data\nEngineering",        "domain": "it",         "level": 2,
+      "tags": [
+        "cloud",
+        "aws",
+        "devops"
+      ],
+      "seed": {
+        "x": 560,
+        "y": -460
+      }
+    },
+    {
+      "id": "data-eng",
+      "label": "Data\nEngineering",
+      "domain": "it",
+      "level": 2,
       "desc": "Pipelines, warehousing, streaming (Kafka, Spark). Turning raw data into analysis-ready datasets.",
-      "tags": ["data","pipelines","analytics"], "seed": {"x":680, "y":-400} },
-
-    { "id": "hpc",          "label": "HPC &\nParallel Comp.",    "domain": "it",         "level": 2,
+      "tags": [
+        "data",
+        "pipelines",
+        "analytics"
+      ],
+      "seed": {
+        "x": 680,
+        "y": -400
+      }
+    },
+    {
+      "id": "hpc",
+      "label": "HPC &\nParallel Comp.",
+      "domain": "it",
+      "level": 2,
       "desc": "High-performance computing, MPI, OpenMP, GPU clusters. Essential for simulation and large ML workloads.",
-      "tags": ["hpc","parallel","gpu"], "seed": {"x":700, "y":-280} },
-
-
-    { "id": "control",      "label": "Control\nSystems",         "domain": "bridge",     "level": 2,
+      "tags": [
+        "hpc",
+        "parallel",
+        "gpu"
+      ],
+      "seed": {
+        "x": 700,
+        "y": -280
+      }
+    },
+    {
+      "id": "control",
+      "label": "Control\nSystems",
+      "domain": "bridge",
+      "level": 2,
       "desc": "PID, state-space, Kalman filters. Bridges physical plant dynamics with digital algorithms.",
-      "tags": ["control","pid","feedback"], "seed": {"x":60, "y":60} },
-
-    { "id": "iot",          "label": "Internet\nof Things",      "domain": "bridge",     "level": 2,
+      "tags": [
+        "control",
+        "pid",
+        "feedback"
+      ],
+      "seed": {
+        "x": 60,
+        "y": 60
+      }
+    },
+    {
+      "id": "iot",
+      "label": "Internet\nof Things",
+      "domain": "bridge",
+      "level": 2,
       "desc": "Connected embedded devices with cloud backends. Sensor nets, MQTT, OTA updates.",
-      "tags": ["iot","connected","cloud"], "seed": {"x":160, "y":180} },
-
-    { "id": "twins",        "label": "Digital\nTwins",           "domain": "bridge",     "level": 2,
+      "tags": [
+        "iot",
+        "connected",
+        "cloud"
+      ],
+      "seed": {
+        "x": 160,
+        "y": 180
+      }
+    },
+    {
+      "id": "twins",
+      "label": "Digital\nTwins",
+      "domain": "bridge",
+      "level": 2,
       "desc": "Real-time virtual replicas of physical systems. CAD + simulation + sensor data + ML.",
-      "tags": ["simulation","digital"], "seed": {"x":-100, "y":-200} },
-
-    { "id": "autonomous",   "label": "Autonomous\nSystems",      "domain": "bridge",     "level": 2,
+      "tags": [
+        "simulation",
+        "digital"
+      ],
+      "seed": {
+        "x": -100,
+        "y": -200
+      }
+    },
+    {
+      "id": "autonomous",
+      "label": "Autonomous\nSystems",
+      "domain": "bridge",
+      "level": 2,
       "desc": "Self-driving vehicles, drones, inspection robots. Perception + planning + control + hardware.",
-      "tags": ["autonomous","navigation"], "seed": {"x":140, "y":-120} },
-
-    { "id": "edgeai",       "label": "Edge AI &\nTinyML",        "domain": "bridge",     "level": 2,
+      "tags": [
+        "autonomous",
+        "navigation"
+      ],
+      "seed": {
+        "x": 140,
+        "y": -120
+      }
+    },
+    {
+      "id": "edgeai",
+      "label": "Edge AI &\nTinyML",
+      "domain": "bridge",
+      "level": 2,
       "desc": "Neural nets on MCUs and embedded GPUs. TF Lite, ONNX, quantization.",
-      "tags": ["ai","embedded","tinyml"], "seed": {"x":300, "y":-60} },
-
-    { "id": "wearables",    "label": "Wearable\nTech",           "domain": "bridge",     "level": 2,
+      "tags": [
+        "ai",
+        "embedded",
+        "tinyml"
+      ],
+      "seed": {
+        "x": 300,
+        "y": -60
+      }
+    },
+    {
+      "id": "wearables",
+      "label": "Wearable\nTech",
+      "domain": "bridge",
+      "level": 2,
       "desc": "Body-worn electronics combining miniaturized sensors, BLE, flexible PCBs, and low-power MCUs.",
-      "tags": ["wearable","health","iot"], "seed": {"x":520, "y":80} },
-
-    { "id": "smart-mfg",   "label": "Smart\nManufacturing",      "domain": "bridge",     "level": 2,
+      "tags": [
+        "wearable",
+        "health",
+        "iot"
+      ],
+      "seed": {
+        "x": 520,
+        "y": 80
+      }
+    },
+    {
+      "id": "smart-mfg",
+      "label": "Smart\nManufacturing",
+      "domain": "bridge",
+      "level": 2,
       "desc": "AI-driven production lines, predictive maintenance, real-time quality control, and digital workflows.",
-      "tags": ["manufacturing","ai","automation"], "seed": {"x":-300, "y":500} },
-
-
-    { "id": "aerodynamics", "label": "Aero-\ndynamics",          "domain": "aerospace",  "level": 2,
+      "tags": [
+        "manufacturing",
+        "ai",
+        "automation"
+      ],
+      "seed": {
+        "x": -300,
+        "y": 500
+      }
+    },
+    {
+      "id": "aerodynamics",
+      "label": "Aero-\ndynamics",
+      "domain": "aerospace",
+      "level": 2,
       "desc": "Subsonic, transonic, supersonic and hypersonic flow. Lift, drag, boundary layers, shock waves.",
-      "tags": ["flight","cfd","lift"], "seed": {"x":-220, "y":-680} },
-
-    { "id": "propulsion",   "label": "Propulsion\nSystems",      "domain": "aerospace",  "level": 2,
+      "tags": [
+        "flight",
+        "cfd",
+        "lift"
+      ],
+      "seed": {
+        "x": -220,
+        "y": -680
+      }
+    },
+    {
+      "id": "propulsion",
+      "label": "Propulsion\nSystems",
+      "domain": "aerospace",
+      "level": 2,
       "desc": "Jet engines, rockets, turbofans, electric propulsion. Thermodynamic cycle analysis and combustion.",
-      "tags": ["engine","rocket","thrust"], "seed": {"x":-440, "y":-700} },
-
-    { "id": "aerostructures","label":"Aero-\nstructures",         "domain": "aerospace",  "level": 2,
+      "tags": [
+        "engine",
+        "rocket",
+        "thrust"
+      ],
+      "seed": {
+        "x": -440,
+        "y": -700
+      }
+    },
+    {
+      "id": "aerostructures",
+      "label": "Aero-\nstructures",
+      "domain": "aerospace",
+      "level": 2,
       "desc": "Aircraft structural analysis under combined aero and inertial loads. Flutter, aeroelasticity, fatigue life.",
-      "tags": ["structures","fatigue","aeroelasticity"], "seed": {"x":-540, "y":-620} },
-
-    { "id": "gnc",          "label": "Guidance Nav\n& Control",  "domain": "aerospace",  "level": 2,
+      "tags": [
+        "structures",
+        "fatigue",
+        "aeroelasticity"
+      ],
+      "seed": {
+        "x": -540,
+        "y": -620
+      }
+    },
+    {
+      "id": "gnc",
+      "label": "Guidance Nav\n& Control",
+      "domain": "aerospace",
+      "level": 2,
       "desc": "Trajectory planning, attitude control, inertial navigation for aircraft and spacecraft.",
-      "tags": ["navigation","guidance","spacecraft"], "seed": {"x":-120, "y":-720} },
-
-    { "id": "orbital",      "label": "Orbital\nMechanics",       "domain": "aerospace",  "level": 2,
+      "tags": [
+        "navigation",
+        "guidance",
+        "spacecraft"
+      ],
+      "seed": {
+        "x": -120,
+        "y": -720
+      }
+    },
+    {
+      "id": "orbital",
+      "label": "Orbital\nMechanics",
+      "domain": "aerospace",
+      "level": 2,
       "desc": "Kepler orbits, delta-V maneuvers, launch windows, satellite constellation design.",
-      "tags": ["space","orbit","satellite"], "seed": {"x":-60, "y":-820} },
-
-
-    { "id": "classical-mech","label":"Classical\nMechanics",      "domain": "physics",    "level": 2,
+      "tags": [
+        "space",
+        "orbit",
+        "satellite"
+      ],
+      "seed": {
+        "x": -60,
+        "y": -820
+      }
+    },
+    {
+      "id": "classical-mech",
+      "label": "Classical\nMechanics",
+      "domain": "physics",
+      "level": 2,
       "desc": "Newtonian, Lagrangian and Hamiltonian mechanics. The mathematical backbone of structural and mechanical analysis.",
-      "tags": ["newton","dynamics","physics"], "seed": {"x":-1020, "y":-60} },
-
-    { "id": "electromag",   "label": "Electro-\nmagnetism",      "domain": "physics",    "level": 2,
+      "tags": [
+        "newton",
+        "dynamics",
+        "physics"
+      ],
+      "seed": {
+        "x": -1020,
+        "y": -60
+      }
+    },
+    {
+      "id": "electromag",
+      "label": "Electro-\nmagnetism",
+      "domain": "physics",
+      "level": 2,
       "desc": "Maxwell's equations, fields, waves, and electromagnetic induction. Foundation of all electrical engineering.",
-      "tags": ["maxwell","fields","waves"], "seed": {"x":-1060, "y":-280} },
-
-    { "id": "thermophys",   "label": "Thermo-\ndynamics",        "domain": "physics",    "level": 2,
+      "tags": [
+        "maxwell",
+        "fields",
+        "waves"
+      ],
+      "seed": {
+        "x": -1060,
+        "y": -280
+      }
+    },
+    {
+      "id": "thermophys",
+      "label": "Thermo-\ndynamics",
+      "domain": "physics",
+      "level": 2,
       "desc": "Laws of thermodynamics, entropy, statistical mechanics. Governs heat engines and energy conversion.",
-      "tags": ["heat","entropy","energy"], "seed": {"x":-1000, "y":100} },
-
-    { "id": "optics",       "label": "Optics &\nPhotonics",      "domain": "physics",    "level": 2,
+      "tags": [
+        "heat",
+        "entropy",
+        "energy"
+      ],
+      "seed": {
+        "x": -1000,
+        "y": 100
+      }
+    },
+    {
+      "id": "optics",
+      "label": "Optics &\nPhotonics",
+      "domain": "physics",
+      "level": 2,
       "desc": "Wave optics, lasers, fiber optics, LiDAR. Enabling optical sensing, communication, and display tech.",
-      "tags": ["laser","lidar","optics"], "seed": {"x":-920, "y":-420} },
-
-    { "id": "quantum",      "label": "Quantum\nMechanics",       "domain": "physics",    "level": 2,
+      "tags": [
+        "laser",
+        "lidar",
+        "optics"
+      ],
+      "seed": {
+        "x": -920,
+        "y": -420
+      }
+    },
+    {
+      "id": "quantum",
+      "label": "Quantum\nMechanics",
+      "domain": "physics",
+      "level": 2,
       "desc": "Particle-wave duality, quantum states, tunneling. Foundation of semiconductor physics and quantum computing.",
-      "tags": ["quantum","semiconductor","computing"], "seed": {"x":-1100, "y":-460} },
-
-
-    { "id": "medical-devices","label":"Medical\nDevices",         "domain": "biomedical", "level": 2,
+      "tags": [
+        "quantum",
+        "semiconductor",
+        "computing"
+      ],
+      "seed": {
+        "x": -1100,
+        "y": -460
+      }
+    },
+    {
+      "id": "medical-devices",
+      "label": "Medical\nDevices",
+      "domain": "biomedical",
+      "level": 2,
       "desc": "FDA-regulated hardware for diagnostics and therapy. Combines mechanical design, electronics, firmware, and biocompatibility.",
-      "tags": ["fda","hardware","health"], "seed": {"x":900, "y":60} },
-
-    { "id": "biomechanics", "label": "Bio-\nmechanics",          "domain": "biomedical", "level": 2,
-      "desc": "Mechanical analysis of biological structures — bones, joints, soft tissue, gait analysis.",
-      "tags": ["biology","mechanics","gait"], "seed": {"x":900, "y":-200} },
-
-    { "id": "biosensors",   "label": "Bio-\nsensors",            "domain": "biomedical", "level": 2,
+      "tags": [
+        "fda",
+        "hardware",
+        "health"
+      ],
+      "seed": {
+        "x": 900,
+        "y": 60
+      }
+    },
+    {
+      "id": "biomechanics",
+      "label": "Bio-\nmechanics",
+      "domain": "biomedical",
+      "level": 2,
+      "desc": "Mechanical analysis of biological structures \u2014 bones, joints, soft tissue, gait analysis.",
+      "tags": [
+        "biology",
+        "mechanics",
+        "gait"
+      ],
+      "seed": {
+        "x": 900,
+        "y": -200
+      }
+    },
+    {
+      "id": "biosensors",
+      "label": "Bio-\nsensors",
+      "domain": "biomedical",
+      "level": 2,
       "desc": "Electrochemical, optical, and piezoelectric sensors for detecting biological molecules.",
-      "tags": ["sensing","diagnostics","chemistry"], "seed": {"x":1000, "y":160} },
-
-    { "id": "medical-imaging","label":"Medical\nImaging",         "domain": "biomedical", "level": 2,
+      "tags": [
+        "sensing",
+        "diagnostics",
+        "chemistry"
+      ],
+      "seed": {
+        "x": 1000,
+        "y": 160
+      }
+    },
+    {
+      "id": "medical-imaging",
+      "label": "Medical\nImaging",
+      "domain": "biomedical",
+      "level": 2,
       "desc": "MRI, CT, ultrasound, X-ray. Signal acquisition, image reconstruction and AI-assisted diagnosis.",
-      "tags": ["mri","xray","imaging"], "seed": {"x":980, "y":-340} },
-
-    { "id": "neurotech",    "label": "Neuro-\ntechnology",       "domain": "biomedical", "level": 2,
+      "tags": [
+        "mri",
+        "xray",
+        "imaging"
+      ],
+      "seed": {
+        "x": 980,
+        "y": -340
+      }
+    },
+    {
+      "id": "neurotech",
+      "label": "Neuro-\ntechnology",
+      "domain": "biomedical",
+      "level": 2,
       "desc": "Brain-computer interfaces, neural signal recording, deep brain stimulation.",
-      "tags": ["bci","neuroscience","implants"], "seed": {"x":860, "y":-440} },
-
-
-    { "id": "renewables",   "label": "Renewable\nEnergy",        "domain": "energy",     "level": 2,
+      "tags": [
+        "bci",
+        "neuroscience",
+        "implants"
+      ],
+      "seed": {
+        "x": 860,
+        "y": -440
+      }
+    },
+    {
+      "id": "renewables",
+      "label": "Renewable\nEnergy",
+      "domain": "energy",
+      "level": 2,
       "desc": "Solar PV, wind, hydro, tidal. Engineering the transition from fossil fuels to zero-carbon electricity.",
-      "tags": ["solar","wind","sustainability"], "seed": {"x":-80, "y":820} },
-
-    { "id": "energy-storage","label":"Energy\nStorage",          "domain": "energy",     "level": 2,
+      "tags": [
+        "solar",
+        "wind",
+        "sustainability"
+      ],
+      "seed": {
+        "x": -80,
+        "y": 820
+      }
+    },
+    {
+      "id": "energy-storage",
+      "label": "Energy\nStorage",
+      "domain": "energy",
+      "level": 2,
       "desc": "Batteries, supercapacitors, pumped hydro, compressed air. Grid-scale and portable storage systems.",
-      "tags": ["battery","storage","grid"], "seed": {"x":220, "y":840} },
-
-    { "id": "smart-grid",   "label": "Smart\nGrid",              "domain": "energy",     "level": 2,
+      "tags": [
+        "battery",
+        "storage",
+        "grid"
+      ],
+      "seed": {
+        "x": 220,
+        "y": 840
+      }
+    },
+    {
+      "id": "smart-grid",
+      "label": "Smart\nGrid",
+      "domain": "energy",
+      "level": 2,
       "desc": "Digitally controlled electrical grids. Demand response, SCADA, distributed generation, cyber-security.",
-      "tags": ["grid","power","scada"], "seed": {"x":380, "y":760} },
-
-    { "id": "hydrogen",     "label": "Hydrogen &\nFuel Cells",   "domain": "energy",     "level": 2,
+      "tags": [
+        "grid",
+        "power",
+        "scada"
+      ],
+      "seed": {
+        "x": 380,
+        "y": 760
+      }
+    },
+    {
+      "id": "hydrogen",
+      "label": "Hydrogen &\nFuel Cells",
+      "domain": "energy",
+      "level": 2,
       "desc": "Green hydrogen production via electrolysis, fuel cell stacks, storage and distribution challenges.",
-      "tags": ["hydrogen","fuelcell","cleanenergy"], "seed": {"x":-240, "y":820} },
-
-
-    { "id": "linear-algebra","label":"Linear\nAlgebra",          "domain": "mathematics","level": 2,
+      "tags": [
+        "hydrogen",
+        "fuelcell",
+        "cleanenergy"
+      ],
+      "seed": {
+        "x": -240,
+        "y": 820
+      }
+    },
+    {
+      "id": "linear-algebra",
+      "label": "Linear\nAlgebra",
+      "domain": "mathematics",
+      "level": 2,
       "desc": "Vectors, matrices, eigenvalues, transformations. The core language of robotics, ML, and structural analysis.",
-      "tags": ["matrices","vectors","eigenvectors"], "seed": {"x":200, "y":-820} },
-
-    { "id": "calculus",     "label": "Calculus &\nAnalysis",     "domain": "mathematics","level": 2,
+      "tags": [
+        "matrices",
+        "vectors",
+        "eigenvectors"
+      ],
+      "seed": {
+        "x": 200,
+        "y": -820
+      }
+    },
+    {
+      "id": "calculus",
+      "label": "Calculus &\nAnalysis",
+      "domain": "mathematics",
+      "level": 2,
       "desc": "Differential and integral calculus, complex analysis. Underlies physics, control theory, and signal processing.",
-      "tags": ["derivatives","integrals","analysis"], "seed": {"x":-80, "y":-860} },
-
-    { "id": "statistics",   "label": "Statistics &\nProbability","domain": "mathematics","level": 2,
+      "tags": [
+        "derivatives",
+        "integrals",
+        "analysis"
+      ],
+      "seed": {
+        "x": -80,
+        "y": -860
+      }
+    },
+    {
+      "id": "statistics",
+      "label": "Statistics &\nProbability",
+      "domain": "mathematics",
+      "level": 2,
       "desc": "Probability distributions, Bayesian inference, hypothesis testing. Essential for ML, measurement, and reliability.",
-      "tags": ["probability","bayesian","data"], "seed": {"x":380, "y":-820} },
-
-    { "id": "numerical",    "label": "Numerical\nMethods",       "domain": "mathematics","level": 2,
+      "tags": [
+        "probability",
+        "bayesian",
+        "data"
+      ],
+      "seed": {
+        "x": 380,
+        "y": -820
+      }
+    },
+    {
+      "id": "numerical",
+      "label": "Numerical\nMethods",
+      "domain": "mathematics",
+      "level": 2,
       "desc": "FEM, FDM, FVM, ODE solvers. Turning continuous physics into solvable discrete problems.",
-      "tags": ["fem","simulation","solvers"], "seed": {"x":0, "y":-960} },
-
-
-    { "id": "composites",   "label": "Composite\nMaterials",     "domain": "mechanical", "level": 3,
+      "tags": [
+        "fem",
+        "simulation",
+        "solvers"
+      ],
+      "seed": {
+        "x": 0,
+        "y": -960
+      }
+    },
+    {
+      "id": "composites",
+      "label": "Composite\nMaterials",
+      "domain": "mechanical",
+      "level": 3,
       "desc": "Carbon fiber, fiberglass, hybrid laminates. Extreme stiffness at low weight.",
-      "seed": {"x":-750, "y":-200} },
-
-    { "id": "topology",     "label": "Topology\nOptimization",   "domain": "mechanical", "level": 3,
+      "seed": {
+        "x": -750,
+        "y": -200
+      }
+    },
+    {
+      "id": "topology",
+      "label": "Topology\nOptimization",
+      "domain": "mechanical",
+      "level": 3,
       "desc": "Mathematical material distribution for minimum weight. Produces organic, minimal-mass geometries.",
-      "seed": {"x":-800, "y":-60} },
-
-    { "id": "fatigue",      "label": "Fatigue &\nFracture",      "domain": "mechanical", "level": 3,
+      "seed": {
+        "x": -800,
+        "y": -60
+      }
+    },
+    {
+      "id": "fatigue",
+      "label": "Fatigue &\nFracture",
+      "domain": "mechanical",
+      "level": 3,
       "desc": "Cyclic loading failure, S-N curves, crack growth. Critical for structural life prediction.",
-      "seed": {"x":-860, "y":80} },
-
-    { "id": "vibration",    "label": "Vibration &\nNVH",         "domain": "mechanical", "level": 3,
+      "seed": {
+        "x": -860,
+        "y": 80
+      }
+    },
+    {
+      "id": "vibration",
+      "label": "Vibration &\nNVH",
+      "domain": "mechanical",
+      "level": 3,
       "desc": "Natural frequencies, modal analysis, damping. Affects noise, comfort, and structural integrity.",
-      "seed": {"x":-820, "y":200} },
-
-    { "id": "si",           "label": "Signal\nIntegrity",        "domain": "electrical", "level": 3,
+      "seed": {
+        "x": -820,
+        "y": 200
+      }
+    },
+    {
+      "id": "si",
+      "label": "Signal\nIntegrity",
+      "domain": "electrical",
+      "level": 3,
       "desc": "Transmission lines, reflections, crosstalk, eye diagrams. Keeping signals clean at high speed.",
-      "seed": {"x":240, "y":520} },
-
-    { "id": "emc",          "label": "EMC / EMI",                "domain": "electrical", "level": 3,
+      "seed": {
+        "x": 240,
+        "y": 520
+      }
+    },
+    {
+      "id": "emc",
+      "label": "EMC / EMI",
+      "domain": "electrical",
+      "level": 3,
       "desc": "Shielding, filtering, grounding. Regulatory compliance (CE, FCC) for connected devices.",
-      "seed": {"x":360, "y":540} },
-
-    { "id": "motors",       "label": "Motor\nDrivers",           "domain": "electrical", "level": 3,
+      "seed": {
+        "x": 360,
+        "y": 540
+      }
+    },
+    {
+      "id": "motors",
+      "label": "Motor\nDrivers",
+      "domain": "electrical",
+      "level": 3,
       "desc": "H-bridges, FOC, trapezoidal commutation for brushed DC, BLDC, steppers.",
-      "seed": {"x":580, "y":500} },
-
-    { "id": "bms",          "label": "Battery\nManagement",      "domain": "electrical", "level": 3,
+      "seed": {
+        "x": 580,
+        "y": 500
+      }
+    },
+    {
+      "id": "bms",
+      "label": "Battery\nManagement",
+      "domain": "electrical",
+      "level": 3,
       "desc": "Cell voltage/temp monitoring, balancing, protection circuits, safe charging algorithms.",
-      "seed": {"x":680, "y":460} },
-
-    { "id": "opamp",        "label": "Op-Amp\nCircuits",         "domain": "electrical", "level": 3,
+      "seed": {
+        "x": 680,
+        "y": 460
+      }
+    },
+    {
+      "id": "opamp",
+      "label": "Op-Amp\nCircuits",
+      "domain": "electrical",
+      "level": 3,
       "desc": "Inverting/non-inverting amps, integrators, differentiators, instrumentation amps and comparators.",
-      "seed": {"x":720, "y":280} },
-
-    { "id": "dcdc",         "label": "DC-DC\nConverters",        "domain": "electrical", "level": 3,
+      "seed": {
+        "x": 720,
+        "y": 280
+      }
+    },
+    {
+      "id": "dcdc",
+      "label": "DC-DC\nConverters",
+      "domain": "electrical",
+      "level": 3,
       "desc": "Buck, boost, buck-boost topologies. Switching losses, inductor sizing, feedback compensation.",
-      "seed": {"x":700, "y":380} },
-
-    { "id": "asic",         "label": "ASIC\nDesign",             "domain": "electrical", "level": 3,
+      "seed": {
+        "x": 700,
+        "y": 380
+      }
+    },
+    {
+      "id": "asic",
+      "label": "ASIC\nDesign",
+      "domain": "electrical",
+      "level": 3,
       "desc": "Custom silicon design flow: RTL, synthesis, place-and-route, DRC/LVS, tape-out.",
-      "seed": {"x":560, "y":140} },
-
-    { "id": "power-integrity","label":"Power\nIntegrity",        "domain": "electrical", "level": 3,
+      "seed": {
+        "x": 560,
+        "y": 140
+      }
+    },
+    {
+      "id": "power-integrity",
+      "label": "Power\nIntegrity",
+      "domain": "electrical",
+      "level": 3,
       "desc": "PDN impedance, decoupling capacitors, IR drop, simultaneous switching noise. Critical for high-speed digital.",
-      "seed": {"x":420, "y":480} },
-
-    { "id": "cv",           "label": "Computer\nVision",         "domain": "it",         "level": 3,
+      "seed": {
+        "x": 420,
+        "y": 480
+      }
+    },
+    {
+      "id": "cv",
+      "label": "Computer\nVision",
+      "domain": "it",
+      "level": 3,
       "desc": "Object detection, SLAM, depth estimation. Powers autonomous navigation and inspection.",
-      "seed": {"x":660, "y":-280} },
-
-    { "id": "os",           "label": "Operating\nSystems",       "domain": "it",         "level": 3,
+      "seed": {
+        "x": 660,
+        "y": -280
+      }
+    },
+    {
+      "id": "os",
+      "label": "Operating\nSystems",
+      "domain": "it",
+      "level": 3,
       "desc": "Scheduling, memory management, file systems, syscalls. Foundation for all software stacks.",
-      "seed": {"x":180, "y":-480} },
-
-    { "id": "gpu-prog",     "label": "GPU\nProgramming",         "domain": "it",         "level": 3,
+      "seed": {
+        "x": 180,
+        "y": -480
+      }
+    },
+    {
+      "id": "gpu-prog",
+      "label": "GPU\nProgramming",
+      "domain": "it",
+      "level": 3,
       "desc": "CUDA, OpenCL, Vulkan Compute. Massively parallel workloads for ML training, simulation, and rendering.",
-      "seed": {"x":820, "y":-360} },
-
-    { "id": "containers",   "label": "Containers &\nOrchestration","domain":"it",         "level": 3,
+      "seed": {
+        "x": 820,
+        "y": -360
+      }
+    },
+    {
+      "id": "containers",
+      "label": "Containers &\nOrchestration",
+      "domain": "it",
+      "level": 3,
       "desc": "Docker, Kubernetes, CI/CD. Reproducible, scalable deployment of software and data pipelines.",
-      "seed": {"x":720, "y":-480} },
-
-    { "id": "slam",         "label": "SLAM",                     "domain": "bridge",     "level": 3,
+      "seed": {
+        "x": 720,
+        "y": -480
+      }
+    },
+    {
+      "id": "slam",
+      "label": "SLAM",
+      "domain": "bridge",
+      "level": 3,
       "desc": "Simultaneous Localization and Mapping. Fuses IMU, lidar, camera for real-time robot localization.",
-      "seed": {"x":200, "y":-20} },
-
-    { "id": "foc",          "label": "Field-Oriented\nControl",  "domain": "bridge",     "level": 3,
+      "seed": {
+        "x": 200,
+        "y": -20
+      }
+    },
+    {
+      "id": "foc",
+      "label": "Field-Oriented\nControl",
+      "domain": "bridge",
+      "level": 3,
       "desc": "High-performance BLDC/PMSM control. Requires current sensing, coordinate transforms, fast MCU.",
-      "seed": {"x":80, "y":300} },
-
-    { "id": "kalman",       "label": "Kalman\nFilter",           "domain": "bridge",     "level": 3,
+      "seed": {
+        "x": 80,
+        "y": 300
+      }
+    },
+    {
+      "id": "kalman",
+      "label": "Kalman\nFilter",
+      "domain": "bridge",
+      "level": 3,
       "desc": "Optimal state estimation from noisy sensor data. Fundamental to navigation, robotics, and control.",
-      "seed": {"x":200, "y":80} },
-
-    { "id": "soft-robotics","label": "Soft\nRobotics",           "domain": "bridge",     "level": 3,
+      "seed": {
+        "x": 200,
+        "y": 80
+      }
+    },
+    {
+      "id": "soft-robotics",
+      "label": "Soft\nRobotics",
+      "domain": "bridge",
+      "level": 3,
       "desc": "Compliant, deformable robots from silicone and textiles. Safer human interaction, bio-inspired design.",
-      "seed": {"x":-220, "y":-40} },
-
-    { "id": "turbomachinery","label":"Turbo-\nmachinery",        "domain": "aerospace",  "level": 3,
+      "seed": {
+        "x": -220,
+        "y": -40
+      }
+    },
+    {
+      "id": "turbomachinery",
+      "label": "Turbo-\nmachinery",
+      "domain": "aerospace",
+      "level": 3,
       "desc": "Compressors, turbines, fans. Blade design, stage analysis, surge/stall margins.",
-      "seed": {"x":-560, "y":-760} },
-
-    { "id": "reentry-thermal","label":"Thermal\nProtection",     "domain": "aerospace",  "level": 3,
+      "seed": {
+        "x": -560,
+        "y": -760
+      }
+    },
+    {
+      "id": "reentry-thermal",
+      "label": "Thermal\nProtection",
+      "domain": "aerospace",
+      "level": 3,
       "desc": "Ablative heat shields and TPS tiles for atmospheric reentry. Extreme heat flux at hypersonic speeds.",
-      "seed": {"x":-400, "y":-780} },
-
-    { "id": "fem",          "label": "Finite Element\nMethod",   "domain": "physics",    "level": 3,
+      "seed": {
+        "x": -400,
+        "y": -780
+      }
+    },
+    {
+      "id": "fem",
+      "label": "Finite Element\nMethod",
+      "domain": "physics",
+      "level": 3,
       "desc": "Numerical technique to solve PDEs over complex geometries. Structural, thermal, fluid, and EM analysis.",
-      "seed": {"x":-880, "y":200} },
-
-    { "id": "dsp",          "label": "Digital Signal\nProcessing","domain":"physics",    "level": 3,
+      "seed": {
+        "x": -880,
+        "y": 200
+      }
+    },
+    {
+      "id": "dsp",
+      "label": "Digital Signal\nProcessing",
+      "domain": "physics",
+      "level": 3,
       "desc": "Fourier transforms, filters, sampling theory, spectral analysis. Bridges physics and computation.",
-      "seed": {"x":-900, "y":-340} },
-
-    { "id": "prosthetics",  "label": "Prosthetics &\nExoskeletons","domain":"biomedical","level": 3,
+      "seed": {
+        "x": -900,
+        "y": -340
+      }
+    },
+    {
+      "id": "prosthetics",
+      "label": "Prosthetics &\nExoskeletons",
+      "domain": "biomedical",
+      "level": 3,
       "desc": "Motorized limb replacements and assistive exoskeletons. Combines mechanics, actuation, control, and BCI.",
-      "seed": {"x":1020, "y":-200} },
-
-    { "id": "ecg-eeg",      "label": "ECG / EEG\nProcessing",   "domain": "biomedical", "level": 3,
+      "seed": {
+        "x": 1020,
+        "y": -200
+      }
+    },
+    {
+      "id": "ecg-eeg",
+      "label": "ECG / EEG\nProcessing",
+      "domain": "biomedical",
+      "level": 3,
       "desc": "Acquisition and analysis of cardiac and brain electrical signals. Low-noise analog front-ends and DSP.",
-      "seed": {"x":1060, "y":20} },
-
-    { "id": "solar",        "label": "Solar Cell\nDesign",       "domain": "energy",     "level": 3,
+      "seed": {
+        "x": 1060,
+        "y": 20
+      }
+    },
+    {
+      "id": "solar",
+      "label": "Solar Cell\nDesign",
+      "domain": "energy",
+      "level": 3,
       "desc": "PV cell physics, silicon and thin-film technologies, MPPT, panel efficiency and degradation.",
-      "seed": {"x":-200, "y":920} },
-
-    { "id": "wind-turbine", "label": "Wind Turbine\nEngineering","domain": "energy",     "level": 3,
+      "seed": {
+        "x": -200,
+        "y": 920
+      }
+    },
+    {
+      "id": "wind-turbine",
+      "label": "Wind Turbine\nEngineering",
+      "domain": "energy",
+      "level": 3,
       "desc": "Blade aerodynamics, structural fatigue, gearboxes, generators, and grid connection of wind turbines.",
-      "seed": {"x":80, "y":940} },
-
-    { "id": "optimization", "label": "Optimization\nTheory",     "domain": "mathematics","level": 3,
+      "seed": {
+        "x": 80,
+        "y": 940
+      }
+    },
+    {
+      "id": "optimization",
+      "label": "Optimization\nTheory",
+      "domain": "mathematics",
+      "level": 3,
       "desc": "Gradient descent, convex optimization, linear programming, genetic algorithms. Foundation of ML and design.",
-      "seed": {"x":400, "y":-940} },
-
-    { "id": "ode-pde",      "label": "ODEs &\nPDEs",             "domain": "mathematics","level": 3,
+      "seed": {
+        "x": 400,
+        "y": -940
+      }
+    },
+    {
+      "id": "ode-pde",
+      "label": "ODEs &\nPDEs",
+      "domain": "mathematics",
+      "level": 3,
       "desc": "Differential equations governing physical systems. Analytical and numerical solution methods.",
-      "seed": {"x":-160, "y":-980} },
-
-    { "id": "graph-theory", "label": "Graph\nTheory",            "domain": "mathematics","level": 3,
+      "seed": {
+        "x": -160,
+        "y": -980
+      }
+    },
+    {
+      "id": "graph-theory",
+      "label": "Graph\nTheory",
+      "domain": "mathematics",
+      "level": 3,
       "desc": "Network topology, shortest paths, spanning trees, graph neural networks. Applicable from routing to ML.",
-      "seed": {"x":560, "y":-860} }
-
+      "seed": {
+        "x": 560,
+        "y": -860
+      }
+    },
+    {
+      "id": "programming-languages",
+      "label": "Programming\nLanguages",
+      "domain": "it",
+      "level": 3,
+      "desc": "Theory and practice of programming languages \u2014 paradigms, type systems, compilers, and language design principles.",
+      "seed": {
+        "x": 540,
+        "y": -280
+      }
+    },
+    {
+      "id": "software-architecture",
+      "label": "Software\nArchitecture",
+      "domain": "it",
+      "level": 3,
+      "desc": "Structural design of software systems including patterns, modularity, and scalability. Covers microservices, event-driven, and layered architectures.",
+      "seed": {
+        "x": 500,
+        "y": -230
+      }
+    },
+    {
+      "id": "design-patterns",
+      "label": "Design\nPatterns",
+      "domain": "it",
+      "level": 3,
+      "desc": "Reusable solutions to common software design problems \u2014 creational, structural, and behavioral patterns.",
+      "seed": {
+        "x": 530,
+        "y": -200
+      }
+    },
+    {
+      "id": "testing-validation",
+      "label": "Testing &\nValidation",
+      "domain": "it",
+      "level": 3,
+      "desc": "Systematic verification of software correctness. Covers unit, integration, system, and acceptance testing, TDD, and CI-based quality gates.",
+      "seed": {
+        "x": 490,
+        "y": -260
+      }
+    },
+    {
+      "id": "requirements-engineering",
+      "label": "Requirements\nEngineering",
+      "domain": "it",
+      "level": 3,
+      "desc": "Eliciting, documenting, and managing software requirements. Covers use cases, user stories, and traceability.",
+      "seed": {
+        "x": 510,
+        "y": -300
+      }
+    },
+    {
+      "id": "devops",
+      "label": "DevOps",
+      "domain": "it",
+      "level": 3,
+      "desc": "Culture and practices bridging development and operations \u2014 automation, continuous delivery, infrastructure as code, and fast feedback loops.",
+      "seed": {
+        "x": 460,
+        "y": -200
+      }
+    },
+    {
+      "id": "ci-cd",
+      "label": "CI/CD\nPipelines",
+      "domain": "it",
+      "level": 4,
+      "desc": "Automated pipelines for continuous integration and deployment \u2014 build, test, artifact management, and deployment strategies.",
+      "seed": {
+        "x": 470,
+        "y": -170
+      }
+    },
+    {
+      "id": "web-development",
+      "label": "Web\nDevelopment",
+      "domain": "it",
+      "level": 3,
+      "desc": "Building applications for the web, covering frontend, backend, APIs, and full-stack frameworks.",
+      "seed": {
+        "x": 560,
+        "y": -230
+      }
+    },
+    {
+      "id": "backend-engineering",
+      "label": "Backend\nEngineering",
+      "domain": "it",
+      "level": 3,
+      "desc": "Server-side development including APIs, databases, authentication, and scalable service design.",
+      "seed": {
+        "x": 580,
+        "y": -260
+      }
+    },
+    {
+      "id": "frontend-engineering",
+      "label": "Frontend\nEngineering",
+      "domain": "it",
+      "level": 3,
+      "desc": "Building user interfaces for web and desktop. Covers HTML/CSS, JavaScript frameworks, state management, and accessibility.",
+      "seed": {
+        "x": 580,
+        "y": -200
+      }
+    },
+    {
+      "id": "mobile-development",
+      "label": "Mobile\nDevelopment",
+      "domain": "it",
+      "level": 3,
+      "desc": "Building applications for iOS and Android. Covers native, cross-platform frameworks, and mobile UX constraints.",
+      "seed": {
+        "x": 600,
+        "y": -220
+      }
+    },
+    {
+      "id": "human-computer-interaction",
+      "label": "Human-Computer\nInteraction",
+      "domain": "it",
+      "level": 3,
+      "desc": "Study of how people interact with computers. Covers usability, UX design, interaction patterns, and accessibility.",
+      "seed": {
+        "x": 600,
+        "y": -160
+      }
+    },
+    {
+      "id": "computer-graphics",
+      "label": "Computer\nGraphics",
+      "domain": "it",
+      "level": 3,
+      "desc": "Rendering, rasterization, and geometric representations for 2D/3D graphics. Covers shaders, ray tracing, and real-time rendering pipelines.",
+      "seed": {
+        "x": 620,
+        "y": -190
+      }
+    },
+    {
+      "id": "advanced-programming-paradigms",
+      "label": "Programming\nParadigms",
+      "domain": "it",
+      "level": 3,
+      "desc": "Advanced styles including functional, logic, reactive, and concurrent programming. Covers type theory and language semantics.",
+      "seed": {
+        "x": 520,
+        "y": -260
+      }
+    },
+    {
+      "id": "algorithm-design",
+      "label": "Algorithm\nDesign",
+      "domain": "it",
+      "level": 3,
+      "desc": "Strategies for constructing efficient algorithms \u2014 divide and conquer, dynamic programming, greedy methods, and amortized analysis.",
+      "seed": {
+        "x": 420,
+        "y": -120
+      }
+    },
+    {
+      "id": "complexity-theory",
+      "label": "Complexity\nTheory",
+      "domain": "it",
+      "level": 3,
+      "desc": "Formal study of computational resources required by algorithms. Covers P vs NP, NP-completeness, and complexity classes.",
+      "seed": {
+        "x": 400,
+        "y": -140
+      }
+    },
+    {
+      "id": "data-structures",
+      "label": "Data\nStructures",
+      "domain": "it",
+      "level": 4,
+      "desc": "Organizations for storing and accessing data efficiently \u2014 trees, heaps, hash tables, graphs, and persistent structures.",
+      "seed": {
+        "x": 440,
+        "y": -100
+      }
+    },
+    {
+      "id": "linux-systems",
+      "label": "Linux\nSystems",
+      "domain": "it",
+      "level": 3,
+      "desc": "Administration and internals of Linux-based systems \u2014 kernel, shell scripting, process management, and system configuration.",
+      "seed": {
+        "x": 360,
+        "y": -60
+      }
+    },
+    {
+      "id": "virtualization",
+      "label": "Virtualization",
+      "domain": "it",
+      "level": 3,
+      "desc": "Abstracting hardware to run isolated environments. Covers Type-1/2 hypervisors, VMs, and hardware-assisted virtualization.",
+      "seed": {
+        "x": 380,
+        "y": -80
+      }
+    },
+    {
+      "id": "distributed-systems",
+      "label": "Distributed\nSystems",
+      "domain": "it",
+      "level": 3,
+      "desc": "Design of systems across multiple machines \u2014 consensus, fault tolerance, CAP theorem, and replication.",
+      "seed": {
+        "x": 350,
+        "y": -40
+      }
+    },
+    {
+      "id": "processes-threads",
+      "label": "Processes\n& Threads",
+      "domain": "it",
+      "level": 3,
+      "desc": "OS abstractions for concurrent execution \u2014 process lifecycle, thread models, context switching, and IPC.",
+      "seed": {
+        "x": 320,
+        "y": -60
+      }
+    },
+    {
+      "id": "memory-management",
+      "label": "Memory\nManagement",
+      "domain": "it",
+      "level": 3,
+      "desc": "Techniques for allocating and reclaiming memory \u2014 virtual memory, paging, garbage collection, and memory safety.",
+      "seed": {
+        "x": 300,
+        "y": -80
+      }
+    },
+    {
+      "id": "concurrency",
+      "label": "Concurrency",
+      "domain": "it",
+      "level": 3,
+      "desc": "Managing simultaneous execution \u2014 locks, semaphores, condition variables, lock-free programming, and concurrency bugs.",
+      "seed": {
+        "x": 340,
+        "y": -100
+      }
+    },
+    {
+      "id": "network-architecture",
+      "label": "Network\nArchitecture",
+      "domain": "it",
+      "level": 3,
+      "desc": "Structural design of networks \u2014 OSI/TCP-IP layers, topologies, and network function virtualization.",
+      "seed": {
+        "x": 280,
+        "y": -40
+      }
+    },
+    {
+      "id": "internet-protocols",
+      "label": "Internet\nProtocols",
+      "domain": "it",
+      "level": 3,
+      "desc": "Core internet protocols: TCP, UDP, IP, HTTP, DNS, and TLS. How data is addressed, routed, and reliably transferred.",
+      "seed": {
+        "x": 260,
+        "y": -60
+      }
+    },
+    {
+      "id": "routing-switching",
+      "label": "Routing &\nSwitching",
+      "domain": "it",
+      "level": 3,
+      "desc": "Layer 2 and 3 traffic forwarding \u2014 VLANs, spanning tree, BGP, OSPF, and software-defined networking.",
+      "seed": {
+        "x": 240,
+        "y": -80
+      }
+    },
+    {
+      "id": "load-balancing",
+      "label": "Load\nBalancing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Distribution of traffic across servers for availability. Covers algorithms, health checks, and global load balancing.",
+      "seed": {
+        "x": 260,
+        "y": -100
+      }
+    },
+    {
+      "id": "wireless-networks",
+      "label": "Wireless\nNetworks",
+      "domain": "it",
+      "level": 3,
+      "desc": "Communication over radio frequencies \u2014 Wi-Fi, Bluetooth, LTE/5G, and satellite. Covers modulation and protocol stacks.",
+      "seed": {
+        "x": 280,
+        "y": -120
+      }
+    },
+    {
+      "id": "network-monitoring",
+      "label": "Network\nMonitoring",
+      "domain": "it",
+      "level": 3,
+      "desc": "Observing network health and traffic. Covers SNMP, NetFlow, anomaly detection, and network management platforms.",
+      "seed": {
+        "x": 240,
+        "y": -100
+      }
+    },
+    {
+      "id": "infrastructure-as-code",
+      "label": "Infra as\nCode",
+      "domain": "it",
+      "level": 3,
+      "desc": "Managing infrastructure through machine-readable config \u2014 Terraform, Pulumi, Ansible, and declarative provisioning.",
+      "seed": {
+        "x": 430,
+        "y": 80
+      }
+    },
+    {
+      "id": "platform-engineering",
+      "label": "Platform\nEngineering",
+      "domain": "it",
+      "level": 3,
+      "desc": "Building internal developer platforms for productivity \u2014 golden paths, self-service portals, and developer experience.",
+      "seed": {
+        "x": 450,
+        "y": 100
+      }
+    },
+    {
+      "id": "cloud-architecture",
+      "label": "Cloud\nArchitecture",
+      "domain": "it",
+      "level": 3,
+      "desc": "Designing resilient, scalable systems on cloud platforms \u2014 multi-region patterns, cost optimization, and service selection.",
+      "seed": {
+        "x": 470,
+        "y": 80
+      }
+    },
+    {
+      "id": "observability",
+      "label": "Observability",
+      "domain": "it",
+      "level": 3,
+      "desc": "Understanding system behavior through logs, metrics, and traces. Covers distributed tracing, alerting, and SLO management.",
+      "seed": {
+        "x": 490,
+        "y": 100
+      }
+    },
+    {
+      "id": "serverless",
+      "label": "Serverless\nComputing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Running code without managing servers \u2014 FaaS, event-driven triggers, cold starts, and managed service composition.",
+      "seed": {
+        "x": 460,
+        "y": 120
+      }
+    },
+    {
+      "id": "service-mesh",
+      "label": "Service\nMesh",
+      "domain": "it",
+      "level": 3,
+      "desc": "Infrastructure layer for service-to-service communication. Covers Istio, mTLS, traffic management, and observability.",
+      "seed": {
+        "x": 480,
+        "y": 120
+      }
+    },
+    {
+      "id": "kubernetes",
+      "label": "Kubernetes",
+      "domain": "it",
+      "level": 4,
+      "desc": "Container orchestration system for automated deployment, scaling, and management. Covers Pods, Deployments, Services, Ingress, and Helm.",
+      "seed": {
+        "x": 440,
+        "y": 130
+      }
+    },
+    {
+      "id": "databases",
+      "label": "Databases",
+      "domain": "it",
+      "level": 3,
+      "desc": "Organized systems for storing and querying structured data. Foundation for relational, NoSQL, and NewSQL storage paradigms.",
+      "seed": {
+        "x": 380,
+        "y": 150
+      }
+    },
+    {
+      "id": "relational-databases",
+      "label": "Relational\nDatabases",
+      "domain": "it",
+      "level": 4,
+      "desc": "Table-based databases using SQL and ACID transactions \u2014 normalization, indexing, query planning, and PostgreSQL/MySQL.",
+      "seed": {
+        "x": 360,
+        "y": 170
+      }
+    },
+    {
+      "id": "nosql-databases",
+      "label": "NoSQL\nDatabases",
+      "domain": "it",
+      "level": 4,
+      "desc": "Non-relational databases for flexible schemas at scale \u2014 document, key-value, column-family, and graph stores.",
+      "seed": {
+        "x": 400,
+        "y": 170
+      }
+    },
+    {
+      "id": "database-internals",
+      "label": "Database\nInternals",
+      "domain": "it",
+      "level": 4,
+      "desc": "How database engines work \u2014 storage engines, query planners, transaction management, and concurrency control.",
+      "seed": {
+        "x": 380,
+        "y": 170
+      }
+    },
+    {
+      "id": "data-modeling",
+      "label": "Data\nModeling",
+      "domain": "it",
+      "level": 3,
+      "desc": "Designing schemas to represent real-world concepts \u2014 ER diagrams, normalization, and dimensional modeling.",
+      "seed": {
+        "x": 420,
+        "y": 150
+      }
+    },
+    {
+      "id": "data-warehousing",
+      "label": "Data\nWarehousing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Centralized analytics repositories \u2014 OLAP, star schemas, ETL pipelines, and platforms like Snowflake and BigQuery.",
+      "seed": {
+        "x": 440,
+        "y": 170
+      }
+    },
+    {
+      "id": "stream-processing",
+      "label": "Stream\nProcessing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Real-time computation over continuous data streams. Covers Kafka, Flink, windowing, and event-driven architectures.",
+      "seed": {
+        "x": 460,
+        "y": 150
+      }
+    },
+    {
+      "id": "big-data-platforms",
+      "label": "Big Data\nPlatforms",
+      "domain": "it",
+      "level": 3,
+      "desc": "Distributed processing frameworks for large-scale data \u2014 Hadoop, Spark, data lakes, and distributed file systems.",
+      "seed": {
+        "x": 470,
+        "y": 170
+      }
+    },
+    {
+      "id": "application-security",
+      "label": "Application\nSecurity",
+      "domain": "it",
+      "level": 3,
+      "desc": "Securing software against vulnerabilities \u2014 OWASP top 10, secure coding, threat modeling, and penetration testing.",
+      "seed": {
+        "x": 300,
+        "y": 80
+      }
+    },
+    {
+      "id": "network-security",
+      "label": "Network\nSecurity",
+      "domain": "it",
+      "level": 3,
+      "desc": "Protecting networks from unauthorized access \u2014 firewalls, IDS/IPS, VPNs, and traffic analysis.",
+      "seed": {
+        "x": 280,
+        "y": 100
+      }
+    },
+    {
+      "id": "cryptography",
+      "label": "Cryptography",
+      "domain": "it",
+      "level": 3,
+      "desc": "Mathematical techniques for securing data \u2014 symmetric/asymmetric encryption, hash functions, PKI, and post-quantum methods.",
+      "seed": {
+        "x": 320,
+        "y": 100
+      }
+    },
+    {
+      "id": "zero-trust",
+      "label": "Zero Trust\nArchitecture",
+      "domain": "it",
+      "level": 3,
+      "desc": "Security model with no implicit trust \u2014 identity verification, micro-segmentation, least privilege, and continuous validation.",
+      "seed": {
+        "x": 300,
+        "y": 120
+      }
+    },
+    {
+      "id": "identity-access-management",
+      "label": "Identity &\nAccess Mgmt",
+      "domain": "it",
+      "level": 3,
+      "desc": "Managing digital identities and resource access \u2014 OAuth2, SAML, RBAC, MFA, and directory services.",
+      "seed": {
+        "x": 340,
+        "y": 80
+      }
+    },
+    {
+      "id": "secure-architecture-design",
+      "label": "Secure\nArchitecture",
+      "domain": "it",
+      "level": 3,
+      "desc": "Designing systems with security built in \u2014 threat modeling, security patterns, defense in depth, and secure decomposition.",
+      "seed": {
+        "x": 320,
+        "y": 140
+      }
+    },
+    {
+      "id": "security-operations",
+      "label": "Security\nOperations",
+      "domain": "it",
+      "level": 3,
+      "desc": "Day-to-day security team workflows \u2014 incident response, SIEM, threat hunting, and vulnerability management.",
+      "seed": {
+        "x": 340,
+        "y": 160
+      }
+    },
+    {
+      "id": "parallel-computing",
+      "label": "Parallel\nComputing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Simultaneous computation across processors \u2014 OpenMP, MPI, data parallelism, and Amdahl's law.",
+      "seed": {
+        "x": 500,
+        "y": 210
+      }
+    },
+    {
+      "id": "distributed-computing",
+      "label": "Distributed\nComputing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Computation across networked machines \u2014 MapReduce, actor model, RPC, and distributed storage.",
+      "seed": {
+        "x": 520,
+        "y": 230
+      }
+    },
+    {
+      "id": "performance-engineering",
+      "label": "Performance\nEngineering",
+      "domain": "it",
+      "level": 3,
+      "desc": "Systematic improvement of throughput and latency \u2014 profiling, bottleneck analysis, caching, and load testing.",
+      "seed": {
+        "x": 540,
+        "y": 210
+      }
+    },
+    {
+      "id": "cluster-computing",
+      "label": "Cluster\nComputing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Tightly coupled computers as a single system \u2014 SLURM schedulers, MPI clusters, and high-availability setups.",
+      "seed": {
+        "x": 540,
+        "y": 250
+      }
+    },
+    {
+      "id": "accelerated-computing",
+      "label": "Accelerated\nComputing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Using GPUs, FPGAs, and TPUs to speed up computation. Covers CUDA, OpenCL, and hardware-software co-design.",
+      "seed": {
+        "x": 560,
+        "y": 230
+      }
+    },
+    {
+      "id": "multi-agent-systems",
+      "label": "Multi-Agent\nSystems",
+      "domain": "it",
+      "level": 3,
+      "desc": "Systems where multiple autonomous agents interact \u2014 architectures, communication protocols, coordination, and emergent behavior.",
+      "seed": {
+        "x": 400,
+        "y": -60
+      }
+    },
+    {
+      "id": "distributed-information-systems",
+      "label": "Distributed Info\nSystems",
+      "domain": "it",
+      "level": 3,
+      "desc": "Large-scale distributed data and information management \u2014 replication, consistency models, and distributed query processing.",
+      "seed": {
+        "x": 380,
+        "y": -20
+      }
+    },
+    {
+      "id": "solid-state-physics",
+      "label": "Solid State\nPhysics",
+      "domain": "physics",
+      "level": 3,
+      "desc": "Crystal structure, band theory, and electronic properties of condensed matter. Foundation for semiconductor device physics.",
+      "seed": {
+        "x": -300,
+        "y": 510
+      }
+    },
+    {
+      "id": "experimental-physics",
+      "label": "Experimental\nPhysics",
+      "domain": "physics",
+      "level": 3,
+      "desc": "Design and execution of physical experiments \u2014 measurement techniques, error analysis, instrumentation, and scientific reporting.",
+      "seed": {
+        "x": -350,
+        "y": 490
+      }
+    },
+    {
+      "id": "quantum-optics",
+      "label": "Quantum\nOptics",
+      "domain": "physics",
+      "level": 3,
+      "desc": "Interaction of light and matter at the quantum level \u2014 photon statistics, entanglement, laser physics, and cavity QED.",
+      "seed": {
+        "x": -250,
+        "y": 520
+      }
+    },
+    {
+      "id": "quantum-field-theory",
+      "label": "Quantum\nField Theory",
+      "domain": "physics",
+      "level": 4,
+      "desc": "Framework unifying quantum mechanics and special relativity. Foundation for particle physics and the Standard Model.",
+      "seed": {
+        "x": -280,
+        "y": 550
+      }
+    },
+    {
+      "id": "photonic-system-design",
+      "label": "Photonic\nSystem Design",
+      "domain": "physics",
+      "level": 3,
+      "desc": "Engineering optical components and systems \u2014 waveguides, modulators, and photonic integrated circuits.",
+      "seed": {
+        "x": -220,
+        "y": 510
+      }
+    },
+    {
+      "id": "optical-metrology",
+      "label": "Optical\nMetrology",
+      "domain": "physics",
+      "level": 3,
+      "desc": "Precision measurement using light \u2014 interferometry, laser ranging, wavefront sensing, and vision-based inspection.",
+      "seed": {
+        "x": -240,
+        "y": 490
+      }
+    },
+    {
+      "id": "fibre-optics",
+      "label": "Fibre\nOptics",
+      "domain": "physics",
+      "level": 3,
+      "desc": "Data transmission via optical fibres \u2014 single/multi-mode fibres, dispersion, amplifiers, and WDM systems.",
+      "seed": {
+        "x": -200,
+        "y": 530
+      }
+    },
+    {
+      "id": "mathematical-modelling",
+      "label": "Mathematical\nModelling",
+      "domain": "mathematics",
+      "level": 3,
+      "desc": "Translating real-world phenomena into mathematical structures \u2014 model building, validation, and sensitivity analysis.",
+      "seed": {
+        "x": 200,
+        "y": 610
+      }
+    },
+    {
+      "id": "discrete-mathematics-cs",
+      "label": "Discrete\nMathematics",
+      "domain": "mathematics",
+      "level": 3,
+      "desc": "Mathematics of discrete structures \u2014 logic, sets, combinatorics, and graph theory. Foundational for algorithm analysis.",
+      "seed": {
+        "x": 160,
+        "y": 590
+      }
+    },
+    {
+      "id": "scientific-computing",
+      "label": "Scientific\nComputing",
+      "domain": "mathematics",
+      "level": 3,
+      "desc": "Computational methods for scientific problems \u2014 numerical simulation, high-performance solvers, and software for research.",
+      "seed": {
+        "x": 240,
+        "y": 590
+      }
+    },
+    {
+      "id": "heat-transfer",
+      "label": "Heat\nTransfer",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Conduction, convection, and radiation mechanisms. Covers fin theory, heat exchangers, and thermal boundary layers.",
+      "seed": {
+        "x": -580,
+        "y": 90
+      }
+    },
+    {
+      "id": "continuum-mechanics",
+      "label": "Continuum\nMechanics",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Mechanics of continuously deformable materials. Foundation for structural, fluid, and solid mechanics.",
+      "seed": {
+        "x": -600,
+        "y": 130
+      }
+    },
+    {
+      "id": "computational-mechanics",
+      "label": "Computational\nMechanics",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Numerical methods for mechanical problems \u2014 FEM implementation, mesh generation, and solver techniques.",
+      "seed": {
+        "x": -560,
+        "y": 150
+      }
+    },
+    {
+      "id": "engineering-mechanics",
+      "label": "Engineering\nMechanics",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Application of mechanics to engineering problems \u2014 statics, dynamics, strength of materials, and structural analysis.",
+      "seed": {
+        "x": -560,
+        "y": 110
+      }
+    },
+    {
+      "id": "manufacturing-engineering",
+      "label": "Manufacturing\nEngineering",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Processes and systems for producing physical goods \u2014 machining, forming, casting, quality control, and process optimization.",
+      "seed": {
+        "x": -640,
+        "y": 100
+      }
+    },
+    {
+      "id": "product-development",
+      "label": "Product\nDevelopment",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Systematic process of designing and delivering products \u2014 concept generation, prototyping, testing, and design for manufacturability.",
+      "seed": {
+        "x": -620,
+        "y": 70
+      }
+    },
+    {
+      "id": "microengineering-design",
+      "label": "Microengineering\nDesign",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Design methodologies for miniaturized systems \u2014 MEMS design rules, cleanroom processes, and micro-fabrication constraints.",
+      "seed": {
+        "x": -480,
+        "y": 210
+      }
+    },
+    {
+      "id": "laser-manufacturing",
+      "label": "Laser\nManufacturing",
+      "domain": "mechanical",
+      "level": 3,
+      "desc": "Precision manufacturing using laser beams \u2014 cutting, welding, sintering, ablation, and micro-structuring.",
+      "seed": {
+        "x": -500,
+        "y": 210
+      }
+    },
+    {
+      "id": "signals-systems",
+      "label": "Signals &\nSystems",
+      "domain": "electrical",
+      "level": 3,
+      "desc": "Mathematical analysis of signals and processing systems \u2014 Fourier/Laplace transforms, convolution, stability, and filter design.",
+      "seed": {
+        "x": 100,
+        "y": 200
+      }
+    },
+    {
+      "id": "circuit-theory",
+      "label": "Circuit\nTheory",
+      "domain": "electrical",
+      "level": 3,
+      "desc": "Fundamental circuit analysis \u2014 Kirchhoff's laws, Thevenin/Norton equivalents, AC analysis, and two-port networks.",
+      "seed": {
+        "x": 80,
+        "y": 220
+      }
+    },
+    {
+      "id": "digital-design",
+      "label": "Digital\nDesign",
+      "domain": "electrical",
+      "level": 3,
+      "desc": "Design of digital logic systems \u2014 Boolean algebra, combinational/sequential logic, FSMs, and HDL synthesis.",
+      "seed": {
+        "x": 120,
+        "y": 200
+      }
+    },
+    {
+      "id": "electrical-machines",
+      "label": "Electrical\nMachines",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Theory and operation of motors, generators, and transformers \u2014 induction machines, synchronous machines, and drive characteristics.",
+      "seed": {
+        "x": -60,
+        "y": 180
+      }
+    },
+    {
+      "id": "mechatronic-devices",
+      "label": "Mechatronic\nDevices",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Design of integrated electromechanical devices \u2014 actuators, sensors, mechanical interfaces, and tightly coupled HW-SW systems.",
+      "seed": {
+        "x": -80,
+        "y": 160
+      }
+    },
+    {
+      "id": "power-transport",
+      "label": "Power\nTransport",
+      "domain": "energy",
+      "level": 3,
+      "desc": "Transmission and distribution of electrical power \u2014 transmission lines, transformers, HVDC, and grid protection.",
+      "seed": {
+        "x": -100,
+        "y": 580
+      }
+    },
+    {
+      "id": "demand-side-management",
+      "label": "Demand-Side\nManagement",
+      "domain": "energy",
+      "level": 3,
+      "desc": "Managing energy consumption on the demand side \u2014 demand response, load forecasting, flexibility markets, and smart metering.",
+      "seed": {
+        "x": -80,
+        "y": 600
+      }
+    },
+    {
+      "id": "energy-generation-storage",
+      "label": "Energy\nGeneration",
+      "domain": "energy",
+      "level": 3,
+      "desc": "Technologies for generating and storing energy at scale \u2014 thermal, hydro, nuclear, and hybrid storage systems.",
+      "seed": {
+        "x": -60,
+        "y": 580
+      }
+    },
+    {
+      "id": "digital-health-systems",
+      "label": "Digital Health\nSystems",
+      "domain": "biomedical",
+      "level": 3,
+      "desc": "Software and data systems for healthcare \u2014 EHR, telemedicine, health data standards (HL7/FHIR), and medical AI.",
+      "seed": {
+        "x": -200,
+        "y": -380
+      }
+    },
+    {
+      "id": "medical-diagnostics",
+      "label": "Medical\nDiagnostics",
+      "domain": "biomedical",
+      "level": 3,
+      "desc": "Therapeutic and diagnostic system design \u2014 radiation therapy, ultrasound, MRI, and interventional devices.",
+      "seed": {
+        "x": -180,
+        "y": -360
+      }
+    },
+    {
+      "id": "medical-device-certification",
+      "label": "Medical Device\nCertification",
+      "domain": "biomedical",
+      "level": 3,
+      "desc": "Regulatory pathways for medical devices \u2014 ISO 13485, FDA 510(k)/PMA, CE marking, IEC 62304, and risk management (ISO 14971).",
+      "seed": {
+        "x": -220,
+        "y": -360
+      }
+    },
+    {
+      "id": "product-lifecycle-management",
+      "label": "Product Lifecycle\nManagement",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Managing a product through all phases from conception to disposal \u2014 PLM software, configuration management, and digital thread.",
+      "seed": {
+        "x": -60,
+        "y": 280
+      }
+    },
+    {
+      "id": "process-automation",
+      "label": "Process\nAutomation",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Automating industrial and business processes \u2014 PLC programming, SCADA, DCS, and robotic process automation.",
+      "seed": {
+        "x": -40,
+        "y": 300
+      }
+    },
+    {
+      "id": "industrial-iot-security",
+      "label": "Industrial\nIoT Security",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Security for industrial control systems \u2014 OT/IT convergence, SCADA security, protocol vulnerabilities, and industrial threat modeling.",
+      "seed": {
+        "x": -40,
+        "y": 200
+      }
+    },
+    {
+      "id": "future-skills",
+      "label": "Future\nSkills",
+      "domain": "bridge",
+      "level": 1,
+      "desc": "Skills increasingly critical in an AI-augmented world \u2014 AI literacy, digital transformation, ethical judgment, and human-technology collaboration.",
+      "seed": {
+        "x": 900,
+        "y": -300
+      }
+    },
+    {
+      "id": "ai-data-skills",
+      "label": "AI & Data\nSkills",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Competencies for working with AI and data-driven tools \u2014 AI literacy, prompt engineering, and responsible AI practices.",
+      "seed": {
+        "x": 860,
+        "y": -370
+      }
+    },
+    {
+      "id": "ai-infrastructure-skills",
+      "label": "AI\nInfrastructure",
+      "domain": "it",
+      "level": 2,
+      "desc": "Technical skills for deploying and scaling AI systems \u2014 MLOps, model serving, GPU computing, and AI platform engineering.",
+      "seed": {
+        "x": 940,
+        "y": -370
+      }
+    },
+    {
+      "id": "human-org-skills",
+      "label": "Human &\nOrg Skills",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Organizational skills amplified by automation \u2014 adaptability, change management, and cross-functional collaboration.",
+      "seed": {
+        "x": 860,
+        "y": -260
+      }
+    },
+    {
+      "id": "industry-transformation",
+      "label": "Industry\nTransformation",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Domain-specific digital transformation \u2014 smart manufacturing, digital twins, industrial AI, and sustainability tech.",
+      "seed": {
+        "x": 940,
+        "y": -260
+      }
+    },
+    {
+      "id": "ai-literacy",
+      "label": "AI\nLiteracy",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Understanding AI capabilities, limitations, and appropriate use. Covers AI concepts, use-case evaluation, and critical engagement with AI tools.",
+      "seed": {
+        "x": 820,
+        "y": -410
+      }
+    },
+    {
+      "id": "human-ai-collaboration",
+      "label": "Human-AI\nCollaboration",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Skills for effective human-AI teaming \u2014 task delegation, output validation, trust calibration, and augmented decision-making.",
+      "seed": {
+        "x": 860,
+        "y": -430
+      }
+    },
+    {
+      "id": "data-literacy",
+      "label": "Data\nLiteracy",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Ability to read, interpret, and reason with data \u2014 visualization, basic statistics, and evaluating data quality and bias.",
+      "seed": {
+        "x": 900,
+        "y": -410
+      }
+    },
+    {
+      "id": "responsible-ai",
+      "label": "Responsible\nAI",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Developing and deploying AI ethically \u2014 fairness, accountability, transparency, privacy, and bias mitigation.",
+      "seed": {
+        "x": 820,
+        "y": -390
+      }
+    },
+    {
+      "id": "ai-governance",
+      "label": "AI\nGovernance",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Frameworks for governing AI use \u2014 EU AI Act, risk classification, auditability, and compliance reporting.",
+      "seed": {
+        "x": 840,
+        "y": -370
+      }
+    },
+    {
+      "id": "decision-intelligence",
+      "label": "Decision\nIntelligence",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Combining data, AI, and judgment for better decisions. Covers decision frameworks, causal inference, and AI-assisted analytics.",
+      "seed": {
+        "x": 900,
+        "y": -390
+      }
+    },
+    {
+      "id": "model-serving",
+      "label": "Model\nServing",
+      "domain": "it",
+      "level": 3,
+      "desc": "Deploying ML models as production services \u2014 inference servers, batching, versioning, and latency optimization.",
+      "seed": {
+        "x": 980,
+        "y": -390
+      }
+    },
+    {
+      "id": "retrieval-augmented-generation",
+      "label": "RAG",
+      "domain": "it",
+      "level": 3,
+      "desc": "Retrieval-Augmented Generation: pairing LLMs with external knowledge retrieval \u2014 vector search, chunking, and context injection.",
+      "seed": {
+        "x": 1000,
+        "y": -370
+      }
+    },
+    {
+      "id": "ml-ops",
+      "label": "MLOps",
+      "domain": "it",
+      "level": 3,
+      "desc": "Operationalizing ML pipelines \u2014 model versioning, monitoring, retraining, feature stores, and ML platform tooling.",
+      "seed": {
+        "x": 960,
+        "y": -410
+      }
+    },
+    {
+      "id": "ai-platform-engineering",
+      "label": "AI Platform\nEngineering",
+      "domain": "it",
+      "level": 3,
+      "desc": "Building platforms to train, evaluate, and serve AI models at scale. Covers compute clusters, experiment tracking, and model registries.",
+      "seed": {
+        "x": 1000,
+        "y": -350
+      }
+    },
+    {
+      "id": "vector-databases",
+      "label": "Vector\nDatabases",
+      "domain": "it",
+      "level": 3,
+      "desc": "Databases optimized for similarity search over high-dimensional embeddings. Key component in RAG and semantic search systems.",
+      "seed": {
+        "x": 1020,
+        "y": -370
+      }
+    },
+    {
+      "id": "ai-security",
+      "label": "AI\nSecurity",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Securing AI systems \u2014 adversarial attacks, model theft, prompt injection, data poisoning, and AI-specific threat modeling.",
+      "seed": {
+        "x": 940,
+        "y": -300
+      }
+    },
+    {
+      "id": "privacy-engineering",
+      "label": "Privacy\nEngineering",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Building systems that protect personal data by design \u2014 GDPR, differential privacy, anonymization, and privacy impact assessments.",
+      "seed": {
+        "x": 960,
+        "y": -280
+      }
+    },
+    {
+      "id": "cyber-resilience",
+      "label": "Cyber\nResilience",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Organizational ability to prepare for and recover from cyberattacks \u2014 incident response, business continuity, and resilience frameworks.",
+      "seed": {
+        "x": 920,
+        "y": -280
+      }
+    },
+    {
+      "id": "adaptive-problem-solving",
+      "label": "Adaptive\nProblem Solving",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Solving problems in rapidly changing, ambiguous contexts \u2014 flexible strategy switching and navigating unstructured challenges.",
+      "seed": {
+        "x": 840,
+        "y": -240
+      }
+    },
+    {
+      "id": "change-management",
+      "label": "Change\nManagement",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Leading organizational transitions effectively \u2014 stakeholder communication, resistance management, and adoption of new processes.",
+      "seed": {
+        "x": 880,
+        "y": -240
+      }
+    },
+    {
+      "id": "workflow-orchestration",
+      "label": "Workflow\nOrchestration",
+      "domain": "it",
+      "level": 3,
+      "desc": "Coordinating complex multi-step automated workflows \u2014 DAG schedulers (Airflow, Prefect), event-driven pipelines, and human-in-the-loop processes.",
+      "seed": {
+        "x": 920,
+        "y": -240
+      }
+    },
+    {
+      "id": "industrial-ai",
+      "label": "Industrial\nAI",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "AI in manufacturing and industrial operations \u2014 predictive maintenance, quality inspection, process optimization, and anomaly detection.",
+      "seed": {
+        "x": 940,
+        "y": -200
+      }
+    },
+    {
+      "id": "energy-digitalization",
+      "label": "Energy\nDigitalization",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Digital transformation of energy systems \u2014 smart meters, grid management software, energy data platforms, and AI-driven forecasting.",
+      "seed": {
+        "x": 960,
+        "y": -220
+      }
+    },
+    {
+      "id": "green-software-engineering",
+      "label": "Green Software\nEngineering",
+      "domain": "it",
+      "level": 3,
+      "desc": "Developing software with minimal environmental impact \u2014 energy-efficient algorithms, carbon-aware computing, and sustainable architecture.",
+      "seed": {
+        "x": 980,
+        "y": -200
+      }
+    },
+    {
+      "id": "prompt-engineering",
+      "label": "Prompt\nEngineering",
+      "domain": "it",
+      "level": 4,
+      "desc": "Crafting effective LLM inputs \u2014 zero-shot, few-shot, chain-of-thought, and structured prompting techniques.",
+      "seed": {
+        "x": 800,
+        "y": -430
+      }
+    },
+    {
+      "id": "llm-application-design",
+      "label": "LLM App\nDesign",
+      "domain": "it",
+      "level": 4,
+      "desc": "Building applications on large language models \u2014 agent architectures, tool use, memory systems, and evaluation frameworks.",
+      "seed": {
+        "x": 820,
+        "y": -450
+      }
+    },
+    {
+      "id": "model-evaluation",
+      "label": "Model\nEvaluation",
+      "domain": "it",
+      "level": 4,
+      "desc": "Assessing ML model performance, fairness, and robustness \u2014 benchmark design, red-teaming, and metric selection.",
+      "seed": {
+        "x": 840,
+        "y": -450
+      }
+    },
+    {
+      "id": "synthetic-data",
+      "label": "Synthetic\nData",
+      "domain": "it",
+      "level": 4,
+      "desc": "Generating artificial datasets for ML training \u2014 GANs, simulation-based synthesis, and privacy-preserving data augmentation.",
+      "seed": {
+        "x": 920,
+        "y": -430
+      }
+    },
+    {
+      "id": "problem-solving",
+      "label": "Problem\nSolving",
+      "domain": "bridge",
+      "level": 1,
+      "desc": "The meta-skill of structured thinking to understand, analyse, and resolve complex challenges. Foundation for engineering, design, research, and leadership.",
+      "seed": {
+        "x": 0,
+        "y": -700
+      }
+    },
+    {
+      "id": "ps-mindset",
+      "label": "Problem-Solving\nMindset",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Foundational worldviews and habits for good problem solving \u2014 systems thinking, first principles, and intellectual humility.",
+      "seed": {
+        "x": -200,
+        "y": -720
+      }
+    },
+    {
+      "id": "ps-framing",
+      "label": "Problem\nFraming",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Clearly defining and scoping a problem before solving \u2014 goal decomposition, constraint mapping, and reframing.",
+      "seed": {
+        "x": -100,
+        "y": -740
+      }
+    },
+    {
+      "id": "ps-analysis",
+      "label": "Problem\nAnalysis",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Systematic investigation of a problem's causes and structure \u2014 root cause analysis, decomposition, and quantitative reasoning.",
+      "seed": {
+        "x": 0,
+        "y": -760
+      }
+    },
+    {
+      "id": "ps-solution-gen",
+      "label": "Solution\nGeneration",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Generating a range of candidate solutions before committing \u2014 divergent thinking, analogy, and creative constraint use.",
+      "seed": {
+        "x": 100,
+        "y": -740
+      }
+    },
+    {
+      "id": "ps-decision-making",
+      "label": "Decision\nMaking",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Selecting the best option under uncertainty \u2014 trade-off analysis, risk assessment, and scenario planning.",
+      "seed": {
+        "x": 200,
+        "y": -720
+      }
+    },
+    {
+      "id": "ps-execution",
+      "label": "Execution\n& Iteration",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Turning decisions into action through planning, monitoring, and iterative refinement.",
+      "seed": {
+        "x": 100,
+        "y": -700
+      }
+    },
+    {
+      "id": "ps-collaboration",
+      "label": "Collaboration\n& Comms",
+      "domain": "bridge",
+      "level": 2,
+      "desc": "Working with others to solve problems \u2014 clear communication, facilitation, and alignment building.",
+      "seed": {
+        "x": -100,
+        "y": -700
+      }
+    },
+    {
+      "id": "systems-thinking",
+      "label": "Systems\nThinking",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Seeing problems as parts of larger systems with feedback loops, emergent behavior, and unintended consequences.",
+      "seed": {
+        "x": -280,
+        "y": -720
+      }
+    },
+    {
+      "id": "first-principles-thinking",
+      "label": "First Principles\nThinking",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Reasoning from fundamental truths rather than analogy \u2014 deconstructing assumptions to rebuild understanding from scratch.",
+      "seed": {
+        "x": -260,
+        "y": -740
+      }
+    },
+    {
+      "id": "probabilistic-thinking",
+      "label": "Probabilistic\nThinking",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Reasoning under uncertainty using likelihoods and confidence levels rather than binary thinking.",
+      "seed": {
+        "x": -240,
+        "y": -720
+      }
+    },
+    {
+      "id": "interdisciplinary-thinking",
+      "label": "Interdisciplinary\nThinking",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Borrowing models and approaches from multiple domains to solve a problem in a new context.",
+      "seed": {
+        "x": -220,
+        "y": -740
+      }
+    },
+    {
+      "id": "problem-definition",
+      "label": "Problem\nDefinition",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Precisely articulating what is wrong, for whom, and what the target state is. Prevents solving the wrong problem.",
+      "seed": {
+        "x": -140,
+        "y": -760
+      }
+    },
+    {
+      "id": "constraint-identification",
+      "label": "Constraint\nIdentification",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Mapping hard limits and soft boundaries \u2014 time, money, regulation, and technical constraints.",
+      "seed": {
+        "x": -100,
+        "y": -780
+      }
+    },
+    {
+      "id": "reframing",
+      "label": "Reframing",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Challenging the initial framing of a problem \u2014 asking whether assumptions need revisiting or the framing itself is wrong.",
+      "seed": {
+        "x": -80,
+        "y": -760
+      }
+    },
+    {
+      "id": "stakeholder-mapping",
+      "label": "Stakeholder\nMapping",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Identifying affected parties, decision-makers, and implementers. Essential for aligning solutions with real-world context.",
+      "seed": {
+        "x": -120,
+        "y": -760
+      }
+    },
+    {
+      "id": "root-cause-analysis",
+      "label": "Root Cause\nAnalysis",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Finding underlying causes rather than treating symptoms. Covers 5 Whys, fishbone diagrams, and fault tree analysis.",
+      "seed": {
+        "x": -40,
+        "y": -780
+      }
+    },
+    {
+      "id": "decomposition",
+      "label": "Decomposition",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Breaking large problems into smaller, solvable subproblems. Enables parallel work and clearer ownership.",
+      "seed": {
+        "x": 0,
+        "y": -800
+      }
+    },
+    {
+      "id": "quantitative-reasoning",
+      "label": "Quantitative\nReasoning",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Using estimates, calculations, and models to reason numerically. Covers back-of-envelope calculation and sensitivity analysis.",
+      "seed": {
+        "x": 40,
+        "y": -780
+      }
+    },
+    {
+      "id": "prioritization",
+      "label": "Prioritization",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Focusing effort on the highest-leverage factors. Covers impact/effort matrices and value-based ranking.",
+      "seed": {
+        "x": 20,
+        "y": -800
+      }
+    },
+    {
+      "id": "divergent-thinking",
+      "label": "Divergent\nThinking",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Generating many ideas before filtering. Suspending judgment to explore a wide solution space.",
+      "seed": {
+        "x": 100,
+        "y": -780
+      }
+    },
+    {
+      "id": "inversion-thinking",
+      "label": "Inversion\nThinking",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Solving problems by considering the opposite \u2014 how to guarantee failure. Reveals blind spots and hidden risks.",
+      "seed": {
+        "x": 140,
+        "y": -760
+      }
+    },
+    {
+      "id": "trade-off-analysis",
+      "label": "Trade-off\nAnalysis",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Evaluating what is gained and lost with each design or decision option. Core to engineering and product judgment.",
+      "seed": {
+        "x": 160,
+        "y": -740
+      }
+    },
+    {
+      "id": "risk-assessment-ps",
+      "label": "Risk\nAssessment",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Evaluating probability, impact, and detectability of risks before committing to a path.",
+      "seed": {
+        "x": 240,
+        "y": -740
+      }
+    },
+    {
+      "id": "scenario-planning",
+      "label": "Scenario\nPlanning",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Stress-testing decisions across best, base, and worst-case futures.",
+      "seed": {
+        "x": 220,
+        "y": -720
+      }
+    },
+    {
+      "id": "experimentation",
+      "label": "Experimentation",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Validating ideas through targeted tests and pilots. Covers A/B testing, prototyping, and build-measure-learn cycles.",
+      "seed": {
+        "x": 120,
+        "y": -720
+      }
+    },
+    {
+      "id": "troubleshooting",
+      "label": "Troubleshooting",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Diagnosing problems during execution \u2014 divide-and-conquer debugging, hypothesis testing, and systematic elimination.",
+      "seed": {
+        "x": 80,
+        "y": -720
+      }
+    },
+    {
+      "id": "iteration-refinement",
+      "label": "Iteration &\nRefinement",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Improving solutions through repeated cycles of feedback and adjustment. Key to agile and continuous improvement.",
+      "seed": {
+        "x": 100,
+        "y": -720
+      }
+    },
+    {
+      "id": "facilitation",
+      "label": "Facilitation",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Helping groups think and decide effectively together \u2014 meeting design, visual thinking, and structured dialogue.",
+      "seed": {
+        "x": -120,
+        "y": -720
+      }
+    },
+    {
+      "id": "documentation-practice",
+      "label": "Documentation\nPractice",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Recording assumptions, decisions, and reasoning for future reference and knowledge transfer.",
+      "seed": {
+        "x": -140,
+        "y": -700
+      }
+    },
+    {
+      "id": "postmortem-analysis",
+      "label": "Postmortem\nAnalysis",
+      "domain": "bridge",
+      "level": 3,
+      "desc": "Structured reflection after a project or incident \u2014 extracting lessons learned to prevent recurrence.",
+      "seed": {
+        "x": -80,
+        "y": -700
+      }
+    },
+    {
+      "id": "five-whys",
+      "label": "Five\nWhys",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Iterative technique for finding the root cause of a problem by repeatedly asking 'why'. Simple and widely applicable.",
+      "seed": {
+        "x": -60,
+        "y": -800
+      }
+    },
+    {
+      "id": "fault-tree-analysis",
+      "label": "Fault Tree\nAnalysis",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Top-down deductive analysis of failure modes using Boolean logic trees. Common in safety engineering and reliability.",
+      "seed": {
+        "x": -20,
+        "y": -820
+      }
+    },
+    {
+      "id": "premortem",
+      "label": "Premortem",
+      "domain": "bridge",
+      "level": 4,
+      "desc": "Imagining a project has already failed and working backward to identify what went wrong. Surfaces hidden risks before they occur.",
+      "seed": {
+        "x": 240,
+        "y": -760
+      }
+    }
   ],
-
   "edges": [
-    {"from":"root","to":"mech",         "type":"related",      "weight":1.0},
-    {"from":"root","to":"elec",         "type":"related",      "weight":1.0},
-    {"from":"root","to":"it",           "type":"related",      "weight":1.0},
-    {"from":"root","to":"physics",      "type":"related",      "weight":0.9},
-    {"from":"root","to":"aerospace",    "type":"related",      "weight":0.9},
-    {"from":"root","to":"biomedical",   "type":"related",      "weight":0.9},
-    {"from":"root","to":"energy",       "type":"related",      "weight":0.9},
-    {"from":"root","to":"mathematics",  "type":"related",      "weight":0.9},
-    {"from":"root","to":"embedded",     "type":"bridge",       "weight":1.5},
-    {"from":"root","to":"robotics",     "type":"bridge",       "weight":1.5},
-    {"from":"root","to":"mechatronics", "type":"bridge",       "weight":1.3},
-    {"from":"root","to":"industry4",    "type":"bridge",       "weight":1.0},
-
-    {"from":"mech","to":"lightweight",  "type":"subtopic",     "weight":1.0},
-    {"from":"mech","to":"materials",    "type":"subtopic",     "weight":1.0},
-    {"from":"mech","to":"thermal",      "type":"subtopic",     "weight":1.0},
-    {"from":"mech","to":"additive",     "type":"subtopic",     "weight":1.0},
-    {"from":"mech","to":"cnc",          "type":"subtopic",     "weight":1.0},
-    {"from":"mech","to":"fluids",       "type":"subtopic",     "weight":1.0},
-    {"from":"mech","to":"kinematics",   "type":"subtopic",     "weight":1.0},
-    {"from":"mech","to":"tribology",    "type":"subtopic",     "weight":0.9},
-    {"from":"mech","to":"mems",         "type":"subtopic",     "weight":0.8},
-    {"from":"lightweight","to":"composites","type":"subtopic", "weight":1.2},
-    {"from":"lightweight","to":"topology",  "type":"subtopic", "weight":1.2},
-    {"from":"materials","to":"composites",  "type":"related",  "weight":0.8},
-    {"from":"materials","to":"fatigue",     "type":"subtopic", "weight":1.0},
-    {"from":"kinematics","to":"vibration",  "type":"related",  "weight":0.8},
-    {"from":"mech","to":"fatigue",      "type":"subtopic",     "weight":0.9},
-    {"from":"mech","to":"vibration",    "type":"subtopic",     "weight":0.9},
-    {"from":"additive","to":"composites","type":"related",     "weight":0.7},
-    {"from":"thermal","to":"fluids",    "type":"related",      "weight":0.8},
-
-    {"from":"elec","to":"pcb",          "type":"subtopic",     "weight":1.0},
-    {"from":"elec","to":"power",        "type":"subtopic",     "weight":1.0},
-    {"from":"elec","to":"sensors",      "type":"subtopic",     "weight":1.0},
-    {"from":"elec","to":"analog",       "type":"subtopic",     "weight":1.0},
-    {"from":"elec","to":"rf",           "type":"subtopic",     "weight":1.0},
-    {"from":"elec","to":"fpga",         "type":"subtopic",     "weight":1.0},
-    {"from":"elec","to":"semiconductor","type":"subtopic",     "weight":1.0},
-    {"from":"pcb","to":"si",            "type":"subtopic",     "weight":1.2},
-    {"from":"pcb","to":"emc",           "type":"subtopic",     "weight":1.0},
-    {"from":"pcb","to":"power-integrity","type":"related",     "weight":1.0},
-    {"from":"power","to":"motors",      "type":"subtopic",     "weight":1.0},
-    {"from":"power","to":"bms",         "type":"subtopic",     "weight":1.0},
-    {"from":"power","to":"dcdc",        "type":"subtopic",     "weight":1.2},
-    {"from":"analog","to":"opamp",      "type":"subtopic",     "weight":1.2},
-    {"from":"sensors","to":"analog",    "type":"prerequisite", "weight":0.9},
-    {"from":"fpga","to":"asic",         "type":"related",      "weight":1.0},
-    {"from":"semiconductor","to":"asic","type":"prerequisite", "weight":1.0},
-
-    {"from":"it","to":"software",       "type":"subtopic",     "weight":1.0},
-    {"from":"it","to":"algorithms",     "type":"subtopic",     "weight":1.0},
-    {"from":"it","to":"ml",             "type":"subtopic",     "weight":1.0},
-    {"from":"it","to":"networking",     "type":"subtopic",     "weight":1.0},
-    {"from":"it","to":"security",       "type":"subtopic",     "weight":1.0},
-    {"from":"it","to":"cloud",          "type":"subtopic",     "weight":1.0},
-    {"from":"it","to":"data-eng",       "type":"subtopic",     "weight":0.9},
-    {"from":"it","to":"hpc",            "type":"subtopic",     "weight":0.8},
-    {"from":"ml","to":"cv",             "type":"subtopic",     "weight":1.2},
-    {"from":"ml","to":"edgeai",         "type":"subtopic",     "weight":1.2},
-    {"from":"ml","to":"gpu-prog",       "type":"related",      "weight":1.0},
-    {"from":"software","to":"algorithms","type":"prerequisite","weight":0.8},
-    {"from":"software","to":"os",       "type":"prerequisite", "weight":0.9},
-    {"from":"cloud","to":"containers",  "type":"subtopic",     "weight":1.2},
-    {"from":"cloud","to":"data-eng",    "type":"related",      "weight":0.9},
-    {"from":"hpc","to":"gpu-prog",      "type":"subtopic",     "weight":1.3},
-    {"from":"data-eng","to":"ml",       "type":"related",      "weight":0.9},
-
-    {"from":"embedded","to":"elec",     "type":"bridge",       "weight":1.5},
-    {"from":"embedded","to":"it",       "type":"bridge",       "weight":1.5},
-    {"from":"embedded","to":"pcb",      "type":"related",      "weight":1.2},
-    {"from":"embedded","to":"sensors",  "type":"related",      "weight":1.2},
-    {"from":"embedded","to":"motors",   "type":"related",      "weight":1.0},
-    {"from":"embedded","to":"networking","type":"related",     "weight":1.0},
-    {"from":"embedded","to":"rtos",     "type":"subtopic",     "weight":1.3},
-    {"from":"mechatronics","to":"mech", "type":"bridge",       "weight":1.5},
-    {"from":"mechatronics","to":"elec", "type":"bridge",       "weight":1.5},
-    {"from":"mechatronics","to":"kinematics","type":"related", "weight":1.0},
-    {"from":"mechatronics","to":"motors","type":"related",     "weight":1.2},
-    {"from":"mechatronics","to":"control","type":"related",    "weight":1.5},
-    {"from":"robotics","to":"mech",     "type":"bridge",       "weight":1.2},
-    {"from":"robotics","to":"elec",     "type":"bridge",       "weight":1.2},
-    {"from":"robotics","to":"it",       "type":"bridge",       "weight":1.2},
-    {"from":"robotics","to":"embedded", "type":"related",      "weight":1.3},
-    {"from":"robotics","to":"mechatronics","type":"related",   "weight":1.5},
-    {"from":"robotics","to":"control",  "type":"related",      "weight":1.5},
-    {"from":"robotics","to":"cv",       "type":"related",      "weight":1.0},
-    {"from":"robotics","to":"autonomous","type":"subtopic",    "weight":1.2},
-    {"from":"robotics","to":"kinematics","type":"related",     "weight":1.0},
-    {"from":"robotics","to":"soft-robotics","type":"subtopic", "weight":0.9},
-    {"from":"iot","to":"embedded",      "type":"related",      "weight":1.5},
-    {"from":"iot","to":"networking",    "type":"related",      "weight":1.2},
-    {"from":"iot","to":"rf",            "type":"related",      "weight":1.0},
-    {"from":"iot","to":"security",      "type":"related",      "weight":1.0},
-    {"from":"iot","to":"sensors",       "type":"related",      "weight":1.0},
-    {"from":"iot","to":"edgeai",        "type":"related",      "weight":1.0},
-    {"from":"iot","to":"cloud",         "type":"related",      "weight":1.0},
-    {"from":"control","to":"algorithms","type":"prerequisite", "weight":0.9},
-    {"from":"control","to":"sensors",   "type":"related",      "weight":1.0},
-    {"from":"control","to":"motors",    "type":"related",      "weight":1.2},
-    {"from":"control","to":"kalman",    "type":"subtopic",     "weight":1.2},
-    {"from":"twins","to":"ml",          "type":"related",      "weight":1.0},
-    {"from":"twins","to":"fluids",      "type":"related",      "weight":0.8},
-    {"from":"twins","to":"sensors",     "type":"related",      "weight":1.0},
-    {"from":"twins","to":"software",    "type":"related",      "weight":0.8},
-    {"from":"autonomous","to":"cv",     "type":"related",      "weight":1.2},
-    {"from":"autonomous","to":"control","type":"related",      "weight":1.3},
-    {"from":"autonomous","to":"edgeai", "type":"related",      "weight":1.0},
-    {"from":"autonomous","to":"slam",   "type":"subtopic",     "weight":1.3},
-    {"from":"edgeai","to":"embedded",   "type":"related",      "weight":1.5},
-    {"from":"edgeai","to":"sensors",    "type":"related",      "weight":0.9},
-    {"from":"slam","to":"cv",           "type":"related",      "weight":1.2},
-    {"from":"slam","to":"kalman",       "type":"prerequisite", "weight":1.3},
-    {"from":"slam","to":"sensors",      "type":"related",      "weight":1.0},
-    {"from":"foc","to":"motors",        "type":"subtopic",     "weight":1.5},
-    {"from":"foc","to":"control",       "type":"related",      "weight":1.3},
-    {"from":"foc","to":"embedded",      "type":"related",      "weight":1.2},
-    {"from":"kalman","to":"algorithms", "type":"prerequisite", "weight":0.9},
-    {"from":"kalman","to":"sensors",    "type":"related",      "weight":1.0},
-    {"from":"wearables","to":"embedded","type":"related",      "weight":1.2},
-    {"from":"wearables","to":"sensors", "type":"related",      "weight":1.2},
-    {"from":"wearables","to":"rf",      "type":"related",      "weight":0.9},
-    {"from":"wearables","to":"biomedical","type":"bridge",     "weight":1.2},
-    {"from":"smart-mfg","to":"industry4","type":"subtopic",    "weight":1.3},
-    {"from":"smart-mfg","to":"additive","type":"related",      "weight":1.0},
-    {"from":"smart-mfg","to":"cnc",     "type":"related",      "weight":1.0},
-    {"from":"smart-mfg","to":"ml",      "type":"related",      "weight":1.0},
-    {"from":"smart-mfg","to":"twins",   "type":"related",      "weight":1.2},
-    {"from":"industry4","to":"mech",    "type":"bridge",       "weight":1.0},
-    {"from":"industry4","to":"elec",    "type":"bridge",       "weight":1.0},
-    {"from":"industry4","to":"it",      "type":"bridge",       "weight":1.0},
-
-    {"from":"aerospace","to":"mech",    "type":"related",      "weight":1.2},
-    {"from":"aerospace","to":"elec",    "type":"related",      "weight":0.8},
-    {"from":"aerospace","to":"it",      "type":"related",      "weight":0.8},
-    {"from":"aerospace","to":"aerodynamics","type":"subtopic", "weight":1.2},
-    {"from":"aerospace","to":"propulsion",  "type":"subtopic", "weight":1.2},
-    {"from":"aerospace","to":"aerostructures","type":"subtopic","weight":1.2},
-    {"from":"aerospace","to":"gnc",     "type":"subtopic",     "weight":1.2},
-    {"from":"aerospace","to":"orbital", "type":"subtopic",     "weight":1.0},
-    {"from":"aerodynamics","to":"fluids","type":"related",     "weight":1.3},
-    {"from":"aerostructures","to":"lightweight","type":"related","weight":1.2},
-    {"from":"aerostructures","to":"composites","type":"related","weight":1.2},
-    {"from":"aerostructures","to":"fatigue","type":"related",  "weight":1.0},
-    {"from":"propulsion","to":"thermal","type":"related",      "weight":1.0},
-    {"from":"propulsion","to":"turbomachinery","type":"subtopic","weight":1.3},
-    {"from":"propulsion","to":"fluids", "type":"related",      "weight":1.0},
-    {"from":"gnc","to":"control",       "type":"related",      "weight":1.4},
-    {"from":"gnc","to":"sensors",       "type":"related",      "weight":1.0},
-    {"from":"gnc","to":"kalman",        "type":"related",      "weight":1.2},
-    {"from":"gnc","to":"embedded",      "type":"related",      "weight":1.0},
-    {"from":"aerodynamics","to":"reentry-thermal","type":"related","weight":0.8},
-
-    {"from":"physics","to":"mech",      "type":"prerequisite", "weight":1.2},
-    {"from":"physics","to":"elec",      "type":"prerequisite", "weight":1.2},
-    {"from":"physics","to":"mathematics","type":"related",     "weight":1.3},
-    {"from":"physics","to":"classical-mech","type":"subtopic", "weight":1.2},
-    {"from":"physics","to":"electromag","type":"subtopic",     "weight":1.2},
-    {"from":"physics","to":"thermophys","type":"subtopic",     "weight":1.2},
-    {"from":"physics","to":"optics",    "type":"subtopic",     "weight":1.0},
-    {"from":"physics","to":"quantum",   "type":"subtopic",     "weight":1.0},
-    {"from":"classical-mech","to":"kinematics","type":"related","weight":1.0},
-    {"from":"classical-mech","to":"fem","type":"related",      "weight":1.0},
-    {"from":"electromag","to":"rf",     "type":"prerequisite", "weight":1.2},
-    {"from":"electromag","to":"semiconductor","type":"prerequisite","weight":1.0},
-    {"from":"thermophys","to":"thermal","type":"related",      "weight":1.2},
-    {"from":"quantum","to":"semiconductor","type":"prerequisite","weight":1.3},
-    {"from":"optics","to":"sensors",    "type":"related",      "weight":0.8},
-    {"from":"dsp","to":"signal-integrity","type":"related",    "weight":0.8},
-    {"from":"dsp","to":"analog",        "type":"related",      "weight":1.0},
-    {"from":"dsp","to":"algorithms",    "type":"related",      "weight":0.9},
-    {"from":"fem","to":"fluids",        "type":"related",      "weight":0.9},
-    {"from":"fem","to":"thermal",       "type":"related",      "weight":0.9},
-    {"from":"fem","to":"aerostructures","type":"related",      "weight":1.0},
-
-    {"from":"biomedical","to":"mech",   "type":"bridge",       "weight":0.9},
-    {"from":"biomedical","to":"elec",   "type":"bridge",       "weight":0.9},
-    {"from":"biomedical","to":"it",     "type":"bridge",       "weight":0.9},
-    {"from":"biomedical","to":"medical-devices","type":"subtopic","weight":1.2},
-    {"from":"biomedical","to":"biomechanics","type":"subtopic","weight":1.2},
-    {"from":"biomedical","to":"biosensors","type":"subtopic",  "weight":1.2},
-    {"from":"biomedical","to":"medical-imaging","type":"subtopic","weight":1.2},
-    {"from":"biomedical","to":"neurotech","type":"subtopic",   "weight":1.0},
-    {"from":"biomechanics","to":"mech", "type":"related",      "weight":1.0},
-    {"from":"biomechanics","to":"materials","type":"related",  "weight":0.8},
-    {"from":"biomechanics","to":"prosthetics","type":"subtopic","weight":1.2},
-    {"from":"biosensors","to":"sensors","type":"related",      "weight":1.2},
-    {"from":"biosensors","to":"analog", "type":"related",      "weight":1.0},
-    {"from":"medical-imaging","to":"cv","type":"related",      "weight":1.0},
-    {"from":"medical-imaging","to":"ml","type":"related",      "weight":1.0},
-    {"from":"medical-devices","to":"embedded","type":"related","weight":1.0},
-    {"from":"medical-devices","to":"pcb","type":"related",     "weight":0.9},
-    {"from":"neurotech","to":"ecg-eeg", "type":"subtopic",     "weight":1.2},
-    {"from":"neurotech","to":"analog",  "type":"related",      "weight":1.0},
-    {"from":"prosthetics","to":"control","type":"related",     "weight":1.0},
-    {"from":"prosthetics","to":"motors","type":"related",      "weight":1.0},
-    {"from":"ecg-eeg","to":"analog",    "type":"related",      "weight":1.0},
-    {"from":"ecg-eeg","to":"dsp",       "type":"related",      "weight":1.0},
-    {"from":"wearables","to":"biomedical","type":"bridge",     "weight":1.0},
-
-    {"from":"energy","to":"elec",       "type":"related",      "weight":1.0},
-    {"from":"energy","to":"mech",       "type":"related",      "weight":0.9},
-    {"from":"energy","to":"renewables", "type":"subtopic",     "weight":1.2},
-    {"from":"energy","to":"energy-storage","type":"subtopic",  "weight":1.2},
-    {"from":"energy","to":"smart-grid", "type":"subtopic",     "weight":1.2},
-    {"from":"energy","to":"hydrogen",   "type":"subtopic",     "weight":1.0},
-    {"from":"renewables","to":"solar",  "type":"subtopic",     "weight":1.2},
-    {"from":"renewables","to":"wind-turbine","type":"subtopic","weight":1.2},
-    {"from":"energy-storage","to":"bms","type":"related",      "weight":1.2},
-    {"from":"energy-storage","to":"power","type":"related",    "weight":1.0},
-    {"from":"smart-grid","to":"networking","type":"related",   "weight":0.9},
-    {"from":"smart-grid","to":"security","type":"related",     "weight":0.9},
-    {"from":"smart-grid","to":"iot",    "type":"related",      "weight":1.0},
-    {"from":"wind-turbine","to":"fluids","type":"related",     "weight":1.0},
-    {"from":"wind-turbine","to":"fatigue","type":"related",    "weight":1.0},
-    {"from":"solar","to":"semiconductor","type":"related",     "weight":1.0},
-    {"from":"solar","to":"power",       "type":"related",      "weight":0.9},
-    {"from":"hydrogen","to":"thermal",  "type":"related",      "weight":0.8},
-
-    {"from":"mathematics","to":"physics",    "type":"prerequisite","weight":1.3},
-    {"from":"mathematics","to":"it",         "type":"related",     "weight":1.0},
-    {"from":"mathematics","to":"linear-algebra","type":"subtopic", "weight":1.2},
-    {"from":"mathematics","to":"calculus",   "type":"subtopic",    "weight":1.2},
-    {"from":"mathematics","to":"statistics", "type":"subtopic",    "weight":1.2},
-    {"from":"mathematics","to":"numerical",  "type":"subtopic",    "weight":1.0},
-    {"from":"linear-algebra","to":"ml",      "type":"prerequisite","weight":1.2},
-    {"from":"linear-algebra","to":"control", "type":"prerequisite","weight":1.0},
-    {"from":"linear-algebra","to":"cv",      "type":"prerequisite","weight":0.9},
-    {"from":"calculus","to":"classical-mech","type":"prerequisite","weight":1.0},
-    {"from":"calculus","to":"electromag",    "type":"prerequisite","weight":1.0},
-    {"from":"calculus","to":"ode-pde",       "type":"subtopic",    "weight":1.3},
-    {"from":"statistics","to":"ml",          "type":"prerequisite","weight":1.2},
-    {"from":"statistics","to":"kalman",      "type":"prerequisite","weight":1.0},
-    {"from":"numerical","to":"fem",          "type":"related",     "weight":1.3},
-    {"from":"numerical","to":"ode-pde",      "type":"related",     "weight":1.0},
-    {"from":"numerical","to":"hpc",          "type":"related",     "weight":1.0},
-    {"from":"optimization","to":"ml",        "type":"prerequisite","weight":1.2},
-    {"from":"optimization","to":"topology",  "type":"related",     "weight":1.0},
-    {"from":"optimization","to":"control",   "type":"related",     "weight":1.0},
-    {"from":"optimization","to":"algorithms","type":"related",     "weight":1.0},
-    {"from":"ode-pde","to":"control",        "type":"prerequisite","weight":1.0},
-    {"from":"ode-pde","to":"thermophys",     "type":"related",     "weight":0.9},
-    {"from":"graph-theory","to":"algorithms","type":"related",     "weight":1.2},
-    {"from":"graph-theory","to":"networking","type":"related",     "weight":1.0},
-    {"from":"graph-theory","to":"ml",        "type":"related",     "weight":0.8},
-    {"from":"dsp","to":"mathematics",        "type":"related",     "weight":0.8}
+    {
+      "from": "root",
+      "to": "mech",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "root",
+      "to": "elec",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "root",
+      "to": "it",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "root",
+      "to": "physics",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "root",
+      "to": "aerospace",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "root",
+      "to": "biomedical",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "root",
+      "to": "energy",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "root",
+      "to": "mathematics",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "root",
+      "to": "embedded",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "root",
+      "to": "robotics",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "root",
+      "to": "mechatronics",
+      "type": "bridge",
+      "weight": 1.3
+    },
+    {
+      "from": "root",
+      "to": "industry4",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "lightweight",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "materials",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "thermal",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "additive",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "cnc",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "fluids",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "kinematics",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "mech",
+      "to": "tribology",
+      "type": "subtopic",
+      "weight": 0.9
+    },
+    {
+      "from": "mech",
+      "to": "mems",
+      "type": "subtopic",
+      "weight": 0.8
+    },
+    {
+      "from": "lightweight",
+      "to": "composites",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "lightweight",
+      "to": "topology",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "materials",
+      "to": "composites",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "materials",
+      "to": "fatigue",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "kinematics",
+      "to": "vibration",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "mech",
+      "to": "fatigue",
+      "type": "subtopic",
+      "weight": 0.9
+    },
+    {
+      "from": "mech",
+      "to": "vibration",
+      "type": "subtopic",
+      "weight": 0.9
+    },
+    {
+      "from": "additive",
+      "to": "composites",
+      "type": "related",
+      "weight": 0.7
+    },
+    {
+      "from": "thermal",
+      "to": "fluids",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "elec",
+      "to": "pcb",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "elec",
+      "to": "power",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "elec",
+      "to": "sensors",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "elec",
+      "to": "analog",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "elec",
+      "to": "rf",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "elec",
+      "to": "fpga",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "elec",
+      "to": "semiconductor",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "pcb",
+      "to": "si",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "pcb",
+      "to": "emc",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "pcb",
+      "to": "power-integrity",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "power",
+      "to": "motors",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "power",
+      "to": "bms",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "power",
+      "to": "dcdc",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "analog",
+      "to": "opamp",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "sensors",
+      "to": "analog",
+      "type": "prerequisite",
+      "weight": 0.9
+    },
+    {
+      "from": "fpga",
+      "to": "asic",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "semiconductor",
+      "to": "asic",
+      "type": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "it",
+      "to": "software",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "it",
+      "to": "algorithms",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "it",
+      "to": "ml",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "it",
+      "to": "networking",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "it",
+      "to": "security",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "it",
+      "to": "cloud",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "it",
+      "to": "data-eng",
+      "type": "subtopic",
+      "weight": 0.9
+    },
+    {
+      "from": "it",
+      "to": "hpc",
+      "type": "subtopic",
+      "weight": 0.8
+    },
+    {
+      "from": "ml",
+      "to": "cv",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "ml",
+      "to": "edgeai",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "ml",
+      "to": "gpu-prog",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "software",
+      "to": "algorithms",
+      "type": "prerequisite",
+      "weight": 0.8
+    },
+    {
+      "from": "software",
+      "to": "os",
+      "type": "prerequisite",
+      "weight": 0.9
+    },
+    {
+      "from": "cloud",
+      "to": "containers",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "cloud",
+      "to": "data-eng",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "hpc",
+      "to": "gpu-prog",
+      "type": "subtopic",
+      "weight": 1.3
+    },
+    {
+      "from": "data-eng",
+      "to": "ml",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "embedded",
+      "to": "elec",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "embedded",
+      "to": "it",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "embedded",
+      "to": "pcb",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "embedded",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "embedded",
+      "to": "motors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "embedded",
+      "to": "networking",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "embedded",
+      "to": "rtos",
+      "type": "subtopic",
+      "weight": 1.3
+    },
+    {
+      "from": "mechatronics",
+      "to": "mech",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "mechatronics",
+      "to": "elec",
+      "type": "bridge",
+      "weight": 1.5
+    },
+    {
+      "from": "mechatronics",
+      "to": "kinematics",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "mechatronics",
+      "to": "motors",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "mechatronics",
+      "to": "control",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "robotics",
+      "to": "mech",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "robotics",
+      "to": "elec",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "robotics",
+      "to": "it",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "robotics",
+      "to": "embedded",
+      "type": "related",
+      "weight": 1.3
+    },
+    {
+      "from": "robotics",
+      "to": "mechatronics",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "robotics",
+      "to": "control",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "robotics",
+      "to": "cv",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "robotics",
+      "to": "autonomous",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "robotics",
+      "to": "kinematics",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "robotics",
+      "to": "soft-robotics",
+      "type": "subtopic",
+      "weight": 0.9
+    },
+    {
+      "from": "iot",
+      "to": "embedded",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "iot",
+      "to": "networking",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "iot",
+      "to": "rf",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "iot",
+      "to": "security",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "iot",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "iot",
+      "to": "edgeai",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "iot",
+      "to": "cloud",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "control",
+      "to": "algorithms",
+      "type": "prerequisite",
+      "weight": 0.9
+    },
+    {
+      "from": "control",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "control",
+      "to": "motors",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "control",
+      "to": "kalman",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "twins",
+      "to": "ml",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "twins",
+      "to": "fluids",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "twins",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "twins",
+      "to": "software",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "autonomous",
+      "to": "cv",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "autonomous",
+      "to": "control",
+      "type": "related",
+      "weight": 1.3
+    },
+    {
+      "from": "autonomous",
+      "to": "edgeai",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "autonomous",
+      "to": "slam",
+      "type": "subtopic",
+      "weight": 1.3
+    },
+    {
+      "from": "edgeai",
+      "to": "embedded",
+      "type": "related",
+      "weight": 1.5
+    },
+    {
+      "from": "edgeai",
+      "to": "sensors",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "slam",
+      "to": "cv",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "slam",
+      "to": "kalman",
+      "type": "prerequisite",
+      "weight": 1.3
+    },
+    {
+      "from": "slam",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "foc",
+      "to": "motors",
+      "type": "subtopic",
+      "weight": 1.5
+    },
+    {
+      "from": "foc",
+      "to": "control",
+      "type": "related",
+      "weight": 1.3
+    },
+    {
+      "from": "foc",
+      "to": "embedded",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "kalman",
+      "to": "algorithms",
+      "type": "prerequisite",
+      "weight": 0.9
+    },
+    {
+      "from": "kalman",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "wearables",
+      "to": "embedded",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "wearables",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "wearables",
+      "to": "rf",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "wearables",
+      "to": "biomedical",
+      "type": "bridge",
+      "weight": 1.2
+    },
+    {
+      "from": "smart-mfg",
+      "to": "industry4",
+      "type": "subtopic",
+      "weight": 1.3
+    },
+    {
+      "from": "smart-mfg",
+      "to": "additive",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "smart-mfg",
+      "to": "cnc",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "smart-mfg",
+      "to": "ml",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "smart-mfg",
+      "to": "twins",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "industry4",
+      "to": "mech",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "industry4",
+      "to": "elec",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "industry4",
+      "to": "it",
+      "type": "bridge",
+      "weight": 1.0
+    },
+    {
+      "from": "aerospace",
+      "to": "mech",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "aerospace",
+      "to": "elec",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "aerospace",
+      "to": "it",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "aerospace",
+      "to": "aerodynamics",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "aerospace",
+      "to": "propulsion",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "aerospace",
+      "to": "aerostructures",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "aerospace",
+      "to": "gnc",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "aerospace",
+      "to": "orbital",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "aerodynamics",
+      "to": "fluids",
+      "type": "related",
+      "weight": 1.3
+    },
+    {
+      "from": "aerostructures",
+      "to": "lightweight",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "aerostructures",
+      "to": "composites",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "aerostructures",
+      "to": "fatigue",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "propulsion",
+      "to": "thermal",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "propulsion",
+      "to": "turbomachinery",
+      "type": "subtopic",
+      "weight": 1.3
+    },
+    {
+      "from": "propulsion",
+      "to": "fluids",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "gnc",
+      "to": "control",
+      "type": "related",
+      "weight": 1.4
+    },
+    {
+      "from": "gnc",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "gnc",
+      "to": "kalman",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "gnc",
+      "to": "embedded",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "aerodynamics",
+      "to": "reentry-thermal",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "physics",
+      "to": "mech",
+      "type": "prerequisite",
+      "weight": 1.2
+    },
+    {
+      "from": "physics",
+      "to": "elec",
+      "type": "prerequisite",
+      "weight": 1.2
+    },
+    {
+      "from": "physics",
+      "to": "mathematics",
+      "type": "related",
+      "weight": 1.3
+    },
+    {
+      "from": "physics",
+      "to": "classical-mech",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "physics",
+      "to": "electromag",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "physics",
+      "to": "thermophys",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "physics",
+      "to": "optics",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "physics",
+      "to": "quantum",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "classical-mech",
+      "to": "kinematics",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "classical-mech",
+      "to": "fem",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "electromag",
+      "to": "rf",
+      "type": "prerequisite",
+      "weight": 1.2
+    },
+    {
+      "from": "electromag",
+      "to": "semiconductor",
+      "type": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "thermophys",
+      "to": "thermal",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "quantum",
+      "to": "semiconductor",
+      "type": "prerequisite",
+      "weight": 1.3
+    },
+    {
+      "from": "optics",
+      "to": "sensors",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "dsp",
+      "to": "si",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "dsp",
+      "to": "analog",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "dsp",
+      "to": "algorithms",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "fem",
+      "to": "fluids",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "fem",
+      "to": "thermal",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "fem",
+      "to": "aerostructures",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "biomedical",
+      "to": "mech",
+      "type": "bridge",
+      "weight": 0.9
+    },
+    {
+      "from": "biomedical",
+      "to": "elec",
+      "type": "bridge",
+      "weight": 0.9
+    },
+    {
+      "from": "biomedical",
+      "to": "it",
+      "type": "bridge",
+      "weight": 0.9
+    },
+    {
+      "from": "biomedical",
+      "to": "medical-devices",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "biomedical",
+      "to": "biomechanics",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "biomedical",
+      "to": "biosensors",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "biomedical",
+      "to": "medical-imaging",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "biomedical",
+      "to": "neurotech",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "biomechanics",
+      "to": "mech",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "biomechanics",
+      "to": "materials",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "biomechanics",
+      "to": "prosthetics",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "biosensors",
+      "to": "sensors",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "biosensors",
+      "to": "analog",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "medical-imaging",
+      "to": "cv",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "medical-imaging",
+      "to": "ml",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "medical-devices",
+      "to": "embedded",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "medical-devices",
+      "to": "pcb",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "neurotech",
+      "to": "ecg-eeg",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "neurotech",
+      "to": "analog",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "prosthetics",
+      "to": "control",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "prosthetics",
+      "to": "motors",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "ecg-eeg",
+      "to": "analog",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "ecg-eeg",
+      "to": "dsp",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "energy",
+      "to": "elec",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "energy",
+      "to": "mech",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "energy",
+      "to": "renewables",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "energy",
+      "to": "energy-storage",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "energy",
+      "to": "smart-grid",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "energy",
+      "to": "hydrogen",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "renewables",
+      "to": "solar",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "renewables",
+      "to": "wind-turbine",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "energy-storage",
+      "to": "bms",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "energy-storage",
+      "to": "power",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "smart-grid",
+      "to": "networking",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "smart-grid",
+      "to": "security",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "smart-grid",
+      "to": "iot",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "wind-turbine",
+      "to": "fluids",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "wind-turbine",
+      "to": "fatigue",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "solar",
+      "to": "semiconductor",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "solar",
+      "to": "power",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "hydrogen",
+      "to": "thermal",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "mathematics",
+      "to": "physics",
+      "type": "prerequisite",
+      "weight": 1.3
+    },
+    {
+      "from": "mathematics",
+      "to": "it",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "mathematics",
+      "to": "linear-algebra",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "mathematics",
+      "to": "calculus",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "mathematics",
+      "to": "statistics",
+      "type": "subtopic",
+      "weight": 1.2
+    },
+    {
+      "from": "mathematics",
+      "to": "numerical",
+      "type": "subtopic",
+      "weight": 1.0
+    },
+    {
+      "from": "linear-algebra",
+      "to": "ml",
+      "type": "prerequisite",
+      "weight": 1.2
+    },
+    {
+      "from": "linear-algebra",
+      "to": "control",
+      "type": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "linear-algebra",
+      "to": "cv",
+      "type": "prerequisite",
+      "weight": 0.9
+    },
+    {
+      "from": "calculus",
+      "to": "classical-mech",
+      "type": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "calculus",
+      "to": "electromag",
+      "type": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "calculus",
+      "to": "ode-pde",
+      "type": "subtopic",
+      "weight": 1.3
+    },
+    {
+      "from": "statistics",
+      "to": "ml",
+      "type": "prerequisite",
+      "weight": 1.2
+    },
+    {
+      "from": "statistics",
+      "to": "kalman",
+      "type": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "numerical",
+      "to": "fem",
+      "type": "related",
+      "weight": 1.3
+    },
+    {
+      "from": "numerical",
+      "to": "ode-pde",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "numerical",
+      "to": "hpc",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "optimization",
+      "to": "ml",
+      "type": "prerequisite",
+      "weight": 1.2
+    },
+    {
+      "from": "optimization",
+      "to": "topology",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "optimization",
+      "to": "control",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "optimization",
+      "to": "algorithms",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "ode-pde",
+      "to": "control",
+      "type": "prerequisite",
+      "weight": 1.0
+    },
+    {
+      "from": "ode-pde",
+      "to": "thermophys",
+      "type": "related",
+      "weight": 0.9
+    },
+    {
+      "from": "graph-theory",
+      "to": "algorithms",
+      "type": "related",
+      "weight": 1.2
+    },
+    {
+      "from": "graph-theory",
+      "to": "networking",
+      "type": "related",
+      "weight": 1.0
+    },
+    {
+      "from": "graph-theory",
+      "to": "ml",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "dsp",
+      "to": "mathematics",
+      "type": "related",
+      "weight": 0.8
+    },
+    {
+      "from": "software",
+      "to": "software-architecture",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "design-patterns",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "testing-validation",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "requirements-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "programming-languages",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "devops",
+      "type": "subtopic"
+    },
+    {
+      "from": "devops",
+      "to": "ci-cd",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "web-development",
+      "type": "subtopic"
+    },
+    {
+      "from": "web-development",
+      "to": "backend-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "web-development",
+      "to": "frontend-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "mobile-development",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "human-computer-interaction",
+      "type": "subtopic"
+    },
+    {
+      "from": "software",
+      "to": "computer-graphics",
+      "type": "related"
+    },
+    {
+      "from": "software",
+      "to": "advanced-programming-paradigms",
+      "type": "subtopic"
+    },
+    {
+      "from": "software-architecture",
+      "to": "design-patterns",
+      "type": "related"
+    },
+    {
+      "from": "software-architecture",
+      "to": "distributed-systems",
+      "type": "related"
+    },
+    {
+      "from": "testing-validation",
+      "to": "devops",
+      "type": "related"
+    },
+    {
+      "from": "computer-graphics",
+      "to": "cv",
+      "type": "related"
+    },
+    {
+      "from": "algorithms",
+      "to": "algorithm-design",
+      "type": "subtopic"
+    },
+    {
+      "from": "algorithms",
+      "to": "complexity-theory",
+      "type": "subtopic"
+    },
+    {
+      "from": "algorithms",
+      "to": "data-structures",
+      "type": "subtopic"
+    },
+    {
+      "from": "algorithm-design",
+      "to": "data-structures",
+      "type": "prerequisite"
+    },
+    {
+      "from": "os",
+      "to": "linux-systems",
+      "type": "subtopic"
+    },
+    {
+      "from": "os",
+      "to": "virtualization",
+      "type": "subtopic"
+    },
+    {
+      "from": "os",
+      "to": "distributed-systems",
+      "type": "subtopic"
+    },
+    {
+      "from": "os",
+      "to": "processes-threads",
+      "type": "subtopic"
+    },
+    {
+      "from": "os",
+      "to": "memory-management",
+      "type": "subtopic"
+    },
+    {
+      "from": "os",
+      "to": "concurrency",
+      "type": "subtopic"
+    },
+    {
+      "from": "virtualization",
+      "to": "containers",
+      "type": "related"
+    },
+    {
+      "from": "distributed-systems",
+      "to": "distributed-computing",
+      "type": "related"
+    },
+    {
+      "from": "concurrency",
+      "to": "processes-threads",
+      "type": "related"
+    },
+    {
+      "from": "networking",
+      "to": "network-architecture",
+      "type": "subtopic"
+    },
+    {
+      "from": "networking",
+      "to": "internet-protocols",
+      "type": "subtopic"
+    },
+    {
+      "from": "networking",
+      "to": "routing-switching",
+      "type": "subtopic"
+    },
+    {
+      "from": "networking",
+      "to": "load-balancing",
+      "type": "subtopic"
+    },
+    {
+      "from": "networking",
+      "to": "wireless-networks",
+      "type": "subtopic"
+    },
+    {
+      "from": "networking",
+      "to": "network-monitoring",
+      "type": "subtopic"
+    },
+    {
+      "from": "network-architecture",
+      "to": "internet-protocols",
+      "type": "prerequisite"
+    },
+    {
+      "from": "wireless-networks",
+      "to": "rf",
+      "type": "related"
+    },
+    {
+      "from": "cloud",
+      "to": "infrastructure-as-code",
+      "type": "subtopic"
+    },
+    {
+      "from": "cloud",
+      "to": "platform-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "cloud",
+      "to": "cloud-architecture",
+      "type": "subtopic"
+    },
+    {
+      "from": "cloud",
+      "to": "observability",
+      "type": "subtopic"
+    },
+    {
+      "from": "cloud",
+      "to": "serverless",
+      "type": "subtopic"
+    },
+    {
+      "from": "cloud",
+      "to": "service-mesh",
+      "type": "subtopic"
+    },
+    {
+      "from": "containers",
+      "to": "kubernetes",
+      "type": "subtopic"
+    },
+    {
+      "from": "infrastructure-as-code",
+      "to": "devops",
+      "type": "related"
+    },
+    {
+      "from": "platform-engineering",
+      "to": "devops",
+      "type": "related"
+    },
+    {
+      "from": "observability",
+      "to": "distributed-systems",
+      "type": "related"
+    },
+    {
+      "from": "data-eng",
+      "to": "databases",
+      "type": "subtopic"
+    },
+    {
+      "from": "databases",
+      "to": "relational-databases",
+      "type": "subtopic"
+    },
+    {
+      "from": "databases",
+      "to": "nosql-databases",
+      "type": "subtopic"
+    },
+    {
+      "from": "databases",
+      "to": "database-internals",
+      "type": "subtopic"
+    },
+    {
+      "from": "data-eng",
+      "to": "data-modeling",
+      "type": "subtopic"
+    },
+    {
+      "from": "data-eng",
+      "to": "data-warehousing",
+      "type": "subtopic"
+    },
+    {
+      "from": "data-eng",
+      "to": "stream-processing",
+      "type": "subtopic"
+    },
+    {
+      "from": "data-eng",
+      "to": "big-data-platforms",
+      "type": "subtopic"
+    },
+    {
+      "from": "big-data-platforms",
+      "to": "hpc",
+      "type": "related"
+    },
+    {
+      "from": "stream-processing",
+      "to": "distributed-systems",
+      "type": "related"
+    },
+    {
+      "from": "security",
+      "to": "application-security",
+      "type": "subtopic"
+    },
+    {
+      "from": "security",
+      "to": "network-security",
+      "type": "subtopic"
+    },
+    {
+      "from": "security",
+      "to": "cryptography",
+      "type": "subtopic"
+    },
+    {
+      "from": "security",
+      "to": "zero-trust",
+      "type": "subtopic"
+    },
+    {
+      "from": "security",
+      "to": "identity-access-management",
+      "type": "subtopic"
+    },
+    {
+      "from": "security",
+      "to": "secure-architecture-design",
+      "type": "subtopic"
+    },
+    {
+      "from": "security",
+      "to": "security-operations",
+      "type": "subtopic"
+    },
+    {
+      "from": "network-security",
+      "to": "network-architecture",
+      "type": "related"
+    },
+    {
+      "from": "application-security",
+      "to": "software",
+      "type": "related"
+    },
+    {
+      "from": "zero-trust",
+      "to": "identity-access-management",
+      "type": "related"
+    },
+    {
+      "from": "hpc",
+      "to": "parallel-computing",
+      "type": "subtopic"
+    },
+    {
+      "from": "hpc",
+      "to": "distributed-computing",
+      "type": "subtopic"
+    },
+    {
+      "from": "hpc",
+      "to": "performance-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "hpc",
+      "to": "cluster-computing",
+      "type": "subtopic"
+    },
+    {
+      "from": "hpc",
+      "to": "accelerated-computing",
+      "type": "subtopic"
+    },
+    {
+      "from": "accelerated-computing",
+      "to": "gpu-prog",
+      "type": "related"
+    },
+    {
+      "from": "parallel-computing",
+      "to": "concurrency",
+      "type": "related"
+    },
+    {
+      "from": "ml",
+      "to": "multi-agent-systems",
+      "type": "subtopic"
+    },
+    {
+      "from": "distributed-systems",
+      "to": "distributed-information-systems",
+      "type": "related"
+    },
+    {
+      "from": "networking",
+      "to": "distributed-information-systems",
+      "type": "related"
+    },
+    {
+      "from": "cloud",
+      "to": "distributed-information-systems",
+      "type": "related"
+    },
+    {
+      "from": "security",
+      "to": "industrial-iot-security",
+      "type": "bridge"
+    },
+    {
+      "from": "iot",
+      "to": "industrial-iot-security",
+      "type": "bridge"
+    },
+    {
+      "from": "quantum",
+      "to": "solid-state-physics",
+      "type": "subtopic"
+    },
+    {
+      "from": "physics",
+      "to": "experimental-physics",
+      "type": "subtopic"
+    },
+    {
+      "from": "optics",
+      "to": "quantum-optics",
+      "type": "subtopic"
+    },
+    {
+      "from": "quantum",
+      "to": "quantum-field-theory",
+      "type": "subtopic"
+    },
+    {
+      "from": "optics",
+      "to": "photonic-system-design",
+      "type": "subtopic"
+    },
+    {
+      "from": "optics",
+      "to": "optical-metrology",
+      "type": "subtopic"
+    },
+    {
+      "from": "optics",
+      "to": "fibre-optics",
+      "type": "subtopic"
+    },
+    {
+      "from": "solid-state-physics",
+      "to": "semiconductor",
+      "type": "related"
+    },
+    {
+      "from": "quantum-optics",
+      "to": "optics",
+      "type": "related"
+    },
+    {
+      "from": "fibre-optics",
+      "to": "rf",
+      "type": "related"
+    },
+    {
+      "from": "optical-metrology",
+      "to": "sensors",
+      "type": "related"
+    },
+    {
+      "from": "mathematics",
+      "to": "mathematical-modelling",
+      "type": "subtopic"
+    },
+    {
+      "from": "mathematics",
+      "to": "discrete-mathematics-cs",
+      "type": "subtopic"
+    },
+    {
+      "from": "mathematics",
+      "to": "scientific-computing",
+      "type": "subtopic"
+    },
+    {
+      "from": "discrete-mathematics-cs",
+      "to": "algorithms",
+      "type": "related"
+    },
+    {
+      "from": "discrete-mathematics-cs",
+      "to": "graph-theory",
+      "type": "related"
+    },
+    {
+      "from": "mathematical-modelling",
+      "to": "numerical",
+      "type": "related"
+    },
+    {
+      "from": "scientific-computing",
+      "to": "hpc",
+      "type": "related"
+    },
+    {
+      "from": "scientific-computing",
+      "to": "numerical",
+      "type": "related"
+    },
+    {
+      "from": "mech",
+      "to": "heat-transfer",
+      "type": "subtopic"
+    },
+    {
+      "from": "mech",
+      "to": "continuum-mechanics",
+      "type": "subtopic"
+    },
+    {
+      "from": "mech",
+      "to": "computational-mechanics",
+      "type": "subtopic"
+    },
+    {
+      "from": "mech",
+      "to": "engineering-mechanics",
+      "type": "subtopic"
+    },
+    {
+      "from": "mech",
+      "to": "manufacturing-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "mech",
+      "to": "product-development",
+      "type": "subtopic"
+    },
+    {
+      "from": "mems",
+      "to": "microengineering-design",
+      "type": "subtopic"
+    },
+    {
+      "from": "mech",
+      "to": "laser-manufacturing",
+      "type": "subtopic"
+    },
+    {
+      "from": "heat-transfer",
+      "to": "thermal",
+      "type": "related"
+    },
+    {
+      "from": "continuum-mechanics",
+      "to": "fem",
+      "type": "related"
+    },
+    {
+      "from": "computational-mechanics",
+      "to": "fem",
+      "type": "related"
+    },
+    {
+      "from": "engineering-mechanics",
+      "to": "classical-mech",
+      "type": "related"
+    },
+    {
+      "from": "manufacturing-engineering",
+      "to": "cnc",
+      "type": "related"
+    },
+    {
+      "from": "manufacturing-engineering",
+      "to": "additive",
+      "type": "related"
+    },
+    {
+      "from": "microengineering-design",
+      "to": "mems",
+      "type": "related"
+    },
+    {
+      "from": "elec",
+      "to": "signals-systems",
+      "type": "subtopic"
+    },
+    {
+      "from": "elec",
+      "to": "circuit-theory",
+      "type": "subtopic"
+    },
+    {
+      "from": "elec",
+      "to": "digital-design",
+      "type": "subtopic"
+    },
+    {
+      "from": "signals-systems",
+      "to": "dsp",
+      "type": "related"
+    },
+    {
+      "from": "signals-systems",
+      "to": "analog",
+      "type": "related"
+    },
+    {
+      "from": "circuit-theory",
+      "to": "analog",
+      "type": "related"
+    },
+    {
+      "from": "digital-design",
+      "to": "fpga",
+      "type": "related"
+    },
+    {
+      "from": "mechatronics",
+      "to": "mechatronic-devices",
+      "type": "subtopic"
+    },
+    {
+      "from": "mechatronics",
+      "to": "electrical-machines",
+      "type": "subtopic"
+    },
+    {
+      "from": "electrical-machines",
+      "to": "motors",
+      "type": "related"
+    },
+    {
+      "from": "electrical-machines",
+      "to": "foc",
+      "type": "related"
+    },
+    {
+      "from": "mechatronic-devices",
+      "to": "sensors",
+      "type": "related"
+    },
+    {
+      "from": "mechatronic-devices",
+      "to": "embedded",
+      "type": "related"
+    },
+    {
+      "from": "energy",
+      "to": "power-transport",
+      "type": "subtopic"
+    },
+    {
+      "from": "energy",
+      "to": "demand-side-management",
+      "type": "subtopic"
+    },
+    {
+      "from": "energy",
+      "to": "energy-generation-storage",
+      "type": "subtopic"
+    },
+    {
+      "from": "smart-grid",
+      "to": "power-transport",
+      "type": "related"
+    },
+    {
+      "from": "smart-grid",
+      "to": "demand-side-management",
+      "type": "related"
+    },
+    {
+      "from": "energy-generation-storage",
+      "to": "renewables",
+      "type": "related"
+    },
+    {
+      "from": "energy-generation-storage",
+      "to": "hydrogen",
+      "type": "related"
+    },
+    {
+      "from": "energy-generation-storage",
+      "to": "energy-storage",
+      "type": "related"
+    },
+    {
+      "from": "biomedical",
+      "to": "digital-health-systems",
+      "type": "subtopic"
+    },
+    {
+      "from": "biomedical",
+      "to": "medical-diagnostics",
+      "type": "subtopic"
+    },
+    {
+      "from": "biomedical",
+      "to": "medical-device-certification",
+      "type": "subtopic"
+    },
+    {
+      "from": "digital-health-systems",
+      "to": "medical-imaging",
+      "type": "related"
+    },
+    {
+      "from": "digital-health-systems",
+      "to": "ml",
+      "type": "related"
+    },
+    {
+      "from": "medical-diagnostics",
+      "to": "medical-devices",
+      "type": "related"
+    },
+    {
+      "from": "industry4",
+      "to": "product-lifecycle-management",
+      "type": "subtopic"
+    },
+    {
+      "from": "smart-mfg",
+      "to": "process-automation",
+      "type": "subtopic"
+    },
+    {
+      "from": "smart-mfg",
+      "to": "product-lifecycle-management",
+      "type": "related"
+    },
+    {
+      "from": "process-automation",
+      "to": "iot",
+      "type": "related"
+    },
+    {
+      "from": "process-automation",
+      "to": "embedded",
+      "type": "related"
+    },
+    {
+      "from": "root",
+      "to": "future-skills",
+      "type": "related"
+    },
+    {
+      "from": "future-skills",
+      "to": "ai-data-skills",
+      "type": "subtopic"
+    },
+    {
+      "from": "future-skills",
+      "to": "ai-infrastructure-skills",
+      "type": "subtopic"
+    },
+    {
+      "from": "future-skills",
+      "to": "human-org-skills",
+      "type": "subtopic"
+    },
+    {
+      "from": "future-skills",
+      "to": "industry-transformation",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-data-skills",
+      "to": "ai-literacy",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-data-skills",
+      "to": "human-ai-collaboration",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-data-skills",
+      "to": "data-literacy",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-data-skills",
+      "to": "responsible-ai",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-data-skills",
+      "to": "ai-governance",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-data-skills",
+      "to": "decision-intelligence",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-infrastructure-skills",
+      "to": "model-serving",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-infrastructure-skills",
+      "to": "retrieval-augmented-generation",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-infrastructure-skills",
+      "to": "ml-ops",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-infrastructure-skills",
+      "to": "ai-platform-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-infrastructure-skills",
+      "to": "vector-databases",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-literacy",
+      "to": "prompt-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "ai-literacy",
+      "to": "llm-application-design",
+      "type": "subtopic"
+    },
+    {
+      "from": "human-ai-collaboration",
+      "to": "model-evaluation",
+      "type": "subtopic"
+    },
+    {
+      "from": "ml-ops",
+      "to": "synthetic-data",
+      "type": "related"
+    },
+    {
+      "from": "human-org-skills",
+      "to": "adaptive-problem-solving",
+      "type": "subtopic"
+    },
+    {
+      "from": "human-org-skills",
+      "to": "change-management",
+      "type": "subtopic"
+    },
+    {
+      "from": "human-org-skills",
+      "to": "workflow-orchestration",
+      "type": "subtopic"
+    },
+    {
+      "from": "industry-transformation",
+      "to": "industrial-ai",
+      "type": "subtopic"
+    },
+    {
+      "from": "industry-transformation",
+      "to": "energy-digitalization",
+      "type": "subtopic"
+    },
+    {
+      "from": "industry-transformation",
+      "to": "green-software-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "industry-transformation",
+      "to": "ai-security",
+      "type": "subtopic"
+    },
+    {
+      "from": "industry-transformation",
+      "to": "privacy-engineering",
+      "type": "subtopic"
+    },
+    {
+      "from": "industry-transformation",
+      "to": "cyber-resilience",
+      "type": "subtopic"
+    },
+    {
+      "from": "ml",
+      "to": "ml-ops",
+      "type": "related"
+    },
+    {
+      "from": "ml",
+      "to": "model-serving",
+      "type": "related"
+    },
+    {
+      "from": "ml",
+      "to": "model-evaluation",
+      "type": "related"
+    },
+    {
+      "from": "ml",
+      "to": "retrieval-augmented-generation",
+      "type": "related"
+    },
+    {
+      "from": "cloud",
+      "to": "ai-platform-engineering",
+      "type": "related"
+    },
+    {
+      "from": "data-eng",
+      "to": "vector-databases",
+      "type": "related"
+    },
+    {
+      "from": "security",
+      "to": "ai-security",
+      "type": "bridge"
+    },
+    {
+      "from": "security",
+      "to": "cyber-resilience",
+      "type": "related"
+    },
+    {
+      "from": "security",
+      "to": "privacy-engineering",
+      "type": "related"
+    },
+    {
+      "from": "edgeai",
+      "to": "ai-infrastructure-skills",
+      "type": "related"
+    },
+    {
+      "from": "twins",
+      "to": "industrial-ai",
+      "type": "related"
+    },
+    {
+      "from": "smart-mfg",
+      "to": "industrial-ai",
+      "type": "related"
+    },
+    {
+      "from": "energy",
+      "to": "energy-digitalization",
+      "type": "related"
+    },
+    {
+      "from": "software",
+      "to": "green-software-engineering",
+      "type": "related"
+    },
+    {
+      "from": "root",
+      "to": "problem-solving",
+      "type": "related"
+    },
+    {
+      "from": "problem-solving",
+      "to": "ps-mindset",
+      "type": "subtopic"
+    },
+    {
+      "from": "problem-solving",
+      "to": "ps-framing",
+      "type": "subtopic"
+    },
+    {
+      "from": "problem-solving",
+      "to": "ps-analysis",
+      "type": "subtopic"
+    },
+    {
+      "from": "problem-solving",
+      "to": "ps-solution-gen",
+      "type": "subtopic"
+    },
+    {
+      "from": "problem-solving",
+      "to": "ps-decision-making",
+      "type": "subtopic"
+    },
+    {
+      "from": "problem-solving",
+      "to": "ps-execution",
+      "type": "subtopic"
+    },
+    {
+      "from": "problem-solving",
+      "to": "ps-collaboration",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-mindset",
+      "to": "systems-thinking",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-mindset",
+      "to": "first-principles-thinking",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-mindset",
+      "to": "probabilistic-thinking",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-mindset",
+      "to": "interdisciplinary-thinking",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-framing",
+      "to": "problem-definition",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-framing",
+      "to": "constraint-identification",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-framing",
+      "to": "reframing",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-framing",
+      "to": "stakeholder-mapping",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-analysis",
+      "to": "root-cause-analysis",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-analysis",
+      "to": "decomposition",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-analysis",
+      "to": "quantitative-reasoning",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-analysis",
+      "to": "prioritization",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-solution-gen",
+      "to": "divergent-thinking",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-solution-gen",
+      "to": "inversion-thinking",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-solution-gen",
+      "to": "trade-off-analysis",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-decision-making",
+      "to": "risk-assessment-ps",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-decision-making",
+      "to": "scenario-planning",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-decision-making",
+      "to": "trade-off-analysis",
+      "type": "related"
+    },
+    {
+      "from": "ps-execution",
+      "to": "experimentation",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-execution",
+      "to": "troubleshooting",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-execution",
+      "to": "iteration-refinement",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-collaboration",
+      "to": "facilitation",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-collaboration",
+      "to": "documentation-practice",
+      "type": "subtopic"
+    },
+    {
+      "from": "ps-collaboration",
+      "to": "postmortem-analysis",
+      "type": "subtopic"
+    },
+    {
+      "from": "root-cause-analysis",
+      "to": "five-whys",
+      "type": "subtopic"
+    },
+    {
+      "from": "root-cause-analysis",
+      "to": "fault-tree-analysis",
+      "type": "subtopic"
+    },
+    {
+      "from": "risk-assessment-ps",
+      "to": "premortem",
+      "type": "subtopic"
+    },
+    {
+      "from": "systems-thinking",
+      "to": "industry4",
+      "type": "related"
+    },
+    {
+      "from": "systems-thinking",
+      "to": "control",
+      "type": "related"
+    },
+    {
+      "from": "probabilistic-thinking",
+      "to": "statistics",
+      "type": "related"
+    },
+    {
+      "from": "quantitative-reasoning",
+      "to": "numerical",
+      "type": "related"
+    },
+    {
+      "from": "experimentation",
+      "to": "ml",
+      "type": "related"
+    },
+    {
+      "from": "troubleshooting",
+      "to": "software",
+      "type": "related"
+    },
+    {
+      "from": "documentation-practice",
+      "to": "software",
+      "type": "related"
+    }
   ]
 }
